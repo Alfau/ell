@@ -5,7 +5,6 @@
 html{
 	font-family: sans-serif;
 	background:linear-gradient(#e5e5e5,#fff 30%) no-repeat;
-	padding:2em 0 0 0;
 	color:#a4a4a4;
 	font-size:0.8em;
 	position:absolute;
@@ -41,6 +40,12 @@ input[type=submit]{
 	padding:0.3em 0.5em;
 	background:none;
 	color:#bd1e2d;
+}
+div#loading_bar{
+	width:0;
+	height:3px;
+	margin-bottom:2em;
+	background-color:#FF6602;
 }
 div#content_small{
 	padding-bottom:3em;

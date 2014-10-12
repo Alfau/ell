@@ -14,7 +14,7 @@
 			<?php include("slideshow.php"); ?>
 			<div id="content">
 				<div class="products_carousel">
-					<h3>ELL RECOMMENDED RELEASES</h3>
+					<h4>ELL RECOMMENDED RELEASES</h4>
 					<?php
 						include("connection.php");
 						
@@ -23,7 +23,7 @@
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
-								<img src="<?php echo $row['Thumbnail'] ?>" height="150"/>
+								<img src="<?php echo $row['Thumbnail'] ?>" height="120"/>
 								<div>
 									<a href="see_more.php" class="<?php echo $row['Type'];?>" id="<?php echo $row['ID'] ?>"><?php echo $row['Name'] ?></a>
 									<a href="see_more.php" class="<?php echo $row['Type'];?>" id="<?php echo $row['ID'] ?>">Rf. <?php echo $row['Price'] ?></a>

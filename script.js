@@ -3,10 +3,15 @@ $(document).ready(function(){
 		$("nav a").removeClass("active");
 		$(this).addClass("active");
 		
+		$("div#loading_bar").animate({width:"60%"});
+		
 		var file=$(this).prop("href");
 		$.post(file,function(data){
-			var content=$(data).filter("main").html();
-			$("main").html(content);
+			$("div#loading_bar").animate({width:"100%"},function(){
+				$("div#loading_bar").css("width","0");
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			});
 		});
 		e.preventDefault();
 	});
@@ -15,10 +20,15 @@ $(document).ready(function(){
 		$("nav a").removeClass("active");
 		$(this).addClass("active");
 		
+		$("div#loading_bar").animate({width:"60%"});
+		
 		var file=$(this).prop("href");
 		$.post(file,function(data){
-			var content=$(data).filter("main").html();
-			$("main").html(content);
+			$("div#loading_bar").animate({width:"100%"},function(){
+				$("div#loading_bar").css("width","0");
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			});
 		});
 		e.preventDefault();
 	});
@@ -113,10 +123,16 @@ $(document).ready(function(){
 		e.preventDefault();
 		$("nav#mobile_sub a").removeClass("active");
 		$(this).addClass("active");
+		
+		$("div#loading_bar").animate({width:"60%"});
+		
 		var product_type=$(this).prop("id");
 		$.get("mobile.php",{product_type:product_type},function(data){
-			var content=$(data).find("div#mobile_brands").html();
-			$("div#mobile_brands").html(content);
+			$("div#loading_bar").animate({width:"100%"},function(){
+				$("div#loading_bar").css("width","0");
+				var content=$(data).find("div#mobile_brands").html();
+				$("div#mobile_brands").html(content);
+			});
 		});
 	});
 	
@@ -124,10 +140,15 @@ $(document).ready(function(){
 		e.preventDefault();
 		var type=$(this).prop("class");
 		var product_ID=$(this).prop("id");
+
+		$("div#loading_bar").animate({width:"60%"});
 		
 		$.post("see_more.php",{type:type,product_ID:product_ID},function(data){
-			var content=$(data).filter("main").html();
-			$("main").html(content);
+			$("div#loading_bar").animate({width:"100%"},function(){
+				$("div#loading_bar").css("width","0");
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			});
 		});
 	});
 	
@@ -136,9 +157,14 @@ $(document).ready(function(){
 		var which=$(this).prop("class");
 		var brand=$(this).prop("id");
 		
+		$("div#loading_bar").animate({width:"60%"});
+		
 		$.post("by_brand.php",{which:which,brand:brand},function(data){
-			var content=$(data).filter("main").html();
-			$("main").html(content);
+			$("div#loading_bar").animate({width:"100%"},function(){
+				$("div#loading_bar").css("width","0");
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			});
 		});
 	});
 });

@@ -1,4 +1,5 @@
 <header>
+	<div id="loading_bar"></div>
 	<a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a>
 	<nav id="side">
 		<ul>
@@ -11,7 +12,7 @@
 	<nav id="main">
 		<ul>
 			<li><a href="mobile.php">MOBILE</a></li>
-			<li><a href="multimedia.php">TV/AUDIO/VIDEO</a></li>
+			<li><a href="multimedia.php">MULTIMEDIA</a></li>
 			<li><a href="home_appliance.php">HOME APPLIANCE</a></li>
 			<li><a href="dhl_bill.php" class="bill">DHI BILL</a></li>
 		</ul>
