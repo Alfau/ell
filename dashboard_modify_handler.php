@@ -21,11 +21,10 @@ if(isset($_POST['add_what'])){
 		$brand=$_POST['brand'];
 		$desc=$_POST['desc'];
 		$specs=$_POST['specs'];	
-		$query_product="INSERT INTO products(type,brand,name,price,thumbnail) VALUES('','$brand','$name','$price','$destination')";
+		$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('Tablets','$brand','$name','$price','$desc','$specs','$destination')";
 	}elseif($add_what=="add_mobile_accessories"){
 		$type=$_POST['type'];
-		$category=$_POST['category'];
-		$query_product="INSERT INTO products(type,brand,category,name,price,thumbnail) VALUES('$type','$brand','$category','$name','$price','$destination')";
+		$query_product="INSERT INTO products(type,brand,name,price,thumbnail) VALUES('Mobile Accessories','$brand','$name','$price','$destination')";
 	}
 	
 	if(!mysqli_query($con,$query_product)){

@@ -1,5 +1,5 @@
 <header>
-	<a href="index.php"><img src="icons/logo2.png" alt="logo" id="logo"/></a>
+	<a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a>
 	<nav id="side">
 		<ul>
 			<li><a href="about.php" class="about">ABOUT US</a></li>
@@ -11,7 +11,7 @@
 	<nav id="main">
 		<ul>
 			<li><a href="mobile.php">MOBILE</a></li>
-			<li><a href="tv/audio/video.php">TV/AUDIO/VIDEO</a></li>
+			<li><a href="multimedia.php">TV/AUDIO/VIDEO</a></li>
 			<li><a href="home_appliance.php">HOME APPLIANCE</a></li>
 			<li><a href="dhl_bill.php" class="bill">DHI BILL</a></li>
 		</ul>

@@ -152,7 +152,7 @@ div#slideshow_controls a{
 /*--------------------------------*/
 div.products_carousel{
 	padding:1em 0 2em 0;
-	border-bottom:solid 1px #bbbdbf;
+	border-top:solid 1px #bbbdbf;
 	width:100%;
 	overflow-x:scroll;
 	white-space: nowrap;
@@ -236,7 +236,7 @@ div.products_by_brand div a{
 }
 /*----------------------------------*/
 nav#mobile_sub{
-	margin-top:2em;
+	margin-bottom:1em;
 }
 nav#mobile_sub li{
 	display:inline-block;
@@ -245,6 +245,10 @@ nav#mobile_sub a{
 	text-decoration:none;
 	color:#6D6E71;
 	margin-right:4em;
+	font-size:1.2em;
+}
+nav#mobile_sub a:hover,nav#mobile_sub a.active{
+	color:#FF6602;
 }
 nav#mobile_sub a.active{
 	color:#FF6602;

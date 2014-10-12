@@ -23,10 +23,6 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
-	$("nav#main a.white").hover(function(){
-		$("nav#main a.orange").stop().slideToggle();
-	});
-	
 	
 	function triggerSlide(){
 		if($("div#slides div.active").length===0){
@@ -111,6 +107,17 @@ $(document).ready(function(){
 	});
 	$(document).on("mouseleave","div.products_carousel div",function(){
 		$(this).children("div").stop().slideUp("fast");
+	});
+	
+	$(document).on("click","nav#mobile_sub a",function(e){
+		e.preventDefault();
+		$("nav#mobile_sub a").removeClass("active");
+		$(this).addClass("active");
+		var product_type=$(this).prop("id");
+		$.get("mobile.php",{product_type:product_type},function(data){
+			var content=$(data).find("div#mobile_brands").html();
+			$("div#mobile_brands").html(content);
+		});
 	});
 	
 	$(document).on("click","div.products_carousel div a",function(e){
