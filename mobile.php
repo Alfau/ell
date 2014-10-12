@@ -35,7 +35,7 @@
 						while($row_brand=mysqli_fetch_array($result_brand)){
 							?>
 							<div>
-								<img src='<?php echo $row_brand['Thumbnail'] ?>' height='150'/><br />
+								<img src='<?php echo $row_brand['Thumbnail'] ?>' height='150'/>
 								<div>
 									<a href="see_more.php" class="Mobile Phones" id="<?php echo $row_brand['ID'] ?>"><?php echo $row_brand['Name'] ?></a>
 									<a href="see_more.php" class="Mobile Phones" id="<?php echo $row_brand['ID'] ?>">Rf. <?php echo $row_brand['Price'] ?></a>
