@@ -13,7 +13,7 @@
 		<main>
 			<div id="content">
 					
-					<nav id="mobile_sub">
+					<nav id="main_sub">
 						<ul>
 							<li><a href="mobile.php?product_type=Mobile Phones" id="Mobile Phones" class="active">Mobile Phones</a></li>
 							<li><a href="mobile.php?product_type=Tablets" id="Tablets">Tablets</a></li>

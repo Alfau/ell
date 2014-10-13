@@ -15,9 +15,9 @@
 					
 					<nav id="main_sub">
 						<ul>
-							<li><a href="mobile.php?product_type=Mobile Phones" id="Mobile Phones" class="active">Mobile Phones</a></li>
-							<li><a href="mobile.php?product_type=Tablets" id="Tablets">Tablets</a></li>
-							<li><a href="mobile.php?product_type=Mobile Accessories" id="Mobile Accessories">Mobile Accessories</a></li>
+							<li><a href="mobile.php?product_type=TV" id="TV" class="active">TV</a></li>
+							<li><a href="mobile.php?product_type=Audio" id="Audio">Audio</a></li>
+							<li><a href="mobile.php?product_type=Video" id="Video">Video</a></li>
 						</ul>
 					</nav>
 					<div id="mobile_brands">
@@ -28,7 +28,7 @@
 						if(isset($_GET['product_type'])){
 							$product_type=$_GET['product_type'];
 						}else{
-							$product_type="Mobile Phones";
+							$product_type="TV";
 						}
 						
 						$query="SELECT Brand,ID FROM products WHERE Type='$product_type' ORDER BY Brand";

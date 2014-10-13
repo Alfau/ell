@@ -240,22 +240,22 @@ div.products_by_brand div a{
 	position:absolute;
 }
 /*----------------------------------*/
-nav#mobile_sub{
+nav#main_sub{
 	margin-bottom:1em;
 }
-nav#mobile_sub li{
+nav#main_sub li{
 	display:inline-block;
 }
-nav#mobile_sub a{
+nav#main_sub a{
 	text-decoration:none;
 	color:#6D6E71;
 	margin-right:4em;
 	font-size:1.2em;
 }
-nav#mobile_sub a:hover,nav#mobile_sub a.active{
+nav#main_sub a:hover,nav#main_sub a.active{
 	color:#FF6602;
 }
-nav#mobile_sub a.active{
+nav#main_sub a.active{
 	color:#FF6602;
 }
 /*---------------------------------*/
