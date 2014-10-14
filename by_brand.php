@@ -25,7 +25,7 @@
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
-								<img src="<?php echo $row['Thumbnail'] ?>" height="150"/><br />
+								<a href="see_more.php" class="<?php echo $row['Type'];?>" id="<?php echo $row['ID'];?>"><img src="<?php echo $row['Thumbnail'] ?>" height="150"/></a><br />
 								<div>
 									<a href="see_more.php" class="<?php echo $row['Type'];?>" id="<?php echo $row['ID'] ?>"><?php echo $row['Name'] ?></a><br />
 									<a href="see_more.php" class="<?php echo $row['Type'];?>" id="<?php echo $row['ID'] ?>">Rf. <?php echo $row['Price'] ?></a>

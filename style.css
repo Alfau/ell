@@ -162,9 +162,6 @@ div.products_carousel{
 	overflow-x:scroll;
 	white-space: nowrap;
 }
-div.products_carousel:first-child{
-	border-top:solid 1px #bbbdbf;
-}
 div.products_carousel>div{
 	display:inline-block;
 	vertical-align:top;
@@ -180,14 +177,14 @@ div.products_carousel>div>div{
 	left:0;
 	display:none;
 }
-div.products_carousel>a{
+div.products_carousel>a:first-child{
 	display:block;
 	text-decoration:none;
 	color:#6d6e71;
 	font-size:1.2em;
 	transition:color 0.3s;
 }
-div.products_carousel div a{
+div.products_carousel div div a{
 	white-space:normal;
 	box-sizing:border-box;
 	width:100%;
@@ -198,7 +195,7 @@ div.products_carousel div a{
 	background-color:#FF6602;
 	position:absolute;
 }
-div.products_carousel a:last-child{
+div.products_carousel div a:last-child{
 	bottom:0;
 }
 div.products_carousel>a:hover{

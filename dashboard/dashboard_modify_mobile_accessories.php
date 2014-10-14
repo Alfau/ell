@@ -25,7 +25,7 @@
 		<tr>
 			<td>Type :</td>
 			<td>
-				<select name="type">
+				<select name="category">
 					<option value="Battery">Battery</option>
 					<option value="Charger">Charger</option>
 					<option value="Headset">Headset</option>

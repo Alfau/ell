@@ -138,7 +138,7 @@ $(document).ready(function(){
 	});
 	
 	
-	$(document).on("click","div.products_carousel div a",function(e){
+	$(document).on("click","div.products_carousel div a,div#products_by_brand a",function(e){
 		e.preventDefault();
 		var type=$(this).prop("class");
 		var product_ID=$(this).prop("id");
