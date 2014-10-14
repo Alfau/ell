@@ -192,7 +192,6 @@ div.products_carousel div a{
 	box-sizing:border-box;
 	width:100%;
 	text-decoration:none;
-	text-transform:uppercase;
 	color:#fff;
 	padding:1em;
 	text-align:center;
@@ -206,38 +205,22 @@ div.products_carousel>a:hover{
 	color:#FF6602;
 }
 /*--------------------------------*/
-div#products_by_brand>div{
+div#products_by_brand div{
 	display:inline-block;
-	margin:2em 6em 0 0;
+	margin:2em 4em 0 0;
 }
-div#products_by_brand h1{
-	margin-bottom:1em;
+div#products_by_brand h2{
+	padding-bottom:0.5em;
+	border-bottom:solid 1px #bbbdbf;
 }
-div#products_by_brand a{
+div#products_by_brand div a{
 	text-decoration:none;
 	color:#6D6E71;
-	margin-top:0.5em;
+	font-size:1.2em;
 }
-div.products_by_brand>div>div{
-	width:100%;
-	height:100%;
-	background-color:rgba(0,0,0,0.5);
-	position:absolute;
-	top:0;
-	left:0;
-	display:none;
-}
-div.products_by_brand div a{
-	white-space:normal;
-	box-sizing:border-box;
-	width:100%;
-	text-decoration:none;
-	text-transform:uppercase;
-	color:#fff;
-	padding:1em;
-	text-align:center;
-	background-color:#FF6602;
-	position:absolute;
+div#products_by_brand div div a:last-child{
+	font-weight:bold;
+	font-size:1.3em;
 }
 /*----------------------------------*/
 nav#main_sub{
