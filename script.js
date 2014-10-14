@@ -36,12 +36,6 @@ $(document).ready(function(){
 		}
 	}
 	
-	var slideshowTimer;
-	function startSlideshow(){
-		slideshowTimer=setInterval(triggerSlide,5000);
-	}
-	startSlideshow();
-	
 	$("div#slideshow_controls a").click(function(){
 		var slide_width=$("div#slideshow").width();
 		var which_slide=$(this).index();
@@ -76,6 +70,15 @@ $(document).ready(function(){
 		startSlideshow();
 	});
 	
+	var slideshowTimer;
+	function startSlideshow(){
+		slideshowTimer=setInterval(triggerSlide,5000);
+	}
+	startSlideshow();
+	
+	$("div#slides div:eq(0) div").animate({bottom:"50%"},"slow",function(){
+		$("div#slides p").fadeIn("slow");
+	});
 	
 	
 	$(document).on("click","nav#side a",function(e){

@@ -14,7 +14,7 @@
 			<li><a href="mobile.php">MOBILE</a></li>
 			<li><a href="multimedia.php">MULTIMEDIA</a></li>
 			<li><a href="home_appliance.php">HOME APPLIANCE</a></li>
-			<li><a href="dhl_bill.php" class="bill">DHI BILL</a></li>
+			<li><a href="dhi_bill.php" class="bill">DHI BILL</a></li>
 		</ul>
 	</nav>
 </header>

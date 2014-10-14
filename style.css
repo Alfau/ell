@@ -41,6 +41,7 @@ input[type=submit]{
 	background:none;
 	color:#bd1e2d;
 }
+/*---------------------------------*/
 div#loading_bar{
 	width:0;
 	height:3px;
@@ -54,6 +55,9 @@ div#content_small{
 }
 div#content{
 	padding:0 8em 3em 8em;
+}
+div#content p{
+	margin-bottom:1em;
 }
 /*--------------------------------*/
 img#logo{
@@ -280,6 +284,7 @@ footer span,footer ul{
 footer ul{
 	position:absolute;
 	right:3em;
+	bottom:1em;
 }
 footer ul li{
 	display:inline-block;
