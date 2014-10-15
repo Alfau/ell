@@ -3,9 +3,9 @@
 	<a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a>
 	<nav id="side">
 		<ul>
-			<li><a href="about.php" class="about">ABOUT US</a></li>
-			<li><a href="contact.php" class="contact">CONTACT US</a></li>
-			<li><a href="locations.php" class="locations">LOCATIONS</a></li>
+			<li><a href="about.php">ABOUT US</a></li>
+			<li><a href="contact.php">CONTACT US</a></li>
+			<li><a href="locations.php">LOCATIONS</a></li>
 			<li><input type="text" name="search"/></li>
 		</ul>
 	</nav>

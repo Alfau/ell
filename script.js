@@ -80,6 +80,12 @@ $(document).ready(function(){
 		$("div#slides p").fadeIn("slow");
 	});
 	
+	$(document).on("mouseenter","div.products_carousel div",function(){
+		$(this).children("div").stop().slideDown("fast");
+	});
+	$(document).on("mouseleave","div.products_carousel div",function(){
+		$(this).children("div").stop().slideUp("fast");
+	});
 	
 	$(document).on("click","nav#side a",function(e){
 		$("nav a").removeClass("active");
@@ -87,8 +93,8 @@ $(document).ready(function(){
 		
 		$("div#loading_bar").animate({width:"60%"});
 		
-		var file=$(this).prop("href");
-		$.post(file,function(data){
+		var url=$(this).prop("href");
+		$.post(url,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).filter("main").html();
@@ -122,8 +128,8 @@ $(document).ready(function(){
 		
 		$("div#loading_bar").animate({width:"60%"});
 		
-		var product_type=$(this).prop("id");
-		$.get("mobile.php",{product_type:product_type},function(data){
+		var url=$(this).prop("href");
+		$.get(url,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).find("div#mobile_brands").html();
@@ -132,23 +138,13 @@ $(document).ready(function(){
 		});
 	});
 	
-	
-	$(document).on("mouseenter","div.products_carousel div",function(){
-		$(this).children("div").stop().slideDown("fast");
-	});
-	$(document).on("mouseleave","div.products_carousel div",function(){
-		$(this).children("div").stop().slideUp("fast");
-	});
-	
-	
 	$(document).on("click","div.products_carousel div a,div#products_by_brand a",function(e){
 		e.preventDefault();
-		var type=$(this).prop("class");
-		var product_ID=$(this).prop("id");
 
 		$("div#loading_bar").animate({width:"60%"});
 		
-		$.post("see_more.php",{type:type,product_ID:product_ID},function(data){
+		var url=$(this).prop("href");
+		$.get(url,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).filter("main").html();
@@ -159,12 +155,11 @@ $(document).ready(function(){
 	
 	$(document).on("click","div.products_carousel>a",function(e){
 		e.preventDefault();
-		var which=$(this).prop("class");
-		var brand=$(this).prop("id");
 		
 		$("div#loading_bar").animate({width:"60%"});
 		
-		$.get("by_brand.php",{which:which,brand:brand},function(data){
+		var url=$(this).prop("href");
+		$.get(url,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).filter("main").html();

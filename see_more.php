@@ -15,10 +15,10 @@
 				<?php
 				include("connection.php");
 				
-				if(isset($_POST['type'])){
-					$type=$_POST['type'];
-					if($type=="Mobile Phones"){
-						$product_ID=$_POST['product_ID'];
+				if(isset($_GET['type'])){
+					$type=$_GET['type'];
+					if($type=="Mobile Phones" || $type=="Tablets"){
+						$product_ID=$_GET['product_ID'];
 						$query="SELECT * FROM products WHERE ID='$product_ID'"; //get specific columns later
 						$result=mysqli_query($con,$query);
 						
@@ -39,10 +39,22 @@
 								?>
 								</div>
 							</div>
-							<h1><?php echo $row['Name']?></h1><br />
+							<h2><?php echo $row['Name']?></h2><br />
 							<p><?php echo $row['Description']?></p><br /><br />
 							<h3>Specifications</h3>
 							<p><?php echo $row['Specifications']?></p>
+							<?php
+						}
+					}elseif($type=="Mobile Accessories"){
+						$product_ID=$_GET['product_ID'];
+						$query="SELECT * FROM products WHERE ID='$product_ID'"; //get specific columns later
+						$result=mysqli_query($con,$query);
+						
+						while($row=mysqli_fetch_array($result)){
+							?>
+								<img src="<?php echo $row['Thumbnail']?>" height="250"/>
+								<h2><?php echo $row['Name']?></h2><br />
+								<p><?php echo $row['Description']?></p><br /><br />
 							<?php
 						}
 					}
@@ -51,6 +63,6 @@
 			</div>
 		</main>
 		
-		<?php //include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 	</body>
 </html>

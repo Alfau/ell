@@ -40,14 +40,14 @@
 								$query_brand="SELECT * FROM products WHERE Type='$product_type' AND Brand='$brand'";
 								$result_brand=mysqli_query($con,$query_brand);
 								echo "<div class='products_carousel'>";
-								echo "<a href='by_brand.php' class='$product_type' id='$brand'>$brand</a>";
+								echo "<a href='by_brand.php?type=$product_type&brand=$brand'>$brand</a>";
 								while($row_brand=mysqli_fetch_array($result_brand)){
 									?>
 									<div>
-										<img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/>
+										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
 										<div>
-											<a href="see_more.php" class="Mobile Phones" id="<?php echo $row_brand['ID'] ?>"><?php echo $row_brand['Name'] ?></a>
-											<a href="see_more.php" class="Mobile Phones" id="<?php echo $row_brand['ID'] ?>">Rf. <?php echo $row_brand['Price'] ?></a>
+											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><?php echo $row_brand['Name'] ?></a>
+											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>">Rf. <?php echo $row_brand['Price'] ?></a>
 										</div>
 									</div>
 									<?php
