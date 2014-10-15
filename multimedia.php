@@ -31,13 +31,13 @@
 							$product_type="TV";
 						}
 						
-						$query="SELECT Brand,ID FROM products WHERE Type='$product_type' ORDER BY Brand";
+						$query="SELECT Brand FROM products WHERE Type='$product_type' ORDER BY Brand";
 						$result=mysqli_query($con,$query);
 						$last_brand=NULL;
 						while($row=mysqli_fetch_array($result)){
 							if($last_brand!=$row['Brand']){
 								$brand=$row['Brand'];
-								$query_brand="SELECT * FROM products WHERE Type='$product_type' AND Brand='$brand'";
+								$query_brand="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand'";
 								$result_brand=mysqli_query($con,$query_brand);
 								echo "<div class='products_carousel'>";
 								echo "<a href='by_brand.php?type=$product_type&brand=$brand'>$brand</a>";
@@ -61,6 +61,6 @@
 			</div>
 		</main>
 		
-		<?php //include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 	</body>
 </html>

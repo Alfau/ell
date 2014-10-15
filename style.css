@@ -3,7 +3,7 @@
 	padding:0;
 }
 html{
-	font-family: sans-serif;
+	font-family: "Open Sans",sans-serif;
 	background:linear-gradient(#e5e5e5,#fff 30%) no-repeat;
 	color:#a4a4a4;
 	font-size:0.8em;
@@ -42,7 +42,13 @@ input[type=submit]{
 	color:#bd1e2d;
 }
 /*---------------------------------*/
+header{
+	margin-top:3em;
+}
 div#loading_bar{
+	z-index:100;
+	position:fixed;
+	top:0;
 	width:0;
 	height:3px;
 	margin-bottom:2em;
@@ -149,7 +155,7 @@ div#slides p{
 	font-size:2em;
 }
 div#slideshow_controls{
-	z-index:100;
+	z-index:50;
 	position:absolute;
 	top:1em;
 	right:1em;

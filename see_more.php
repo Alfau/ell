@@ -19,7 +19,7 @@
 					$type=$_GET['type'];
 					if($type=="Mobile Phones" || $type=="Tablets"){
 						$product_ID=$_GET['product_ID'];
-						$query="SELECT * FROM products WHERE ID='$product_ID'"; //get specific columns later
+						$query="SELECT Name,Description,Specifications FROM products WHERE ID='$product_ID'";
 						$result=mysqli_query($con,$query);
 						
 						while($row=mysqli_fetch_array($result)){
@@ -27,15 +27,15 @@
 							<div id="slideshow_see_more">
 								<div id="slides">
 								<?php
-								$slide_query="SELECT * FROM product_slides WHERE Product_ID='$product_ID'";
-								$slide_result=mysqli_query($con,$slide_query);
-								while($slide_row=mysqli_fetch_array($slide_result)){
-									?>
-										<div>
-											<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
-										</div>
-									<?php
-								}
+									$slide_query="SELECT Slide FROM product_slides WHERE Product_ID='$product_ID'";
+									$slide_result=mysqli_query($con,$slide_query);
+									while($slide_row=mysqli_fetch_array($slide_result)){
+										?>
+											<div>
+												<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
+											</div>
+										<?php
+									}
 								?>
 								</div>
 							</div>
@@ -47,7 +47,7 @@
 						}
 					}elseif($type=="Mobile Accessories"){
 						$product_ID=$_GET['product_ID'];
-						$query="SELECT * FROM products WHERE ID='$product_ID'"; //get specific columns later
+						$query="SELECT Name,Description,Thumbnail FROM products WHERE ID='$product_ID'";
 						$result=mysqli_query($con,$query);
 						
 						while($row=mysqli_fetch_array($result)){

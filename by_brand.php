@@ -19,7 +19,7 @@
 					if(isset($_GET['brand'])){
 						$brand=$_GET['brand'];
 						$type=$_GET['type'];
-						$query="SELECT * FROM products WHERE Type='$type' AND Brand='$brand'";
+						$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand'";
 						$result=mysqli_query($con,$query);
 						echo "<h2>$brand</h2>";
 						while($row=mysqli_fetch_array($result)){

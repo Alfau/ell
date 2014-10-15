@@ -113,19 +113,19 @@ div#content table td{
 	padding:1em 0;
 }
 /*---------------------------*/
-div#dashboard_modify_mobile_nav{
+div#dashboard_modify_sub_nav{
 	margin-bottom:2em;
 }
-div#dashboard_modify_mobile_nav li{
+div#dashboard_modify_sub_nav li{
 	display:inline-block;
 }
-div#dashboard_modify_mobile_nav a{
+div#dashboard_modify_sub_nav a{
 	text-decoration:none;
 	color:#fff;
 	background-color:#2C3E50;
 	padding:0.5em 1em;
 	font-size:0.9em;
 }
-div#dashboard_modify_mobile_nav a.active{
+div#dashboard_modify_sub_nav a.active{
 	border-bottom:solid 5px #3498DB;
 }

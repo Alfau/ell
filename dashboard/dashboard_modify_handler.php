@@ -13,20 +13,20 @@ if(isset($_POST['add_what'])){
 	$image_path="image_thumbnails/".$new_filename;
 	move_uploaded_file($temp_filename, $destination);
 	
-	if($add_what=="add_mobile_phones"){
+	if($add_what=="Mobile Phones" || $add_what=="Tablets"){
 		$brand=$_POST['brand'];
 		$desc=$_POST['desc'];
 		$specs=$_POST['specs'];
-		$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('Mobile Phones','$brand','$name','$price','$desc','$specs','$image_path')";
-	}elseif($add_what=="add_tablets"){
-		$brand=$_POST['brand'];
-		$desc=$_POST['desc'];
-		$specs=$_POST['specs'];	
-		$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('Tablets','$brand','$name','$price','$desc','$specs','$image_path')";
-	}elseif($add_what=="add_mobile_accessories"){
+		$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES(''$add_what,'$brand','$name','$price','$desc','$specs','$image_path')";
+	}elseif($add_what=="Mobile Accessories"){
 		$brand=$_POST['brand'];
 		$category=$_POST['category'];
 		$query_product="INSERT INTO products(type,category,brand,name,price,thumbnail) VALUES('Mobile Accessories','$category','$brand','$name','$price','$image_path')";
+	}elseif($add_what=="TV" || $add_what=="Audio" || $add_what=="Video"){
+		$brand=$_POST['brand'];
+		$desc=$_POST['desc'];
+		$specs=$_POST['specs'];
+		$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('TV','$brand','$name','$price','$desc','$specs','$image_path')";
 	}
 	
 	if(!mysqli_query($con,$query_product)){
