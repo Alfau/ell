@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Ell Mobile</title>
-		<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="jquery-1.11.1.min.js"></script>
 		<script src="script.js"></script>
@@ -17,7 +17,7 @@
 				
 				if(isset($_GET['type'])){
 					$type=$_GET['type'];
-					if($type=="Mobile Phones" || $type=="Tablets"){
+					if($type=="Mobile Phones" || $type=="Tablets" || $type="TV" || $type="Audio" || $type="Video"){
 						$product_ID=$_GET['product_ID'];
 						$query="SELECT Name,Description,Specifications FROM products WHERE ID='$product_ID'";
 						$result=mysqli_query($con,$query);

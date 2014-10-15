@@ -14,7 +14,7 @@
 			<?php include("slideshow.php"); ?>
 			<div id="content">
 				<div class="products_carousel">
-					<h4>ELL RECOMMENDED RELEASES</h4>
+					<h3>ELL RECOMMENDED RELEASES</h3>
 					<?php
 						include("connection.php");
 						
