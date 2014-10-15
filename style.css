@@ -3,9 +3,12 @@
 	padding:0;
 }
 html{
-	font-family: "Open Sans",sans-serif;
-	background:linear-gradient(#e5e5e5,#fff 30%) no-repeat;
-	color:#a4a4a4;
+	font-family: Lintel,sans-serif;
+	background:-moz-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:-o-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:-webkit-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	color:#828386;
 	font-size:0.8em;
 	position:absolute;
 	top:0;
@@ -43,7 +46,7 @@ input[type=submit]{
 }
 /*---------------------------------*/
 header{
-	margin-top:3em;
+	margin-top:4em;
 }
 div#loading_bar{
 	z-index:100;
@@ -65,16 +68,19 @@ div#content{
 div#content p{
 	margin-bottom:1em;
 }
+div#content ul{
+	list-style:none;
+}
 /*--------------------------------*/
 img#logo{
 	float:left;
-	width:150px;
+	width:200px;
 	margin-left:3em;
 }
 /*--------------------------------*/
 nav#main{
 	text-align:center;
-	margin:5em 0;
+	margin:8em 0 3em 0;
 }
 nav#main li, nav#side li{
 	list-style:none;
@@ -86,12 +92,11 @@ nav#main a{
 	margin-right:4em;
 	border:solid 1px #bbbdbf;
 	padding:0.3em;
-	transition:color 0.2s,background-color 0.2s,border-color 0.3s;
+	transition:color 0.2s,border 0.2s;
 }
 nav#main a:hover,nav#main a.active{
-	color:#fff;
-	background-color:#FF6602;
-	border-color:#FF6602;
+	color:#FF6602;
+	border:solid 1px rgba(0,0,0,0); 
 }
 nav#main a.bill{
 	color:#fff;
@@ -106,9 +111,24 @@ nav#side a{
 	text-decoration:none;
 	color:#6d6e71;
 	font-size:0.8em;
-	margin-right:1em;	
+	transition:color 0.2s;
 }
-nav#side a.active{
+nav#side li{
+	margin-right:1em;
+	padding-right:1em;
+	border-right:solid 1px #6D6E71;
+}
+nav#side li:nth-child(3),nav#side li:nth-child(4){
+	border:none;
+}
+nav#side li:nth-child(3){
+	padding:0;
+}
+nav#side li:nth-child(4){
+	margin:0;
+	padding:0;
+}
+nav#side a:hover,nav#side a.active{
 	color:#FF6602;
 }
 nav#side input{
@@ -167,7 +187,7 @@ div#slideshow_controls a{
 /*--------------------------------*/
 div.products_carousel{
 	padding:1em 0 2em 0;
-	border-top:solid 1px #bbbdbf;
+	/*border-top:solid 1px #bbbdbf;*/
 	width:100%;
 	overflow-x:scroll;
 	white-space: nowrap;
@@ -189,6 +209,7 @@ div.products_carousel>div>div{
 }
 div.products_carousel>a:first-child{
 	display:block;
+	text-transform:uppercase;
 	text-decoration:none;
 	color:#6d6e71;
 	font-size:1.2em;
@@ -231,16 +252,16 @@ div#products_by_brand div div a:last-child{
 }
 /*----------------------------------*/
 nav#main_sub{
-	margin-bottom:1em;
+	margin-bottom:3em;
 }
 nav#main_sub li{
 	display:inline-block;
 }
 nav#main_sub a{
+	text-transform:uppercase;
 	text-decoration:none;
 	color:#6D6E71;
 	margin-right:4em;
-	font-size:1.2em;
 }
 nav#main_sub a:hover,nav#main_sub a.active{
 	color:#FF6602;
@@ -283,6 +304,7 @@ footer{
 	box-sizing:border-box;
 	position:absolute;
 	bottom:0;
+	font-size:0.9em;
 }
 footer span,footer ul{
 	display:inline-block;
@@ -296,7 +318,6 @@ footer ul li{
 	display:inline-block;
 }
 footer img{
-	width:25px;
+	width:20px;
 	margin-left:0.5em;
-		
 }
