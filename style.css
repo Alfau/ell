@@ -234,7 +234,7 @@ div.products_carousel>a:first-child{
 	text-decoration:none;
 	color:#6d6e71;
 	font-size:1.2em;
-	transition:color 0.2s;
+	transition:color 0.3s;
 }
 div.products_carousel div div a{
 	white-space:normal;
@@ -268,6 +268,10 @@ div.index_products_carousel>div{
 	margin:2em 6em 0 0;
 	position:relative;
 }
+div.index_products_carousel img{
+	display:block;
+	margin:auto;
+}
 div.index_products_carousel a:last-child{
 	background-color:#FF6602;
 	color:#fff;
@@ -277,10 +281,6 @@ div.index_products_carousel a:last-child{
 	display:block;
 	text-align:center;
 	margin-top:1em;
-}
-div.index_products_carousel img{
-	display:block;
-	margin:auto;
 }
 /*div.index_products_carousel>div>div{
 	width:100%;

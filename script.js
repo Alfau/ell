@@ -93,7 +93,7 @@ $(document).ready(function(){
 	});
 	
 	
-	$(document).on("mouseenter","div.products_carousel div",function(){
+	$(document).on("mouseenter","div.products_carousel>div",function(){
 		$(this).children("div").stop().fadeIn("fast");
 	}).on("mouseleave","div.products_carousel div",function(){
 		$(this).children("div").stop().fadeOut("fast");
