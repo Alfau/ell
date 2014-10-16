@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="jquery-1.11.1.min.js"></script>
 		<script src="script.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
 	</head>
 	<body>
 		<?php include("header.php"); ?>

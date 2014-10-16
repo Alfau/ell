@@ -1,5 +1,36 @@
 $(document).ready(function(){
 	
+	function initialize() {
+	var mapCanvas = document.getElementById('map_canvas');
+	    var mapOptions = {
+	      center: new google.maps.LatLng(4.175134, 73.510372),
+	      zoom: 15,
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+	    var map = new google.maps.Map(mapCanvas, mapOptions);
+	    
+	      var marker = new google.maps.Marker({
+		      position: new google.maps.LatLng(4.174885, 73.513231),
+		      map: map,
+		      title: 'Ell Mobile'
+		  });
+		  var marker = new google.maps.Marker({
+		      position: new google.maps.LatLng(4.174899, 73.513258),
+		      map: map,
+		      title: 'Ell Mobile 2'
+		  });
+		  var marker = new google.maps.Marker({
+		      position: new google.maps.LatLng(4.175779, 73.503657),
+		      map: map,
+		      title: 'Ell Mobile 3'
+		  });
+		  var marker = new google.maps.Marker({
+		      position: new google.maps.LatLng(4.178260, 73.509377),
+		      map: map,
+		      title: 'Ell Mobile 4'
+		  });
+	  }
+	
 	function triggerSlide(){
 		if($("div#slides div.active").length===0){
 			$("div#slides div:first-child").addClass("active");
@@ -113,6 +144,11 @@ $(document).ready(function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).filter("main").html();
 				$("main").html(content);
+				
+				var if_location=url.split("/");
+				if(if_location.slice(-1)[0]=="locations.php"){
+					initialize();
+				}
 			});
 		});
 		e.preventDefault();
