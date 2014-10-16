@@ -13,6 +13,10 @@ $(document).ready(function(){
 			$(current_active).removeClass("active");
 			$("div#slides>div").first().addClass("active");
 			
+			$("div#slideshow_controls span").removeClass("active");
+			$("div#slideshow_controls>span").first().addClass("active");
+			$("div#slideshow_controls>span").first().children("span").addClass("active");
+			
 			$("div#slides>div").first().children("div").css("bottom","-60%");
 			$("div#slides>div").first().find("p").hide();
 			
@@ -25,6 +29,10 @@ $(document).ready(function(){
 			$(current_active).removeClass("active");
 			$(current_active).next().addClass("active");
 			
+			$("div#slideshow_controls span").removeClass("active");
+			$("div#slideshow_controls>span:eq("+which_slide+")").next().addClass("active");
+			$("div#slideshow_controls>span:eq("+which_slide+")").next().children("span").addClass("active");
+			
 			$(current_active).next().children("div").css("bottom","-60%");
 			$(current_active).next().find("p").hide();
 			
@@ -36,7 +44,7 @@ $(document).ready(function(){
 		}
 	}
 	
-	$("div#slideshow_controls a").click(function(){
+	$("div#slideshow_controls>span").click(function(){
 		var slide_width=$("div#slideshow").width();
 		var which_slide=$(this).index();
 		var slide=$("div#slides>div:eq("+which_slide+")");
@@ -46,6 +54,10 @@ $(document).ready(function(){
 		
 		$(slide).children("div").css("bottom","-60%");
 		$(slide).children("p").hide();
+		
+		$("div#slideshow_controls span").removeClass("active");
+		$("div#slideshow_controls>span:eq("+which_slide+")").addClass("active");
+		$("div#slideshow_controls>span:eq("+which_slide+")").children("span").addClass("active");
 		
 		if($(slide).is(":first-child")){
 			$("div#slides").animate({"margin-left":"0"},500,function(){
@@ -57,7 +69,7 @@ $(document).ready(function(){
 				});
 			});
 		}else{
-			$("div#slides").animate({"margin-left":"-"+slide_width*which_slide},500,function(){
+			$("div#slides").animate({"margin-left":"-"+(slide_width*which_slide)},500,function(){
 				$("div#slides>div>div").css("bottom","-60%");
 				$("div#slides p").hide();
 				
@@ -80,11 +92,11 @@ $(document).ready(function(){
 		$("div#slides p").fadeIn("slow");
 	});
 	
+	
 	$(document).on("mouseenter","div.products_carousel div",function(){
-		$(this).children("div").stop().slideDown("fast");
-	});
-	$(document).on("mouseleave","div.products_carousel div",function(){
-		$(this).children("div").stop().slideUp("fast");
+		$(this).children("div").stop().fadeIn("fast");
+	}).on("mouseleave","div.products_carousel div",function(){
+		$(this).children("div").stop().fadeOut("fast");
 	});
 	
 	$(document).on("click","nav#side a",function(e){

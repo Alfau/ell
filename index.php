@@ -13,8 +13,8 @@
 		<main>
 			<?php include("slideshow.php"); ?>
 			<div id="content">
-				<div class="products_carousel">
-					<h3>ELL RECOMMENDED RELEASES</h3>
+				<div class="index_products_carousel">
+					<h3>LATEST RELEASES</h3>
 					<?php
 						include("connection.php");
 						
@@ -24,10 +24,7 @@
 							?>
 							<div>
 								<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a>
-								<div>
-									<a href="see_more.php?type=<?php echo $row['Type'] ?>&product_ID=<?php echo $row['ID'] ?>"><?php echo $row['Name'] ?></a>
-									<a href="see_more.php?type=<?php echo $row['Type'] ?>&product_ID=<?php echo $row['ID'] ?>">Rf. <?php echo $row['Price'] ?></a>
-								</div>
+								<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>">See More</a>
 							</div>
 							<?php
 						}
