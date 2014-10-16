@@ -44,10 +44,12 @@
 								while($row_brand=mysqli_fetch_array($result_brand)){
 									?>
 									<div>
-										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
 										<div>
-											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><?php echo $row_brand['Name'] ?></a>
-											<!--<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>">Rf. <?php echo $row_brand['Price'] ?></a>-->
+											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
+										</div>
+										<div>
+											<h3><?php echo $row_brand['Name'] ?></h3>
+											<p>Rf. <?php echo $row_brand['Price'] ?></p>
 										</div>
 									</div>
 									<?php

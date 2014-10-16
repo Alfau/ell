@@ -13,26 +13,23 @@
 		<main>
 			<?php include("slideshow.php"); ?>
 			<div id="content">
-				<div class="index_products_carousel">
+				<div class="products_carousel">
 					<h3>LATEST RELEASES</h3>
 					<?php
 						include("connection.php");
 						
-						$query="SELECT * FROM products WHERE Ell_Rec='True'";
+						$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
 						$result=mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
 								<div>
 									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a>
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>">See More</a>
+									<!--<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
 								</div>
 								<div>
 									<h3><?php echo $row['Name'] ?></h3>
-									<p>Some specs</p>
-									<p>Some specs</p>
-									<p>Some specs</p>
-									<p>Some specs</p>
+									<p>Rf. <?php echo $row['Price'] ?></p>
 								</div>
 							</div>
 							<?php

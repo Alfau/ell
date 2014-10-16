@@ -19,7 +19,7 @@ html{
 body{
 	position:relative;
 	box-sizing:border-box;
-	padding-bottom:40px;
+	padding-bottom:80px;
 	min-height:100%;
 }
 h1,h2,h3,h4,h5{
@@ -209,25 +209,6 @@ div.products_carousel{
 	overflow-x:scroll;
 	white-space: nowrap;
 }
-div.products_carousel>div{
-	display:inline-block;
-	vertical-align:top;
-	width:150px;
-	margin:2em 6em 0 0;
-	position:relative;
-}
-div.products_carousel img{
-	display:block;
-	margin:auto;
-}
-div.products_carousel>div>div{
-	width:100%;
-	/*height:100%;
-	background-color:rgba(0,0,0,0.5);*/
-	position:absolute;
-	top:0;
-	display:none;
-}
 div.products_carousel>a:first-child{
 	display:block;
 	text-transform:uppercase;
@@ -236,42 +217,20 @@ div.products_carousel>a:first-child{
 	font-size:1.2em;
 	transition:color 0.3s;
 }
-div.products_carousel div div a{
-	white-space:normal;
-	box-sizing:border-box;
-	width:100%;
-	text-decoration:none;
-	color:#fff;
-	padding:0.5em;
-	text-align:center;
-	background-color:#FF6602;
-	position:absolute;
-}
-/*div.products_carousel div a:last-child{
-	bottom:0;
-}*/
 div.products_carousel>a:hover{
 	color:#FF6602;
 }
-/*--------------------------------*/
-div.index_products_carousel{
-	padding:1em 0 2em 0;
-	border-top:solid 1px #bbbdbf;
-	width:100%;
-	overflow-x:scroll;
-	white-space: nowrap;
-}
-div.index_products_carousel>div{
+div.products_carousel>div{
 	display:inline-block;
 	vertical-align:top;
 	margin:2em 6em 0 0;
 	position:relative;
 }
-div.index_products_carousel img{
+div.products_carousel img{
 	display:block;
 	margin:auto;
 }
-div.index_products_carousel a:last-child{
+/*div.products_carousel a.see_more{
 	background-color:#FF6602;
 	color:#fff;
 	text-decoration:none;
@@ -280,21 +239,24 @@ div.index_products_carousel a:last-child{
 	display:block;
 	text-align:center;
 	margin-top:1em;
-}
-div.index_products_carousel>div div{
+}*/
+div.products_carousel>div div{
 	display:inline-block;
 	vertical-align:top;
 }
-div.index_products_carousel>div div:first-child{
+div.products_carousel>div div:first-child{
 	width:150px;
 }
-div.index_products_carousel>div div:last-child{
+div.products_carousel>div div:last-child{
+	margin-left:0.5em;
 	opacity:0;
 	width:0;
 }
-div.index_products_carousel>div div h3{
+div.products_carousel>div div h3{
 	color:#FF6602;
-	margin-bottom:1em;
+}
+div.products_carousel>div div p{
+	font-size:1.1em;
 }
 /*--------------------------------*/
 div#products_by_brand div{
