@@ -61,7 +61,7 @@ div#loading_bar{
 	background-color:#FF6602;
 }
 div#content_small{
-	padding-bottom:3em;
+	padding: 2em 0 3em 0;
 	max-width:60%;
 	margin:auto;
 }
@@ -74,6 +74,9 @@ div#content p{
 }
 div#content ul{
 	list-style:none;
+}
+.price{
+	font-size:1.2em;
 }
 /*--------------------------------*/
 img#logo{
@@ -153,7 +156,7 @@ div#slideshow img{
 	width:100%;
 }
 div#slideshow_see_more img{
-	height:250px;
+	height:150px;
 }
 div#slides>div{
 	width:100%;
@@ -255,26 +258,16 @@ div.products_carousel>div div:last-child{
 div.products_carousel>div div h3{
 	color:#FF6602;
 }
-div.products_carousel>div div p{
-	font-size:1.1em;
-}
 /*--------------------------------*/
 div#products_by_brand div{
 	display:inline-block;
-	margin:2em 4em 0 0;
 }
-div#products_by_brand h2{
-	padding-bottom:0.5em;
-	border-bottom:solid 1px #bbbdbf;
-}
-div#products_by_brand div a{
+div#products_by_brand a{
 	text-decoration:none;
 	color:#6D6E71;
-	font-size:1.2em;
 }
-div#products_by_brand div div a:last-child{
-	font-weight:bold;
-	font-size:1.3em;
+div#products_by_brand h2{
+	color:#FF6602;
 }
 /*----------------------------------*/
 nav#main_sub{
@@ -297,17 +290,25 @@ nav#main_sub a.active{
 	color:#FF6602;
 }
 /*---------------------------------*/
-div#contact{
-	margin-top:3em;
+div#contact h4{
+	margin-top:0.5em;
+}
+div#contact_right{
+	width:40%;
+	border-left:solid 1px #BBBDBF;
+	margin-left:1em;
+	padding-left:1em;
+}
+div#contact_left{
+	width:55%;
 }
 div#contact_left,div#contact_right{
+	margin-top:3em;
 	display:inline-block;
 	vertical-align:top;
 }
-div#contact_left{
-	margin-right:3em;
-	padding-right:3em;
-	border-right:solid 1px #BBBDBF;
+div#contact_right table{
+	width:100%;
 }
 div#contact_right table td{
 	padding:0.3em 0;
@@ -316,6 +317,13 @@ div#contact_left img,div#contact_left div{
 	display:inline-block;
 	vertical-align:middle;
 	margin:0 2em 2em 0;
+}
+/*--------------------------------*/
+div#see_more h2{
+	color:#FF6602
+}
+div#see_more p{
+	font-size:1.1em;
 }
 /*--------------------------------*/
 div#map_canvas{
@@ -333,13 +341,17 @@ footer{
 	bottom:0;
 	font-size:0.9em;
 }
+footer div{
+	width:90%;
+	position:relative;
+	margin:auto;
+}
 footer span,footer ul{
 	display:inline-block;
 }
 footer ul{
 	position:absolute;
-	right:3em;
-	bottom:1em;
+	right:0;
 }
 footer ul li{
 	display:inline-block;

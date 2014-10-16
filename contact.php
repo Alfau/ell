@@ -12,19 +12,24 @@
 		
 		<main>
 			<div id="content_small">
-				<h1>CONTACT US</h1>
-				<h4>WE ARE HERE TO HELP</h4>
 				<div id="contact">
+					<h1>CONTACT US</h1>
+					<h4>WE ARE HERE TO HELP</h4>
 					<div id="contact_left">
-						<img src="icons/mail_icon.png" width="80"/>
+						<img src="icons/mail_icon_2.png" width="80"/>
 						<div>
 							<h4>BY EMAIL</h4>
 							<p>Send a message to ELL Customer Service</p>
 						</div><br />
 						<img src="icons/phone_icon.png" width="80"/>
 						<div>
-							<h4>BY PHONE</h4>
-							<p>Call ELL Customer Representative on +960 99999999</p>
+							<h4>BY PHONE</h4>							
+							<p>Call an ELL Support Representative on</p>
+							<p>MLE: +960 333 6534</p><br />
+							<p>Monday to Friday: 8am to 7:30pm</p>
+							<p>Saturday: 9am to 6pm</p>
+							<p>Sunday: 10am to 4pm</p>
+							<p>Bank Holidays: Close</p>
 						</div>
 					</div>
 					<div id="contact_right">
@@ -58,6 +63,6 @@
 			</div>
 		</main>
 		
-		<?php //include("footer.php"); ?>
+		<?php include("footer.php"); ?>
 	</body>
 </html>

@@ -29,7 +29,7 @@
 								</div>
 								<div>
 									<h3><?php echo $row['Name'] ?></h3>
-									<p>Rf. <?php echo $row['Price'] ?></p>
+									<p class="price">Rf. <?php echo $row['Price'] ?></p>
 								</div>
 							</div>
 							<?php

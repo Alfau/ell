@@ -21,14 +21,14 @@
 						$type=$_GET['type'];
 						$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand'";
 						$result=mysqli_query($con,$query);
-						echo "<h2>$brand</h2>";
+						echo "<h3>$brand</h3>";
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
 								<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>" height="150"/></a><br />
 								<div>
-									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>">Rf. <?php echo $row['Price'] ?></a>
+									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>"><h2><?php echo $row['Name'] ?></h2></h2></a>
+									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>" class="price">Rf. <?php echo $row['Price'] ?></a>
 								</div>
 							</div>
 							<?php

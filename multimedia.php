@@ -49,7 +49,7 @@
 										</div>
 										<div>
 											<h3><?php echo $row_brand['Name'] ?></h3>
-											<p>Rf. <?php echo $row_brand['Price'] ?></p>
+											<p class="price">Rf. <?php echo $row_brand['Price'] ?></p>
 										</div>
 									</div>
 									<?php

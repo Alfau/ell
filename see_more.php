@@ -12,6 +12,7 @@
 		
 		<main>
 			<div id="content">
+				<div id="see_more">
 				<?php
 				include("connection.php");
 				
@@ -19,7 +20,7 @@
 					$type=$_GET['type'];
 					if($type=="Mobile Phones" || $type=="Tablets" || $type="TV" || $type="Audio" || $type="Video"){
 						$product_ID=$_GET['product_ID'];
-						$query="SELECT Name,Description,Specifications FROM products WHERE ID='$product_ID'";
+						$query="SELECT Name,Price,Description,Specifications FROM products WHERE ID='$product_ID'";
 						$result=mysqli_query($con,$query);
 						
 						while($row=mysqli_fetch_array($result)){
@@ -39,7 +40,8 @@
 								?>
 								</div>
 							</div>
-							<h2><?php echo $row['Name']?></h2><br />
+							<h2><?php echo $row['Name']?></h2>
+							<p class="price">Rf. <?php echo $row['Price']?></p><br />
 							<p><?php echo $row['Description']?></p><br /><br />
 							<h3>Specifications</h3>
 							<p><?php echo $row['Specifications']?></p>
@@ -60,6 +62,7 @@
 					}
 				}
 				?>
+				</div>
 			</div>
 		</main>
 		
