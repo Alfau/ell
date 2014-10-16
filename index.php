@@ -23,8 +23,17 @@
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
-								<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a>
-								<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>">See More</a>
+								<div>
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a>
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>">See More</a>
+								</div>
+								<div>
+									<h3><?php echo $row['Name'] ?></h3>
+									<p>Some specs</p>
+									<p>Some specs</p>
+									<p>Some specs</p>
+									<p>Some specs</p>
+								</div>
 							</div>
 							<?php
 						}

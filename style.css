@@ -262,7 +262,6 @@ div.index_products_carousel{
 	white-space: nowrap;
 }
 div.index_products_carousel>div{
-	width:150px;
 	display:inline-block;
 	vertical-align:top;
 	margin:2em 6em 0 0;
@@ -282,37 +281,21 @@ div.index_products_carousel a:last-child{
 	text-align:center;
 	margin-top:1em;
 }
-/*div.index_products_carousel>div>div{
-	width:100%;
-	position:absolute;
-	top:0;
-	display:none;
-}*/
-/*div.index_products_carousel>a:first-child{
-	display:block;
-	text-transform:uppercase;
-	text-decoration:none;
-	color:#6d6e71;
-	font-size:1.2em;
-	transition:color 0.3s;
-}*/
-/*div.index_products_carousel div div a{
-	white-space:normal;
-	box-sizing:border-box;
-	width:100%;
-	text-decoration:none;
-	color:#fff;
-	padding:0.5em;
-	text-align:center;
-	background-color:#FF6602;
-	position:absolute;
-}*/
-/*div.index_products_carousel div a:last-child{
-	bottom:0;
-}*/
-/*div.index_products_carousel>a:hover{
+div.index_products_carousel>div div{
+	display:inline-block;
+	vertical-align:top;
+}
+div.index_products_carousel>div div:first-child{
+	width:150px;
+}
+div.index_products_carousel>div div:last-child{
+	opacity:0;
+	width:0;
+}
+div.index_products_carousel>div div h3{
 	color:#FF6602;
-}*/
+	margin-bottom:1em;
+}
 /*--------------------------------*/
 div#products_by_brand div{
 	display:inline-block;

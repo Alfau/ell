@@ -99,6 +99,13 @@ $(document).ready(function(){
 		$(this).children("div").stop().fadeOut("fast");
 	});
 	
+	$(document).on("mouseenter","div.index_products_carousel>div",function(){
+		$(this).children("div:last-child").stop().animate({width:"150px",opacity:"1"});
+	}).on("mouseleave","div.index_products_carousel>div",function(){
+		$(this).children("div:last-child").stop().animate({width:"0",opacity:"0"});
+	});
+	
+	
 	$(document).on("click","nav#side a",function(e){
 		$("nav a").removeClass("active");
 		$(this).addClass("active");
