@@ -3,7 +3,7 @@
 	padding:0;
 }
 html{
-	font-family: Lintel,sans-serif;
+	font-family: Lintel,'Open Sans', sans-serif;
 	background:-moz-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	background:-o-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	background:-webkit-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
@@ -168,7 +168,7 @@ div#slides>div{
 }*/
 div#slides>div>div{
 	position:absolute;
-	left:50%;
+	left:40%;
 }
 div#slides h1{
 	color:#fff;
@@ -182,8 +182,9 @@ div#slides p{
 div#slideshow_controls{
 	z-index:50;
 	position:absolute;
-	bottom:5em;
-	right:50%;	
+	bottom:4em;
+	right:50%;
+	transform:translateX(50%);	
 }
 div#slideshow_controls span{
 	display:inline-block;
