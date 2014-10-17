@@ -1,9 +1,5 @@
 $(document).ready(function(){
 	
-	$("div.products_carousel").perfectScrollbar({
-		suppressScrollY:true
-	});
-	
 	function initialize() {
 	var mapCanvas = document.getElementById('map_canvas');
 	    var mapOptions = {
@@ -128,10 +124,10 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("mouseenter","div.products_carousel div.carousel_product",function(){
-		$(this).animate({"margin-right":"1em"});
+		$(this).stop().animate({"margin-right":"1em"});
 		$(this).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"});
 	}).on("mouseleave","div.products_carousel div.carousel_product",function(){
-		$(this).animate({"margin-right":"6em"});
+		$(this).stop().animate({"margin-right":"6em"});
 		$(this).children("div.carousel_info").stop().animate({width:"0",opacity:"0"});
 	});
 	
@@ -170,6 +166,7 @@ $(document).ready(function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).filter("main").html();
 				$("main").html(content);
+				scrollbar();
 			});
 		});
 		e.preventDefault();
@@ -188,6 +185,7 @@ $(document).ready(function(){
 				$("div#loading_bar").css("width","0");
 				var content=$(data).find("div#mobile_brands").html();
 				$("div#mobile_brands").html(content);
+				scrollbar();
 			});
 		});
 	});
@@ -221,4 +219,15 @@ $(document).ready(function(){
 			});
 		});
 	});
+	
+	scrollbar();
+	
+	$(document).on("mousedown",".ps-container .ps-scrollbar-x",function(){
+		//alert("lem");
+	});
 });
+function scrollbar(){
+	$("div.products_carousel").perfectScrollbar({
+	suppressScrollY:true
+});
+}
