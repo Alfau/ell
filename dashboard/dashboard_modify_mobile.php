@@ -11,6 +11,10 @@
 		<?php include("dashboard_nav.php"); ?>
 		
 		<main>
+			<?php
+				if(isset($_GET['how_manage'])){
+					if($_GET['how_manage']=="add"){
+			?>
 			<div id="content">
 				<div id="dashboard_modify_sub_nav">
 					<ul>
@@ -129,6 +133,10 @@
 						</form>
 				<?php		
 					}
+				}elseif($_GET['how_manage']=="remove"){
+					echo "wut?";
+				}
+			}	
 				?>
 			</div>	
 		</main>
