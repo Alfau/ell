@@ -3,10 +3,12 @@
 	<head>
 		<title>Ell Mobile</title>
 		<!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<script src="jquery-1.11.1.min.js"></script>
 		<script src="script.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<link rel="stylesheet" type="text/css" href="perfect-scrollbar.css"/>
+		<script src="perfect-scrollbar.js"></script>
 	</head>
 	<body>
 		<?php include("header.php"); ?>
@@ -38,17 +40,18 @@
 						while($row=mysqli_fetch_array($result)){
 							if($last_brand!=$row['Brand']){
 								$brand=$row['Brand'];
-								$query_brand="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand'";
+								//$query_brand="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand'";
+								$query_brand="SELECT ID,Name,Price,Thumbnail FROM products";
 								$result_brand=mysqli_query($con,$query_brand);
 								echo "<div class='products_carousel'>";
 								echo "<a href='by_brand.php?type=$product_type&brand=$brand'>$brand</a>";
 								while($row_brand=mysqli_fetch_array($result_brand)){
 									?>
-									<div>
-										<div>
+									<div class="carousel_product">
+										<div class="carousel_image">
 											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
 										</div>
-										<div>
+										<div class="carousel_info">
 											<h3><?php echo $row_brand['Name'] ?></h3>
 											<p class="price">Rf. <?php echo $row_brand['Price'] ?></p>
 										</div>

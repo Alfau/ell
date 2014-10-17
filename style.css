@@ -206,10 +206,13 @@ div#slideshow_controls>span.active{
 }
 /*--------------------------------*/
 div.products_carousel{
+	position:relative;
 	padding:1em 0 2em 0;
 	/*border-top:solid 1px #bbbdbf;*/
 	width:100%;
-	overflow-x:scroll;
+	height:200px;
+	/*overflow-x:scroll;*/
+	overflow:hidden;
 	white-space: nowrap;
 }
 div.products_carousel>a:first-child{
@@ -223,7 +226,7 @@ div.products_carousel>a:first-child{
 div.products_carousel>a:hover{
 	color:#FF6602;
 }
-div.products_carousel>div{
+div.products_carousel div.carousel_product{
 	display:inline-block;
 	vertical-align:top;
 	margin:2em 6em 0 0;
@@ -243,19 +246,19 @@ div.products_carousel img{
 	text-align:center;
 	margin-top:1em;
 }*/
-div.products_carousel>div div{
+div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 	display:inline-block;
 	vertical-align:top;
 }
-div.products_carousel>div div:first-child{
+div.products_carousel div.carousel_image{
 	width:150px;
 }
-div.products_carousel>div div:last-child{
+div.products_carousel div.carousel_info{
 	margin-left:0.5em;
 	opacity:0;
 	width:0;
 }
-div.products_carousel>div div h3{
+div.products_carousel div h3{
 	color:#FF6602;
 }
 /*--------------------------------*/

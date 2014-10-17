@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	
+	$("div.products_carousel").perfectScrollbar({
+		suppressScrollY:true
+	});
+	
 	function initialize() {
 	var mapCanvas = document.getElementById('map_canvas');
 	    var mapOptions = {
@@ -123,12 +127,12 @@ $(document).ready(function(){
 		$("div#slides p").fadeIn("slow");
 	});
 	
-	$(document).on("mouseenter","div.products_carousel>div",function(){
+	$(document).on("mouseenter","div.products_carousel div.carousel_product",function(){
 		$(this).animate({"margin-right":"1em"});
-		$(this).children("div:last-child").stop().animate({width:"150px",opacity:"1"});
-	}).on("mouseleave","div.products_carousel>div",function(){
+		$(this).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"});
+	}).on("mouseleave","div.products_carousel div.carousel_product",function(){
 		$(this).animate({"margin-right":"6em"});
-		$(this).children("div:last-child").stop().animate({width:"0",opacity:"0"});
+		$(this).children("div.carousel_info").stop().animate({width:"0",opacity:"0"});
 	});
 	
 	
