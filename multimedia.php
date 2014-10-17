@@ -44,11 +44,11 @@
 								echo "<a href='by_brand.php?type=$product_type&brand=$brand'>$brand</a>";
 								while($row_brand=mysqli_fetch_array($result_brand)){
 									?>
-									<div>
-										<div>
+									<div class="carousel_product">
+										<div class="carousel_image">
 											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
 										</div>
-										<div>
+										<div class="carousel_info">
 											<h3><?php echo $row_brand['Name'] ?></h3>
 											<p class="price">Rf. <?php echo $row_brand['Price'] ?></p>
 										</div>

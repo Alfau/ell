@@ -208,10 +208,6 @@ div#slideshow_controls>span.active{
 div.products_carousel{
 	position:relative;
 	padding:1em 0 2em 0;
-	/*border-top:solid 1px #bbbdbf;*/
-	width:100%;
-	height:200px;
-	/*overflow-x:scroll;*/
 	overflow:hidden;
 	white-space: nowrap;
 }
