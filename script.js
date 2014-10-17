@@ -222,8 +222,8 @@ $(document).ready(function(){
 	
 	scrollbar();
 	
-	$(document).on("mousedown",".ps-container .ps-scrollbar-x",function(){
-		//alert("lem");
+	$(".ps-container .ps-scrollbar-x").on("mousedown",function(){
+		$(this).css("opacity","1");
 	});
 });
 function scrollbar(){

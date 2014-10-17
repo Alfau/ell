@@ -1,31 +1,29 @@
 .ps-container .ps-scrollbar-x-rail {
     position: absolute; /* please don't change 'position' */
     bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x-rail */
-    height: 5px;
+    height: 1px;
     /*-webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;*/
-    background-color:#DDDDEE;
+    background-color:#bbbdbf;
     opacity: 0.6;
-    filter: alpha(opacity=0.6);
+    filter: alpha(opacity=60);
     -o-transition: background-color .2s linear, opacity .2s linear;
     -webkit-transition: background-color .2s linear, opacity .2s linear;
     -moz-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
 }
-.ps-scrollbar-x{
-	opacity:0;
-	transition: opacity 0.5s;
-}
-.ps-container:hover .ps-scrollbar-x-rail,
-.ps-container.hover .ps-scrollbar-x-rail,
 .ps-container:hover .ps-scrollbar-x {
-    opacity: 0.9;
-    filter: alpha(opacity=60);
+	height:5px;
 }
 
-.ps-container .ps-scrollbar-x-rail:hover,
-.ps-container .ps-scrollbar-x-rail.hover {
+.ps-container:hover .ps-scrollbar-x-rail,
+.ps-container.hover .ps-scrollbar-x-rail{
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.ps-container .ps-scrollbar-x-rail:hover {
     background-color: #e9e9e9;
     opacity: 0.9;
     filter: alpha(opacity=90);
@@ -74,15 +72,15 @@
 .ps-container .ps-scrollbar-x {
     position: absolute; /* please don't change 'position' */
     bottom: 0; /* there must be 'bottom' for ps-scrollbar-x */
-    height: 5px;
+    height: 0;
     background-color: #FF6602;
    /* -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;*/
-    -o-transition: background-color .2s linear;
-    -webkit-transition: background-color.2s linear;
-    -moz-transition: background-color .2s linear;
-    transition: background-color .2s linear;
+    -o-transition: background-color .2s linear, height .2s;
+    -webkit-transition: background-color.2s linear, height .2s;
+    -moz-transition: background-color .2s linear, height .2s;
+    transition: background-color .2s linear, height .2s;
 }
 
 .ps-container .ps-scrollbar-x-rail:hover .ps-scrollbar-x,
