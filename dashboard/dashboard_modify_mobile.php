@@ -11,6 +11,19 @@
 		<?php include("dashboard_nav.php"); ?>
 		
 		<main>
+			<?php
+				if(!isset($_GET['how_manage'])){
+				?>
+					<div id="manage_options">
+						<h3>Would you like to :</h3>
+						<a href="dashboard_modify_mobile.php?how_manage=add">Add Mobile Products</a><br />
+						<a href="dashboard_modify_mobile.php?how_manage=remove">Remove Mobile Products</a>
+					</div>
+				
+				<?php	
+				}else{
+					if($_GET['how_manage']=="add"){
+			?>
 			<div id="content">
 				<div id="dashboard_modify_sub_nav">
 					<ul>
@@ -129,6 +142,10 @@
 						</form>
 				<?php		
 					}
+				}elseif($_GET['how_manage']=="remove"){
+					echo "wut?";
+				}
+			}	
 				?>
 			</div>	
 		</main>
