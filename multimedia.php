@@ -47,6 +47,7 @@
 										<div class="carousel_info">
 											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name"><?php echo $row_brand['Name'] ?></a>
 											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a>
+											<!-- may not work on the master git copy -->
 										</div>
 									</div>
 									<?php
