@@ -15,7 +15,7 @@
 				if(!isset($_GET['how_manage'])){
 				?>
 				
-					<div id="manage_options">
+					<div class="manage_options">
 						<h3>Would you like to :</h3>
 						<p><a href="dashboard_modify_mobile.php?how_manage=add">Add Mobile Products</a></p>
 						<p><a href="dashboard_modify_mobile.php?how_manage=remove">Remove Mobile Products</a></p>
@@ -28,11 +28,11 @@
 					if(!isset($_GET['modify_mobile_category'])){
 					?>
 					
-						<div id="manage_options">
+						<div class="manage_category">
 							<h3>Choose a product category :</h3>
-							<p><a href="dashboard_modify_mobile.php?modify_mobile_category=Mobile Phones">Mobile Phones</a></p>
-							<p><a href="dashboard_modify_mobile.php?modify_mobile_category=Tablets">Tablets</a></p>
-							<p><a href="dashboard_modify_mobile.php?modify_mobile_category=Mobile Accessories">Mobile Accessories</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Phones">Mobile Phones</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Tablets">Tablets</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Accessories">Mobile Accessories</a></p>
 						</div>
 						
 						<div id="content"></div>
@@ -43,7 +43,7 @@
 						$how_manage=$_GET['how_manage'];
 						$product_category=$_GET['modify_mobile_category'];
 						
-						if($how_manage=="add" && ($product_category=="mobile_phones" || $product_category=="tablets")){
+						if($how_manage=="add" && ($product_category=="Mobile Phones" || $product_category=="Tablets")){
 						?>
 						
 							<form method="POST" action="" enctype="multipart/form-data">

@@ -1,51 +1,104 @@
-div.products_carousel{
-	padding:1em 0 2em 0;
-	/*border-top:solid 1px #bbbdbf;*/
-	width:100%;
-	overflow-x:scroll;
-	white-space: nowrap;
-}
-div.products_carousel>div{
-	display:inline-block;
-	vertical-align:top;
-	width:150px;
-	margin:2em 6em 0 0;
-	position:relative;
-}
-div.products_carousel img{
-	display:block;
-	margin:auto;
-}
-div.products_carousel>div>div{
-	width:100%;
-	/*height:100%;
-	background-color:rgba(0,0,0,0.5);*/
-	position:absolute;
-	top:0;
-	display:none;
-}
-div.products_carousel>a:first-child{
-	display:block;
-	text-transform:uppercase;
-	text-decoration:none;
-	color:#6d6e71;
-	font-size:1.2em;
-	transition:color 0.3s;
-}
-div.products_carousel div div a{
-	white-space:normal;
-	box-sizing:border-box;
-	width:100%;
-	text-decoration:none;
-	color:#fff;
-	padding:0.5em;
-	text-align:center;
-	background-color:#FF6602;
-	position:absolute;
-}
-/*div.products_carousel div a:last-child{
-	bottom:0;
-}*/
-div.products_carousel>a:hover{
-	color:#FF6602;
-}
+if($modify_mobile_category=="Mobile Phones" || $modify_mobile_category=="Tablets"){
+				?>	
+						<form method="POST" action="" enctype="multipart/form-data">
+							<h3>Add <?php echo $modify_mobile_category; ?> to Database</h3>
+							<?php include("dashboard_modify_handler.php");?>
+							<table>
+								<tr>
+									<td>Choose Brand :</td>
+									<td>
+										<select name="brand">
+											<option value="Samsung">Samsung</option>
+											<option value="Apple">Apple</option>
+											<option value="HTC">HTC</option>
+											<option value="LG">LG</option>
+											<option value="Other">Other</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Name :</td>
+									<td><input type="text" name="name"/></td>
+								</tr>
+								<tr>
+									<td>Price(Rf) :</td>
+									<td><input type="text" name="price"/></td>
+								</tr>
+								<tr>
+									<td>Description :</td>
+									<td><textarea name="desc"></textarea></td>
+								</tr>
+								<tr>
+									<td>Specifications :</td>
+									<td><textarea name="specs"></textarea></td>
+								</tr>
+								<tr>
+									<td>Image Thumbnail :</td>
+									<td>
+										<input type="file" name="image_thumbnail"/>
+									</td>
+								</tr>
+								<tr>
+									<td>Images for Product Slideshow :</td>
+									<td>
+										<input type="file" name="product_slide_1"/><br />
+										<input type="file" name="product_slide_2"/><br />
+										<input type="file" name="product_slide_3"/>
+									</td>
+								</tr>
+							</table>
+							<input type="hidden" name="add_what" value="<?php echo $modify_mobile_category ?>"/>
+							<input type="submit" value="Submit"/>
+						</form>
+				<?php		
+					}elseif($modify_mobile_category=="Mobile Accessories"){
+				?>
+						<form method="POST" action="" enctype="multipart/form-data">
+							<h3>Add Mobile Accessories from Website</h3>
+							<?php include("dashboard_modify_handler.php");?>
+							<table>
+								<tr>
+									<td>Choose Brand :</td>
+									<td>
+										<select name="brand">
+											<option value="Samsung">Samsung</option>
+											<option value="Apple">Apple</option>
+											<option value="HTC">HTC</option>
+											<option value="LG">LG</option>
+											<option value="Other">Other</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Type :</td>
+									<td>
+										<select name="category">
+											<option value="Battery">Battery</option>
+											<option value="Charger">Charger</option>
+											<option value="Headset">Headset</option>
+											<option value="Screen Protection">Screen Protection</option>
+											<option value="Protective Cases">Protective Cases</option>
+											<option value="Other">Other</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>Name :</td>
+									<td><input type="text" name="name"/></td>
+								</tr>
+								<tr>
+									<td>Price(Rf) :</td>
+									<td><input type="text" name="price"/></td>
+								</tr>
+								<tr>
+									<td>Image Thumbnail :</td>
+									<td>
+										<input type="file" name="image_thumbnail"/>
+									</td>
+								</tr>
+							</table>
+							<input type="hidden" name="add_what" value="Mobile Accessories"/>
+							<input type="submit" value="Submit"/>
+						</form>
+				<?php		
+					}
