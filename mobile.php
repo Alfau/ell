@@ -46,8 +46,8 @@
 											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>' height='120'/></a>
 										</div>
 										<div class="carousel_info">
-											<a href=# class="product_name"><?php echo $row_brand['Name'] ?></a><br />
-											<a href=# class="price">Rf. <?php echo $row_brand['Price'] ?></a>
+											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name"><?php echo $row_brand['Name'] ?></a><br />
+											<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a>
 										</div>
 									</div>
 									<?php
