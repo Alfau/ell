@@ -16,9 +16,9 @@
 				?>
 				
 					<div class="manage_options">
-						<h3>Would you like to :</h3>
-						<p><a href="dashboard_modify_mobile.php?how_manage=add">Add Mobile Products</a></p>
-						<p><a href="dashboard_modify_mobile.php?how_manage=remove">Remove Mobile Products</a></p>
+						<h4>Would you like to :</h4>
+						<p><a href="dashboard_modify_mobile.php?how_manage=add"><span>&nbsp;</span>Add Mobile Products</a></p>
+						<p><a href="dashboard_modify_mobile.php?how_manage=remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
 					</div>
 					
 				<?php
@@ -29,10 +29,10 @@
 					?>
 					
 						<div class="manage_category">
-							<h3>Choose a product category :</h3>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Phones">Mobile Phones</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Tablets">Tablets</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Accessories">Mobile Accessories</a></p>
+							<h4>Choose a product category :</h4>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 						</div>
 						
 						<div id="content"></div>
@@ -41,13 +41,12 @@
 					}else{
 								
 						$how_manage=$_GET['how_manage'];
-						$product_category=$_GET['modify_mobile_category'];
+						$modify_mobile_category=$_GET['modify_mobile_category'];
 						
-						if($how_manage=="add" && ($product_category=="Mobile Phones" || $product_category=="Tablets")){
+						if($how_manage=="add" && ($modify_mobile_category=="Mobile Phones" || $modify_mobile_category=="Tablets")){
 						?>
-						
+							<h4>Add <?php echo $modify_mobile_category; ?> to Database</h4>
 							<form method="POST" action="" enctype="multipart/form-data">
-								<h3>Add <?php echo $modify_mobile_category; ?> to Database</h3>
 								<?php include("dashboard_modify_handler.php");?>
 								<table>
 									<tr>
@@ -96,7 +95,15 @@
 								<input type="hidden" name="add_what" value="<?php echo $modify_mobile_category ?>"/>
 								<input type="submit" value="Submit"/>
 							</form>
-						
+							<!--<div>
+								<h3>Useful Tips</h3>
+								<ul>
+									<li>When writing the product name include the brand name along with it. <i>For example</i> : If you're adding an HTC OneX to the database, write <b>HTC OneX</b> instead of just OneX </li>
+									<li>No need to include currency indicator when writing the price. <i>For example</i> : Just write <b>12000</b> instead of Rf. 3000</li>
+									<li>Remember that <i>Description</i> and <i>Specifications</i> are two different things and should be written accordingly.</li>
+									<li>The thumbnail image should not have a width greater than its height. This is to ensure that an important part of the photo is not lost during processing.</li>
+								</ul>
+							</div>-->
 						<?php	
 						}
 							
