@@ -44,11 +44,26 @@ input[type=submit]{
 	background:none;
 	color:#bd1e2d;
 }
+a{
+	text-decoration:none;
+}
+.product_name{
+	font-size:1.3em;
+	color:#FF6602;
+}
+.price{
+	font-size:1.2em;
+	color:#6D6E71;
+}
 /*---------------------------------*/
 header{
 	padding-top:4em;
 	width:90%;
 	margin:auto;
+}
+img#logo{
+	float:left;
+	width:200px;
 }
 div#loading_bar{
 	z-index:100;
@@ -60,6 +75,7 @@ div#loading_bar{
 	margin-bottom:2em;
 	background-color:#FF6602;
 }
+/*------------------------------------*/
 div#content_small{
 	padding: 2em 0 3em 0;
 	max-width:60%;
@@ -75,14 +91,6 @@ div#content p{
 div#content ul{
 	list-style:none;
 }
-.price{
-	font-size:1.2em;
-}
-/*--------------------------------*/
-img#logo{
-	float:left;
-	width:200px;
-}
 /*--------------------------------*/
 nav#main{
 	text-align:center;
@@ -93,7 +101,6 @@ nav#main li, nav#side li{
 	display:inline-block;
 }
 nav#main a{
-	text-decoration:none;
 	color:#6d6e71;
 	margin-right:4em;
 	border:solid 1px #bbbdbf;
@@ -113,7 +120,6 @@ nav#side{
 	text-align:right;
 }
 nav#side a{
-	text-decoration:none;
 	color:#6d6e71;
 	font-size:0.8em;
 	transition:color 0.2s;
@@ -215,7 +221,6 @@ div.products_carousel{
 div.products_carousel>a:first-child{
 	display:block;
 	text-transform:uppercase;
-	text-decoration:none;
 	color:#6d6e71;
 	font-size:1.2em;
 	transition:color 0.3s;
@@ -233,16 +238,6 @@ div.products_carousel img{
 	display:block;
 	margin:auto;
 }
-/*div.products_carousel a.see_more{
-	background-color:#FF6602;
-	color:#fff;
-	text-decoration:none;
-	text-transform:uppercase;
-	padding:0.5em 1em;
-	display:block;
-	text-align:center;
-	margin-top:1em;
-}*/
 div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 	display:inline-block;
 	vertical-align:top;
@@ -259,15 +254,12 @@ div.products_carousel div h3{
 	color:#FF6602;
 }
 /*--------------------------------*/
-div#products_by_brand div{
+div#products_by_brand>div{
 	display:inline-block;
+	margin:2em 6em 2em 0;
 }
-div#products_by_brand a{
-	text-decoration:none;
-	color:#6D6E71;
-}
-div#products_by_brand h2{
-	color:#FF6602;
+div#products_by_brand div div{
+	margin-top:1em;
 }
 /*----------------------------------*/
 nav#main_sub{
@@ -278,7 +270,6 @@ nav#main_sub li{
 }
 nav#main_sub a{
 	text-transform:uppercase;
-	text-decoration:none;
 	color:#6D6E71;
 	margin-right:4em;
 	transition:color 0.2s;
