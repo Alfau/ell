@@ -1,9 +1,13 @@
+@font-face{
+	font-family:"Lintel";
+	src:url("Lintel-Regular.woff") format("woff"),url("Lintel-Regular.otf") format("opentype");
+}
 *{
 	margin:0;
 	padding:0;
 }
 html{
-	font-family: Lintel,'Open Sans', sans-serif;
+	font-family: "Lintel","Open Sans", sans-serif;
 	background:-moz-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	background:-o-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	background:-webkit-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
@@ -199,7 +203,7 @@ div#slideshow_controls span{
 	margin-right:1em;
 	width:10px;
 	height:10px;
-	transition:background-color 0.5s,padding 0.5s;
+	transition:background-color 0.3s,padding 0.3s;
 	cursor:pointer;
 }
 div#slideshow_controls>span>span.active{
@@ -210,6 +214,9 @@ div#slideshow_controls>span.outside{
 }
 div#slideshow_controls>span.active{
 	padding:2px;
+}
+div#slideshow_controls>span:hover{
+	background-color:#fff;
 }
 /*--------------------------------*/
 div.products_carousel{

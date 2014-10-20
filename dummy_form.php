@@ -49,3 +49,5 @@ div.products_carousel div div a{
 div.products_carousel>a:hover{
 	color:#FF6602;
 }
+
+$con=mysqli_connect("localhost","vulcan8_llama","thellama","vulcan8_ell");
