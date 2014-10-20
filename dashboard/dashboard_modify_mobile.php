@@ -44,10 +44,6 @@
 						</div>
 					
 				<?php	
-					//the problems as of now
-					// - div#content is not added via ajax for some reason
-					// - the second js function is wrong because it tries to add everything in main when it just needs to add the form
-					// - also theres some ugly code in there
 					}else{
 						
 						?>
@@ -68,7 +64,7 @@
 						?>
 							<div id="content">
 							<h4>Add <?php echo $modify_mobile_category; ?> to Database</h4>
-							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_mobile_category=Mobile Phones" enctype="multipart/form-data">
+							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_mobile_category=<?php echo $modify_mobile_category; ?>" enctype="multipart/form-data">
 								<?php include("dashboard_modify_handler.php");?>
 								<table>
 									<tr>
@@ -117,16 +113,7 @@
 								<input type="hidden" name="add_what" value="<?php echo $modify_mobile_category ?>"/>
 								<input type="submit" value="Submit"/>
 							</form>
-							</div>	
-							<!--<div>
-								<h3>Useful Tips</h3>
-								<ul>
-									<li>When writing the product name include the brand name along with it. <i>For example</i> : If you're adding an HTC OneX to the database, write <b>HTC OneX</b> instead of just OneX </li>
-									<li>No need to include currency indicator when writing the price. <i>For example</i> : Just write <b>12000</b> instead of Rf. 3000</li>
-									<li>Remember that <i>Description</i> and <i>Specifications</i> are two different things and should be written accordingly.</li>
-									<li>The thumbnail image should not have a width greater than its height. This is to ensure that an important part of the photo is not lost during processing.</li>
-								</ul>
-							</div>-->
+							</div>
 						<?php	
 						}elseif($modify_mobile_category=="Mobile Accessories"){
 				?>		<div id="content">
@@ -185,7 +172,6 @@
 							
 				}
 				?>
-			
 		</main>
 	</body>
 </html>

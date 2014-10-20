@@ -12,9 +12,9 @@
 		
 		<main>
 			<div id="content">
-				<h3>Modify About Us page</h3>
+				<h4>Modify About Us page</h4>
 				<?php
-				include("connection.php");
+				include("../connection.php");
 				
 				if(isset($_POST['about'])){
 					$about=$_POST['about'];

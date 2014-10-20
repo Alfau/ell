@@ -6,7 +6,7 @@ $(document).ready(function(){
 		var url=$(this).prop("href");
 		var how_manage=url.split("=")[1];
 		
-		$.get("dashboard_modify_mobile.php",{how_manage:how_manage},function(data){
+		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
 			var content=$(data).find("div.manage_category").html();
 			$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
 			//$("div.manage_category").after("<div id='content'></div>");
@@ -19,9 +19,10 @@ $(document).ready(function(){
 		var url=$(this).prop("href");
 		
 		var how_manage=(url.split("=")[1]).split("&")[0];
-		var modify_mobile_category=(url.split("=")[2]).replace("%20"," ");
+		var category_name=(url.split("=")[1]).split("&")[1];
+		var category_value=(url.split("=")[2]).replace("%20"," ");
 		
-		$.get("dashboard_modify_mobile.php",{how_manage:how_manage,modify_mobile_category:modify_mobile_category},function(data){
+		$.get(url.split("?")[0],{how_manage:how_manage,category_name:category_value},function(data){
 			var content=$(data).find("div#content").html();
 			$("div.manage_category").after("<div id='content'>"+content+"</div>");
 		});
