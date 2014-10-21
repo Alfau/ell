@@ -3,7 +3,7 @@
 	<head>
 		<title>Administrator Dashboard</title>
 		<link rel="stylesheet" type="text/css" href="dashboard_style.css"/>
-		<script src="/ell/jquery-1.11.1.min.js"></script>
+		<script src="../jquery-1.11.1.min.js"></script>
 		<script src="dashboard_script.js"></script>
 	</head>
 	<body>
@@ -33,14 +33,14 @@
 						</div>
 					<?php
 					
-					if(!isset($_GET['modify_mobile_category'])){
+					if(!isset($_GET['modify_category'])){
 					?>
 					
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 						</div>
 					
 				<?php	
@@ -50,21 +50,21 @@
 						
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_mobile_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 						</div>
 						
 						<?php
 								
 						$how_manage=$_GET['how_manage'];
-						$modify_mobile_category=$_GET['modify_mobile_category'];
+						$modify_category=$_GET['modify_category'];
 						
-						if($how_manage=="add" && ($modify_mobile_category=="Mobile Phones" || $modify_mobile_category=="Tablets")){
+						if($how_manage=="add" && ($modify_category=="Mobile Phones" || $modify_category=="Tablets")){
 						?>
 							<div id="content">
-							<h4>Add <?php echo $modify_mobile_category; ?> to Database</h4>
-							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_mobile_category=<?php echo $modify_mobile_category; ?>" enctype="multipart/form-data">
+							<h4>Add <?php echo $modify_category; ?> to Database</h4>
+							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
 								<?php include("dashboard_modify_handler.php");?>
 								<table>
 									<tr>
@@ -110,12 +110,12 @@
 										</td>
 									</tr>
 								</table>
-								<input type="hidden" name="add_what" value="<?php echo $modify_mobile_category ?>"/>
+								<input type="hidden" name="add_what" value="<?php echo $modify_category ?>"/>
 								<input type="submit" value="Submit"/>
 							</form>
 							</div>
 						<?php	
-						}elseif($modify_mobile_category=="Mobile Accessories"){
+						}elseif($modify_category=="Mobile Accessories"){
 				?>		<div id="content">
 						<form method="POST" action="" enctype="multipart/form-data">
 							<h4>Add Mobile Accessories from Website</h4>

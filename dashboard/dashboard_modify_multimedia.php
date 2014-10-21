@@ -34,14 +34,14 @@
 					</div>
 				<?php
 				
-				if(!isset($_GET['modify_multimedia_category'])){
+				if(!isset($_GET['modify_category'])){
 				?>
 				
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=TV"><span>&nbsp;</span>TV</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=Audio"><span>&nbsp;</span>Audio</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=Video"><span>&nbsp;</span>Video</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
 					</div>
 			<?php
 				}else{
@@ -49,21 +49,21 @@
 					?>	
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=TV"><span>&nbsp;</span>TV</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=Audio"><span>&nbsp;</span>Audio</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_multimedia_category=Video"><span>&nbsp;</span>Video</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
 					</div>
 			
 			<div id="content">
 				<?php
-					if(isset($_GET['modify_multimedia_category'])){
-						$modify_multimedia_category=$_GET['modify_multimedia_category'];
+					if(isset($_GET['modify_category'])){
+						$modify_category=$_GET['modify_category'];
 					}else{
-						$modify_multimedia_category="TV";
+						$modify_category="TV";
 					}
 				?>
-				<form method="POST" action="dashboard_modify_multimedia.php?how_manage=add&modify_multimedia_category=<?php echo $modify_multimedia_category; ?>" enctype="multipart/form-data">
-					<h4>Add <?php echo $modify_multimedia_category; ?> to Database</h4>
+				<form method="POST" action="dashboard_modify_multimedia.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
+					<h4>Add <?php echo $modify_category; ?> to Database</h4>
 					<?php include("dashboard_modify_handler.php");?>
 					<table>
 						<tr>
@@ -108,7 +108,7 @@
 							</td>
 						</tr>
 					</table>
-					<input type="hidden" name="add_what" value="<?php echo $modify_multimedia_category ?>"/>
+					<input type="hidden" name="add_what" value="<?php echo $modify_category ?>"/>
 					<input type="submit" value="Submit"/>
 				</form>
 			</div>	

@@ -1,31 +1,39 @@
 $(document).ready(function(){
-	
-	$(document).on("click","div.manage_options a",function(e){
-		$("div.manage_options a").removeClass("active");
-		$(this).addClass("active");
-		var url=$(this).prop("href");
-		var how_manage=url.split("=")[1];
-		
-		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
-			var content=$(data).find("div.manage_category").html();
-			$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
-			//$("div.manage_category").after("<div id='content'></div>");
-		});
-		e.preventDefault();
-	});
-	$(document).on("click","div.manage_category a",function(e){
-		$("div.manage_category a").removeClass("active");
-		$(this).addClass("active");
-		var url=$(this).prop("href");
-		
-		var how_manage=(url.split("=")[1]).split("&")[0];
-		var category_name=(url.split("=")[1]).split("&")[1];
-		var category_value=(url.split("=")[2]).replace("%20"," ");
-		
-		$.get(url.split("?")[0],{how_manage:how_manage,category_name:category_value},function(data){
-			var content=$(data).find("div#content").html();
-			$("div.manage_category").after("<div id='content'>"+content+"</div>");
-		});
+	$(document).on("click","div.manage_category a,div.manage_options a",function(e){
+		anchor=$(this);
+		manage_products();
 		e.preventDefault();
 	});
 });
+function manage_products(){
+	$(anchor).closest("div").find("a").removeClass("active");
+	$(anchor).addClass("active");
+	
+	var parent=$(anchor).closest("div");
+	
+	var url=$(anchor).prop("href");
+	
+	if($(parent).hasClass("manage_options")){
+		var how_manage=url.split("=")[1];	
+		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
+			var content=$(data).find("div.manage_category").html();
+			if($("div.manage_category").length){
+				$("div.manage_options").html(content);
+			}else{
+				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
+			}
+		});
+		
+	}else{
+		var how_manage=(url.split("=")[1]).split("&")[0];
+		var category_value=(url.split("=")[2]).replace("%20"," ");
+		$.get(url.split("?")[0],{how_manage:how_manage,modify_category:category_value},function(data){
+			var content=$(data).find("div#content").html();
+			if($("div#content").length){
+				$("div#content").html(content);
+			}else{
+				$("div.manage_category").after("<div id='content'>"+content+"</div>");  //ugly code so change
+			}
+		});
+	}
+}
