@@ -146,6 +146,13 @@ function goToURL(){
 			$("main").html(content);
 		});
 	});
+};
+
+function scrollbar(){
+	$("div.products_carousel").perfectScrollbar({
+		suppressScrollY:true
+	});
+
 }
 
 function initialize(){

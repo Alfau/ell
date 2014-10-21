@@ -1,32 +1,39 @@
 $(document).ready(function(){
-	$("aside ul li a").click(function(){
-		$(this).siblings("ul").slideToggle();
-	});
-	
-	/*$("aside li li a").click(function(){
-		var modify=$(this).prop("class");
-		$.post("dashboard_modify_forms.php",{modify:modify},function(data){
-			$("main").html(data);
-		});
-	});*/
-	
-	/*$("main").on("submit","form",function(e){
+	$(document).on("click","div.manage_category a,div.manage_options a",function(e){
+		anchor=$(this);
+		manage_products();
 		e.preventDefault();
-		
-		var add_what=$("input[name='add_what']").val();
-		var brand=$("select[name='brand']").val();
-		var name=$("input[name='name']").val();
-		var price=$("input[name='price']").val();
-
-		if(add_what=="add_mobile_accessories"){
-			var type=$("select[name='type']").val();
-			$.post("dashboard_modify_handler.php",{add_what:add_what,brand:brand,type:type,name:name,price:price},function(data){
-				$("span.status").html(data);
-			});
-		}else{
-			$.post("dashboard_modify_handler.php",{add_what:add_what,brand:brand,name:name,price:price},function(data){
-				$("span.status").html(data);
-			});
-		}
-	});*/
+	});
 });
+function manage_products(){
+	$(anchor).closest("div").find("a").removeClass("active");
+	$(anchor).addClass("active");
+	
+	var parent=$(anchor).closest("div");
+	
+	var url=$(anchor).prop("href");
+	
+	if($(parent).hasClass("manage_options")){
+		var how_manage=url.split("=")[1];	
+		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
+			var content=$(data).find("div.manage_category").html();
+			if($("div.manage_category").length){
+				$("div.manage_options").html(content);
+			}else{
+				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
+			}
+		});
+		
+	}else{
+		var how_manage=(url.split("=")[1]).split("&")[0];
+		var category_value=(url.split("=")[2]).replace("%20"," ");
+		$.get(url.split("?")[0],{how_manage:how_manage,modify_category:category_value},function(data){
+			var content=$(data).find("div#content").html();
+			if($("div#content").length){
+				$("div#content").html(content);
+			}else{
+				$("div.manage_category").after("<div id='content'>"+content+"</div>");  //ugly code so change
+			}
+		});
+	}
+}

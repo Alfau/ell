@@ -11,23 +11,59 @@
 		<?php include("dashboard_nav.php"); ?>
 		
 		<main>
-			<div id="content">
-				<div id="dashboard_modify_sub_nav">
-					<ul>
-						<li><a href="dashboard_modify_multimedia.php?modify_multimedia_category=TV">TV</a></li>
-						<li><a href="dashboard_modify_multimedia.php?modify_multimedia_category=Audio">Audio</a></li>
-						<li><a href="dashboard_modify_multimedia.php?modify_multimedia_category=Video">Video</a></li>
-					</ul>
+						
+		<?php
+			if(!isset($_GET['how_manage'])){
+			?>
+			
+				<div class="manage_options">
+					<h4>Would you like to :</h4>
+					<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+					<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
 				</div>
+				
+			<?php
+				
+			}else{
+				
+				?>
+					<div class="manage_options">
+						<h4>Would you like to :</h4>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+					</div>
 				<?php
-					if(isset($_GET['modify_multimedia_category'])){
-						$modify_multimedia_category=$_GET['modify_multimedia_category'];
+				
+				if(!isset($_GET['modify_category'])){
+				?>
+				
+					<div class="manage_category">
+						<h4>Choose a product category :</h4>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+					</div>
+			<?php
+				}else{
+					
+					?>	
+					<div class="manage_category">
+						<h4>Choose a product category :</h4>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+					</div>
+			
+			<div id="content">
+				<?php
+					if(isset($_GET['modify_category'])){
+						$modify_category=$_GET['modify_category'];
 					}else{
-						$modify_multimedia_category="TV";
+						$modify_category="TV";
 					}
 				?>
-				<form method="POST" action="" enctype="multipart/form-data">
-					<h3>Add <?php echo $modify_multimedia_category; ?> to Database</h3>
+				<form method="POST" action="dashboard_modify_multimedia.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
+					<h4>Add <?php echo $modify_category; ?> to Database</h4>
 					<?php include("dashboard_modify_handler.php");?>
 					<table>
 						<tr>
@@ -72,10 +108,14 @@
 							</td>
 						</tr>
 					</table>
-					<input type="hidden" name="add_what" value="<?php echo $modify_multimedia_category ?>"/>
+					<input type="hidden" name="add_what" value="<?php echo $modify_category ?>"/>
 					<input type="submit" value="Submit"/>
 				</form>
 			</div>	
+			<?php
+				}
+			}
+			?>
 		</main>
 	</body>
 </html>
