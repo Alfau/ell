@@ -15,7 +15,8 @@
 					<?php
 						include("connection.php");
 						
-						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
+						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
+						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result)){
 							?>

@@ -13,11 +13,23 @@
 				<?php
 					include("connection.php");
 					
-					$query="SELECT Text FROM about";
+					$query="SELECT * FROM about";
 					$result=mysqli_query($con,$query);
 					
 					while($row=mysqli_fetch_array($result)){
-						echo $row['Text'];
+						echo nl2br($row['Text'])."<br />";
+						
+						$img_links=trim($row['Image']);
+						$img_links=explode(" ",$img_links);
+						?>
+						<div id="about_img">
+						<?php
+						foreach($img_links as $link){
+							echo "<img src='$link' height='100'/>";
+						}
+						?>
+						</div>
+						<?php
 					}
 				?>
 			</div>

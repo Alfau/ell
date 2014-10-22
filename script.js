@@ -69,7 +69,7 @@ function triggerSlide(){
 		$("div#slides div:first-child").addClass("active");
 	}
 	
-	var slide_width=$("div#slideshow,div#slideshow_see_more").width();
+	var slide_width=$("div#slideshow").width();
 	var current_active=$("div#slides div.active");
 	var which_slide=$(current_active).index();
 	

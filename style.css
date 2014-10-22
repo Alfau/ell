@@ -317,6 +317,13 @@ div#contact_left img,div#contact_left div{
 	margin:0 2em 2em 0;
 }
 /*--------------------------------*/
+div#about_img{
+	margin-top:5em;
+}
+div#about_img img{
+	margin-right:6em;
+}
+/*--------------------------------*/
 div#see_more h2{
 	color:#FF6602
 }
