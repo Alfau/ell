@@ -49,8 +49,8 @@
 					}
 				}
 				
-					$query=mysqli_query($con,"SELECT * FROM about");
-					while($row=mysqli_fetch_array($query)){
+					$about_query=mysqli_query($con,"SELECT * FROM about");
+					while($row=mysqli_fetch_array($about_query)){
 						?>
 						<form action="" method="POST" enctype="multipart/form-data">
 							<table>
