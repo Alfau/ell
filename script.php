@@ -163,25 +163,37 @@ function initialize(){
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
-    
-      var marker = new google.maps.Marker({
-	      position: new google.maps.LatLng(4.174885, 73.513231),
-	      map: map,
-	      title: 'Ell Mobile'
-	  });
-	  var marker = new google.maps.Marker({
-	      position: new google.maps.LatLng(4.174899, 73.513258),
-	      map: map,
-	      title: 'Ell Mobile 2'
-	  });
-	  var marker = new google.maps.Marker({
-	      position: new google.maps.LatLng(4.175779, 73.503657),
-	      map: map,
-	      title: 'Ell Mobile 3'
-	  });
-	  var marker = new google.maps.Marker({
-	      position: new google.maps.LatLng(4.178260, 73.509377),
-	      map: map,
-	      title: 'Ell Mobile 4'
-	  });
+      <?php
+      	include("connection.php");
+      	
+      	$query="SELECT * FROM locations";
+      	$result=mysqli_query($con,$query);
+      	
+      	while($row=mysqli_fetch_array($result)){
+      		?>
+      		
+		      var marker = new google.maps.Marker({
+			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
+			      map: map,
+			      title: "<?php echo $row['Name'] ?>"
+			  });
+			  var marker = new google.maps.Marker({
+			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
+			      map: map,
+			      title: "<?php echo $row['Name'] ?>"
+			  });
+			  var marker = new google.maps.Marker({
+			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
+			      map: map,
+			      title: "<?php echo $row['Name'] ?>"
+			  });
+			  var marker = new google.maps.Marker({
+			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
+			      map: map,
+			      title: "<?php echo $row['Name'] ?>"
+			  });
+      		
+      		<?php
+      	}
+      ?>
 }

@@ -65,7 +65,7 @@
 							<div id="content">
 							<h4>Add <?php echo $modify_category; ?> to Database</h4>
 							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
-								<?php include("dashboard_modify_handler.php");?>
+								<?php include("dashboard_manage_products_handler.php");?>
 								<table>
 									<tr>
 										<td>Choose Brand :</td>
@@ -119,7 +119,7 @@
 				?>		<div id="content">
 						<form method="POST" action="" enctype="multipart/form-data">
 							<h4>Add Mobile Accessories from Website</h4>
-							<?php include("dashboard_modify_handler.php");?>
+							<?php include("dashboard_manage_products_handler.php");?>
 							<table>
 								<tr>
 									<td>Choose Brand :</td>

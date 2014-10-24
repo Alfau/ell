@@ -16,17 +16,25 @@
 				<?php
 				include("../connection.php");
 				if(isset($_POST['about'])){
-					mysqli_query($con,"UPDATE about SET Image=''");
-					for($x=1;$x<=3;$x++){
-						$temp_filename=$_FILES['about_img_'.$x]['tmp_name'];
-						$original_filename=$_FILES['about_img_'.$x]['name'];
-						$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-						$destination="../page_images/".$new_filename;
-						$image_path="page_images/".$new_filename;
-						move_uploaded_file($temp_filename, $destination);
-						$query_about_img="UPDATE about SET Image = CONCAT(Image,' ','$image_path') ";
-						if(!mysqli_query($con,$query_about_img)){
-							echo "<p class='failed'>Submission Failed. Please try again.</p>";//replace with more accurate status later
+					//mysqli_query($con,"UPDATE about SET Image=''");
+					
+					if($_FILES['about_img']['size']!==0){
+						for($x=1;$x<=3;$x++){
+							$temp_filename=$_FILES['about_img_'.$x]['tmp_name'];
+							$original_filename=$_FILES['about_img_'.$x]['name'];
+							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
+							$destination="../page_images/".$new_filename;
+							$image_path="page_images/".$new_filename;
+							if(move_uploaded_file($temp_filename, $destination)){
+								$result=mysqli_query($con,"SELECT Image FROM about");
+								$old_i=mysqli_fetch_array($result);
+								unlink("../".$old_slide['Slide']);
+							}
+							
+							/*$query_about_img="UPDATE about SET Image = CONCAT(Image,' ','$image_path') ";
+							if(!mysqli_query($con,$query_about_img)){
+								echo "<p class='failed'>Submission Failed. Please try again.</p>";//replace with more accurate status later
+							}*/
 						}
 					}
 					
@@ -46,18 +54,14 @@
 						<form action="" method="POST" enctype="multipart/form-data">
 							<table>
 								<tr>
+									<td>Text :</td>
 									<td><textarea name="about" rows="10" cols="100"><?php echo $row['Text'] ?></textarea></td>
 								</tr>
 								<tr>
-									<td><input type="file" name="about_img_1"/></td>
+									<td>Images* :</td>
+									<td><input type='file' name='about_img' multiple/><p style='font-size:0.8em;color:#888'>* Upto 5 images allowed!</p></td>
 								</tr>
-								<tr>
-									<td><input type="file" name="about_img_2"/></td>
-								</tr>
-								<tr>
-									<td><input type="file" name="about_img_3"/></td>
-								</tr>
-							</table>	
+							</table>
 							<input type="submit"/>
 						</form>
 						

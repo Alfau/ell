@@ -9,8 +9,8 @@ if(isset($_POST['add_what'])){
 	$temp_filename=$_FILES['image_thumbnail']['tmp_name'];
 	$original_filename=$_FILES['image_thumbnail']['name'];
 	$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-	$destination="../image_thumbnails/".$new_filename;
-	$image_path="image_thumbnails/".$new_filename;
+	$destination="../product_thumbnails/".$new_filename;
+	$image_path="product_thumbnails/".$new_filename;
 	move_uploaded_file($temp_filename, $destination);
 	
 	if($add_what=="Mobile Phones" || $add_what=="Tablets"){
