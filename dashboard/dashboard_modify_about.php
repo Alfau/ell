@@ -12,43 +12,44 @@
 		
 		<main>
 			<div id="content">
+				<div id="modify_about">
 				<h4>Modify About Us page</h4>
 				<?php
 				include("../connection.php");
 				if(isset($_POST['about'])){
-					//mysqli_query($con,"UPDATE about SET Image=''");
-					
-					if($_FILES['about_img']['size']!==0){
-						for($x=1;$x<=3;$x++){
-							$temp_filename=$_FILES['about_img_'.$x]['tmp_name'];
-							$original_filename=$_FILES['about_img_'.$x]['name'];
+					foreach($_FILES['about_img']['name'] as $index => $value){
+						if($_FILES['about_img']['name'][$index]!=""){
+							$temp_filename=$_FILES['about_img']['tmp_name'][$index];
+							$original_filename=$_FILES['about_img']['name'][$index];
 							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
 							$destination="../page_images/".$new_filename;
 							$image_path="page_images/".$new_filename;
-							if(move_uploaded_file($temp_filename, $destination)){
-								$result=mysqli_query($con,"SELECT Image FROM about");
-								$old_i=mysqli_fetch_array($result);
-								unlink("../".$old_slide['Slide']);
-							}
+							$image_id=$index+1;
 							
-							/*$query_about_img="UPDATE about SET Image = CONCAT(Image,' ','$image_path') ";
-							if(!mysqli_query($con,$query_about_img)){
-								echo "<p class='failed'>Submission Failed. Please try again.</p>";//replace with more accurate status later
-							}*/
+							if(move_uploaded_file($temp_filename, $destination)){
+								$result=mysqli_query($con,"SELECT Images FROM about_img WHERE ID='$image_id'");
+								$old_image=mysqli_fetch_array($result);
+								unlink("../".trim($old_image['Images']));
+								
+								if(!mysqli_query($con,"UPDATE about_img SET Images='$image_path' WHERE ID='$image_id'")){ // merge both queries
+									echo "<p class='failed'>Database Update Failed. Try Again. query</p>";// change to a better message later
+								}
+							}else{
+								echo "<p class='failed'>Database Update Failed. Try Again. move file</p>";// change to a better message later
+							}
 						}
 					}
-					
 					$about=$_POST['about'];
 					$query="UPDATE about SET Text='$about'";
 					
 					if(!mysqli_query($con,$query)){
-						echo "<p class='failed'>Database Update Failed. Try Again.</p>"; // change to a better message later
+						echo "<p class='failed'>Database Update Failed. Try Again.</p>";// change to a better message later
 					}else{
 						echo "<p class='success'>Database successfuly updated!</p>";
 					}
 				}
+				
 					$query=mysqli_query($con,"SELECT * FROM about");
-					
 					while($row=mysqli_fetch_array($query)){
 						?>
 						<form action="" method="POST" enctype="multipart/form-data">
@@ -59,15 +60,26 @@
 								</tr>
 								<tr>
 									<td>Images* :</td>
-									<td><input type='file' name='about_img' multiple/><p style='font-size:0.8em;color:#888'>* Upto 5 images allowed!</p></td>
+									<td>
+									<?php
+									$query="SELECT * FROM about_img";
+									$result=mysqli_query($con,$query);
+									while($row=mysqli_fetch_array($result)){
+										?>
+										<label><img src='../<?php echo $row['Images'] ?>' height='100'/><input type='file' name='about_img[]'/></label>
+										<?php	
+									}
+									?>
+									<p style='font-size:0.8em;color:#888'>* Upto 5 images allowed!</p>
+									</td>
 								</tr>
 							</table>
 							<input type="submit"/>
 						</form>
-						
 						<?php	
 					}
 				?>
+				</div>
 			</div>	
 		</main>
 	</body>

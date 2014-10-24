@@ -55,8 +55,10 @@
 							
 							<?php
 						}
-						
 						?>
+						<tr>
+							<td><a href=# id="add_location">Add another location...</a></td>
+						</tr>
 					</table>
 					<input type="submit"/>
 				</form>

@@ -165,9 +165,10 @@ div.manage_options h4,div.manage_category h4{
 	font-weight:normal;
 }
 /*---------------------------------*/
-div.modify_slide img{
+div.modify_slide img,div#modify_about img{
 	cursor:pointer;
+	margin-right:4em;
 }
-div.modify_slide input[type=file]{
+div.modify_slide input[type=file],div#modify_about input[type=file]{
 	display:none;
 }

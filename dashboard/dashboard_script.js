@@ -45,3 +45,8 @@ function manage_products(){
 		});
 	}
 }
+
+function add_rows(){
+	$(anchor).closest("tr");
+	
+}
