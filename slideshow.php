@@ -5,24 +5,23 @@
 		<span class="outside"><span>&nbsp;</span></span>
 	</div>
 	<div id="slides">
-		<div>
-			<img src="home_slides/slide_6.png" alt="slide1"/>
+		<?php
+		include("connection.php");
+		$query="SELECT * FROM slideshow";
+		$result=mysqli_query($con,$query);
+		while($row=mysqli_fetch_array($result)){
+			?>
+			
 			<div>
-				<h1>Ubuntu Phone</h1>
-				<p>A Peak into the future</p>
+				<img src="<?php echo $row['Slide'] ?>" alt="slide"/>
+				<div>
+					<h1><?php echo $row['Link'] ?></h1>
+					<p><?php echo $row['Description'] ?></p>
+				</div>
 			</div>
-		</div><div>
-			<img src="home_slides/slide_5.png" alt="slide2"/>
-			<div>
-				<h1>Ubuntu Phone</h1>
-				<p>A Peak into the future</p>
-			</div>
-		</div><div>
-			<img src="home_slides/slide_4.png" alt="slide3"/>
-			<div>
-				<h1>Ubuntu Phone</h1>
-				<p>A Peak into the future</p>
-			</div>
-		</div>
+			<?php
+		}
+		
+		?>
 	</div>
 </div>

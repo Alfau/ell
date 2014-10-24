@@ -11,9 +11,9 @@
 		<li><a href=#>Manage Page</a>
 			<ul>
 				<li><a href=#>Ell Recommended Products</a></li>
-				<li><a href=#>Home Page Slideshow</a></li>
-				<li><a href="dashboard_modify_about.php">About Page</a></li>
-				<li><a href=#>Locations Page</a></li>
+				<li><a href="dashboard_modify_slideshow.php">Slideshow</a></li>
+				<li><a href="dashboard_modify_about.php">About</a></li>
+				<li><a href=#>Locations</a></li>
 			</ul>
 		</li>
 	</ul>

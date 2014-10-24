@@ -13,10 +13,10 @@
 				<div class="products_carousel">
 					<h3>LATEST RELEASES</h3>
 					<?php
-						include("connection.php");
+						//include("connection.php");
 						
 						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
-						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
+						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products LIMIT 0,2";
 						$result=mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result)){
 							?>

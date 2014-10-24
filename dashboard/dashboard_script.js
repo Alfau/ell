@@ -4,6 +4,14 @@ $(document).ready(function(){
 		manage_products();
 		e.preventDefault();
 	});
+	
+	/*$(document).on("submit","form#modify_slide",function(){
+		var form_data=$(this).serialize();
+		$.post("dashboard_manage_page_handler.php",{form_data},function(data){
+			
+		});
+	});*/
+	
 });
 function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
