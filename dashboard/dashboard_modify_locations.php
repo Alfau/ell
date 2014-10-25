@@ -13,7 +13,6 @@
 		<main>
 			<div>
 				<h4>Modify Locations</h4>
-				
 				<?php
 				include("../connection.php");
 				
