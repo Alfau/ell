@@ -81,7 +81,7 @@
 				?>
 			</div>
 			<div>
-				<h4>Add Image to About Page</h4>
+				<h4>Add Image to Page</h4>
 				<?php
 				if(isset($_POST['add_img'])){
 					if($_FILES['about_img']['size']!==0){
@@ -91,11 +91,19 @@
 						$destination="../page_images/".$new_filename;
 						$image_path="page_images/".$new_filename;
 						
-						if(move_uploaded_file($temp_filename, $destination)){
-							if(!mysqli_query($con,"INSERT INTO about_img(Images) VALUES('$image_path')")){
-								echo "<p class='failed'>Submission Failed. Try Again.</p>";// change to a better message later
-							}else{
-								echo "<p class='success'>Image upload successfull!</p>";
+						$query="SELECT ID FROM about_img";
+						$result=mysqli_query($con,$query);
+						$count=mysqli_num_rows($result);
+						
+						if($count>=5){
+							echo "<p class='failed'>You have reached the limit of 5 images allowed for the page.</p>";
+						}else{
+							if(move_uploaded_file($temp_filename, $destination)){
+								if(!mysqli_query($con,"INSERT INTO about_img(Images) VALUES('$image_path')")){
+									echo "<p class='failed'>Submission Failed. Try Again.</p>";// change to a better message later
+								}else{
+									echo "<p class='success'>Image upload successfull!</p>";
+								}
 							}
 						}
 					}
