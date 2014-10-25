@@ -171,7 +171,7 @@ div.manage_options h4,div.manage_category h4{
 	font-weight:normal;
 }
 /*---------------------------------*/
-div.modify_slide img,div#modify_about img{
+div.modify_slide label,div#modify_about label{
 	cursor:pointer;
 	margin-right:4em;
 }

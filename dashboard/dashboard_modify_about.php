@@ -63,7 +63,10 @@
 									$result=mysqli_query($con,$query);
 									while($row=mysqli_fetch_array($result)){
 										?>
-										<label><img src='../<?php echo $row['Images'] ?>' height='100'/><input type='file' name='about_img[]'/></label>
+										<label>
+											<img src='../<?php echo $row['Images'] ?>' height='100'/>
+											<input type='file' name='about_img[]'/>
+										</label>
 										<?php	
 									}
 									?>
@@ -71,11 +74,44 @@
 									</td>
 								</tr>
 							</table>
-							<input type="submit"/>
+							<input type="submit" value="Update"/>
 						</form>
 						<?php	
 					}
 				?>
+			</div>
+			<div>
+				<h4>Add Image to About Page</h4>
+				<?php
+				if(isset($_POST['add_img'])){
+					if($_FILES['about_img']['size']!==0){
+						$temp_filename=$_FILES['about_img']['tmp_name'];
+						$original_filename=$_FILES['about_img']['name'];
+						$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
+						$destination="../page_images/".$new_filename;
+						$image_path="page_images/".$new_filename;
+						
+						if(move_uploaded_file($temp_filename, $destination)){
+							if(!mysqli_query($con,"INSERT INTO about_img(Images) VALUES('$image_path')")){
+								echo "<p class='failed'>Submission Failed. Try Again.</p>";// change to a better message later
+							}else{
+								echo "<p class='success'>Image upload successfull!</p>";
+							}
+						}
+					}
+				}
+				?>
+				<form method="POST" action="" enctype="multipart/form-data">
+					<table>
+						<tr>
+							<td>
+								<input type="file" name="about_img"/>
+								<input type="hidden" name="add_img"/>
+							</td>
+						</tr>
+					</table>
+					<input type="submit"/>
+				</form>
 			</div>
 		</main>
 	</body>
