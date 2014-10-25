@@ -11,8 +11,7 @@
 		<?php include("dashboard_nav.php"); ?>
 		
 		<main>
-			<div id="content">
-				<div id="modify_about">
+			<div id="modify_about">
 				<h4>Modify About Us page</h4>
 				<?php
 				include("../connection.php");
@@ -32,10 +31,8 @@
 								unlink("../".trim($old_image['Images']));
 								
 								if(!mysqli_query($con,"UPDATE about_img SET Images='$image_path' WHERE ID='$image_id'")){ // merge both queries
-									echo "<p class='failed'>Database Update Failed. Try Again. query</p>";// change to a better message later
+									echo "<p class='failed'>Database Update Failed. Try Again.</p>";// change to a better message later
 								}
-							}else{
-								echo "<p class='failed'>Database Update Failed. Try Again. move file</p>";// change to a better message later
 							}
 						}
 					}
@@ -79,8 +76,7 @@
 						<?php	
 					}
 				?>
-				</div>
-			</div>	
+			</div>
 		</main>
 	</body>
 </html>

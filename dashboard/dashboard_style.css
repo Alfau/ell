@@ -112,26 +112,32 @@ main{
 	width:73%;
 	box-sizing:border-box;
 	font-size:0.95em;
+	padding-bottom:2em;	
+	box-sizing:border-box;
 }
-div#content{
+main>div{
+	background-color:#fff;
+	margin-bottom:2em;
+}
+/*div#content{
 	width:100%;
 	background-color:#fff;
 	margin-bottom:2em;	
 	box-sizing:border-box;
-}
-div#content h4{
+}*/
+main h4{
 	padding:1em 1em 1em 0.5em;
 	background-color:#375D81;
 	color:#fff;
 	font-weight:normal;
 }
-div#content table{
+main table{
 	width:100%;
 }
-div#content table td{
+main table td{
 	padding:0.5em;
 }
-div#content form{
+main form{
 	border:solid 1px #ccc;
 	border-top:none;
 }
