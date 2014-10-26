@@ -28,6 +28,10 @@ p.success{
 	width:100%;
 	padding:1em 0.5em;
 }
+p.asterix{
+	font-size:0.9em;
+	color:#888;
+}
 /*--------------------------------*/
 input[type='text'],select,input[type='file'],textarea{
 	background:#f5f5f5;

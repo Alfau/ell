@@ -16,7 +16,7 @@ function manage_products(){
 		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
 			var content=$(data).find("div.manage_category").html();
 			if($("div.manage_category").length){
-				$("div.manage_category").remove();
+				$("div.manage_category").html(content);
 			}else{
 				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
 			}

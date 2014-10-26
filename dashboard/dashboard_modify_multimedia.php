@@ -102,9 +102,8 @@
 						<tr>
 							<td>Images for Product Slideshow :</td>
 							<td>
-								<input type="file" name="product_slide_1"/><br />
-								<input type="file" name="product_slide_2"/><br />
-								<input type="file" name="product_slide_3"/>
+								<input type="file" name="product_slide" multiple/>
+								<p class='asterix'>* Choose upto 5 images</p>
 							</td>
 						</tr>
 					</table>
