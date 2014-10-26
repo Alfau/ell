@@ -4,29 +4,19 @@ $(document).ready(function(){
 		manage_products();
 		e.preventDefault();
 	});
-	
-	/*$(document).on("submit","form#modify_slide",function(){
-		var form_data=$(this).serialize();
-		$.post("dashboard_manage_page_handler.php",{form_data},function(data){
-			
-		});
-	});*/
-	
 });
 function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
 	$(anchor).addClass("active");
 	
 	var parent=$(anchor).closest("div");
-	
 	var url=$(anchor).prop("href");
-	
 	if($(parent).hasClass("manage_options")){
 		var how_manage=url.split("=")[1];	
 		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
 			var content=$(data).find("div.manage_category").html();
 			if($("div.manage_category").length){
-				$("div.manage_options").html(content);
+				$("div.manage_category").remove();
 			}else{
 				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
 			}
@@ -44,9 +34,4 @@ function manage_products(){
 			}
 		});
 	}
-}
-
-function add_rows(){
-	$(anchor).closest("tr");
-	
 }
