@@ -48,18 +48,22 @@
 				if(isset($_POST['replace_img'])){
 					
 					if(isset($_POST['remove_img'])){
-						$remove_id=$_POST['remove_img'];
-						$query="DELETE FROM about_img WHERE ID='$remove_id'";
+						foreach($_POST['remove_img'] as $remove_id){
+							$query="DELETE FROM about_img WHERE ID='$remove_id'";
+							if(!mysqli_query($con,$query)){ //check if array is set OR check if variable query is set AND try and merge all queries. possibly using arrays
+								echo "<p class='failed'>Attempt to remove image failed! Please try again.</p>";
+							}
+						}
 					}
-					foreach($_FILES['about_img']['name'] as $index => $value){
-						if($_FILES['about_img']['name'][$index]!=""){
+					
+					foreach($_FILES['about_img']['name'] as $index => $value){ // google for the proper ways to go through nested arrays
+						if($_FILES['about_img']['size'][$index]!==0){
 							$temp_filename=$_FILES['about_img']['tmp_name'][$index];
 							$original_filename=$_FILES['about_img']['name'][$index];
 							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
 							$destination="../page_images/".$new_filename;
 							$image_path="page_images/".$new_filename;
-							$image_id=$index+1;
-							
+							$image_id=$_POST['replace_img'][$index];
 							
 							if(move_uploaded_file($temp_filename, $destination)){
 								$result=mysqli_query($con,"SELECT Images FROM about_img WHERE ID='$image_id'");
@@ -67,11 +71,11 @@
 								unlink("../".trim($old_image['Images']));
 								
 								$query="UPDATE about_img SET Images='$image_path' WHERE ID='$image_id'";
+								if(!mysqli_query($con,$query)){ //check if array is set OR check if variable query is set AND try and merge all queries. possibly using arrays
+									echo "<p class='failed'>Database Update Failed. Try Again.</p>";
+								}
 							}
 						}
-					}
-					if(!mysqli_query($con,$query)){
-						echo "<p class='failed'>Database Update Failed. Try Again.</p>";// change to a better message later and also include a success message
 					}
 				}
 				?>
@@ -88,7 +92,7 @@
 									<label>
 										<img src='../<?php echo $row['Images'] ?>' height='100'/>
 										<input type='file' name='about_img[]'/>
-										<input type='hidden' name='replace_img'/>
+										<input type='hidden' name='replace_img[]' value='<?php echo $row['ID'] ?>'/>
 									</label>
 								</td>
 								<?php	
@@ -103,7 +107,7 @@
 							while($row=mysqli_fetch_array($result)){
 								?>
 								<td>
-									<input type='checkbox' name='remove_img' value="<?php echo $row['ID'] ?>"/>
+									<input type='checkbox' name='remove_img[]' value="<?php echo $row['ID'] ?>"/>
 								</td>
 								<?php
 							}
