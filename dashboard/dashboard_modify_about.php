@@ -28,15 +28,16 @@
 					$about_query=mysqli_query($con,"SELECT Text FROM about");
 					while($row=mysqli_fetch_array($about_query)){
 						?>
+						<div>
 						<form action="" method="POST">
 							<table>
 								<tr>
-									<td>Text :</td>
 									<td><textarea name="about" rows="10" cols="100"><?php echo $row['Text'] ?></textarea></td>
 								</tr>
 							</table>
 							<input type="submit" value="Update"/>
 						</form>
+						</div>
 						<?php	
 					}
 				?>
@@ -79,6 +80,7 @@
 					}
 				}
 				?>
+				<div>
 				<form method="POST" action="" enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -116,6 +118,7 @@
 					</table>
 					<input type="submit" value="Update"/>
 				</form>
+				</div>
 			</div>
 			<div>
 				<h4>Add Image to About Us Page</h4>
@@ -146,6 +149,7 @@
 					}
 				}
 				?>
+				<div>
 				<form method="POST" action="" enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -158,6 +162,7 @@
 					</table>
 					<input type="submit" value="Submit"/>
 				</form>
+				</div>
 			</div>
 		</main>
 	</body>

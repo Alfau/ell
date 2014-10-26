@@ -17,9 +17,11 @@
 			?>
 			
 				<div class="manage_options">
-					<h4>Would you like to :</h4>
-					<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
-					<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+					<h4>Choose an option :</h4>
+					<div>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+					</div>
 				</div>
 				
 			<?php
@@ -28,9 +30,11 @@
 				
 				?>
 					<div class="manage_options">
-						<h4>Would you like to :</h4>
-						<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
-						<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+						<h4>Choose an option :</h4>
+						<div>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+						</div>
 					</div>
 				<?php
 				
@@ -39,9 +43,11 @@
 				
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+						<div>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+						</div>
 					</div>
 			<?php
 				}else{
@@ -49,9 +55,11 @@
 					?>	
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
-						<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+						<div>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
+							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+						</div>
 					</div>
 			
 			<div id="content">
@@ -62,8 +70,9 @@
 						$modify_category="TV";
 					}
 				?>
+				<h4>Add <?php echo $modify_category; ?> to Database</h4>
+				<div>
 				<form method="POST" action="dashboard_modify_multimedia.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
-					<h4>Add <?php echo $modify_category; ?> to Database</h4>
 					<?php include("dashboard_manage_products_handler.php");?>
 					<table>
 						<tr>
@@ -110,6 +119,7 @@
 					<input type="hidden" name="add_what" value="<?php echo $modify_category ?>"/>
 					<input type="submit" value="Submit"/>
 				</form>
+				</div>
 			</div>	
 			<?php
 				}

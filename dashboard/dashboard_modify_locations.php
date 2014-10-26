@@ -42,6 +42,7 @@
 					}	
 				}
 				?>
+				<div>
 				<form method="POST" action="">
 					<table>
 						<tr>
@@ -68,6 +69,7 @@
 					</table>
 					<input type="submit" value="Update"/>
 				</form>
+				</div>
 			</div>
 			<div>
 				<h4>Add new location</h4>
@@ -87,6 +89,7 @@
 						}
 					}
 				?>
+				<div>
 				<form method="POST" action="">
 					<table>
 						<tr>
@@ -98,6 +101,7 @@
 					</table>
 					<input type="submit" value="Add Location">
 				</form>
+				</div>
 			</div>	
 		</main>
 	</body>

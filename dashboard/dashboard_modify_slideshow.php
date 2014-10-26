@@ -122,6 +122,7 @@
 						}
 					}
 				?>
+				<div>
 				<form method="POST" action="" enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -144,6 +145,7 @@
 					<input type="hidden" name="add_slide"/> 
 					<input type="submit"/>			
 				</form>
+				</div>
 			</div>
 		</main>
 	</body>
