@@ -123,12 +123,6 @@ main{
 main>div{
 	margin-bottom:1em;
 }
-/*div#content{
-	width:100%;
-	background-color:#fff;
-	margin-bottom:2em;	
-	box-sizing:border-box;
-}*/
 main>div h4,main>div>div{
 	padding:0.5em 2em;
 }

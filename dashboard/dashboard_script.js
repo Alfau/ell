@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$(document).on("click","div.manage_category a,div.manage_options a",function(e){
+	$(document).on("click","div.manage_options a,div.manage_category a",function(e){
 		anchor=$(this);
 		manage_products();
 		e.preventDefault();
@@ -9,7 +9,7 @@ function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
 	$(anchor).addClass("active");
 	
-	var parent=$(anchor).closest("div");
+	var parent=$(anchor).parents("div:eq(1)");
 	var url=$(anchor).prop("href");
 	if($(parent).hasClass("manage_options")){
 		var how_manage=url.split("=")[1];	
