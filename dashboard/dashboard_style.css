@@ -53,15 +53,15 @@ input[type='text'],select,input[type='file'],textarea{
 }
 input[type='text']:focus,select:focus,input[type='file']:focus,textarea:focus{
 	outline:none;
-	border:solid 1px #515151;
+	border:solid 1px #424242;
 }
 input[type='submit']{
-	background-color:#515151;
+	background-color:#424242;
 	color:#fff;
 	padding:0.5em 3em;
 	margin:0.5em;
 	border:none;
-	border:solid 1px #515151;
+	border:solid 1px #424242;
 	cursor:pointer;
 	/*transition:background-color 0.2s,color 0.2s;*/
 }
@@ -70,9 +70,9 @@ input[type='submit']:focus{
 }
 /*--------------------------------------*/
 header{
-	background-color:#4f4f4f;
+	background-color:#424242;
 	padding:2em 0 0.5em 1em;
-	/*border-bottom:solid 1px #515151;*/
+	/*border-bottom:solid 1px #424242;*/
 	box-shadow:0 0 5px #000;
 	width:100%;
 	position:fixed;
@@ -96,8 +96,8 @@ aside{
   	width:20%;
   	height:100%;
   	position:fixed;
-	background-color:#4f4f4f;
-	border-right:solid 1px #515151;
+	background-color:#424242;
+	border-right:solid 1px #424242;
 	box-shadow:0 0 5px #000;
 }
 aside a{
@@ -138,7 +138,7 @@ main>div{
 }
 main h4{
 	padding:1.5em 0 0.1em 1em;
-	background-color:#4f4f4f;
+	background-color:#424242;
 	color:#fff;
 	font-weight:normal;
 	text-transform:capitalize;
@@ -156,7 +156,7 @@ div.manage_options a span,div.manage_category a span{
 	margin-right:1em;
 }
 div.manage_options a:hover span,div.manage_category a:hover span,div.manage_options a.active span,div.manage_category a.active span{
-	background-color:#515151;
+	background-color:#424242;
 }
 div.manage_options a,div.manage_category a{
 	display:block;

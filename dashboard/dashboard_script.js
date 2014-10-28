@@ -26,6 +26,11 @@ function nav(){
 			$("span#loader").css("width","0");
 		});
 	});
+	
+	if(url!=window.location){
+		window.history.pushState({path:url},'',url);
+	}
+	return false;
 }
 
 function manage_products(){
