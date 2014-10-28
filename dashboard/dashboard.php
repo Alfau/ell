@@ -3,7 +3,7 @@
 	<head>
 		<title>Administrator Dashboard</title>
 		<link rel="stylesheet" type="text/css" href="dashboard_style.css"/>
-		<script src="/ell/jquery-1.11.1.min.js"></script>
+		<script src="../jquery-1.11.1.min.js"></script>
 		<script src="dashboard_script.js"></script>
 	</head>
 	<body>

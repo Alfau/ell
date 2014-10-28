@@ -46,12 +46,14 @@ $(document).ready(function(){
 	$(document).on("click","nav a",function(e){
 		anchor=$(this);
 		nav();
+		url_change();
 		e.preventDefault();
 	});
 	
 	$(document).on("click","div.products_carousel a, div#products_by_brand a",function(e){
 		anchor=$(this);
 		goToURL();
+		url_change();
 		e.preventDefault();
 	});
 	
@@ -147,6 +149,14 @@ function goToURL(){
 		});
 	});
 };
+
+function url_change(){
+	var url_bar=(anchor.prop("href")).replace(".php","");
+	if(url_bar!=window.location){
+		window.history.pushState({path:url_bar},'',url_bar);
+	}
+	return false;
+}
 
 function scrollbar(){
 	$("div.products_carousel").perfectScrollbar({

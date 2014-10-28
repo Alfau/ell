@@ -27,8 +27,9 @@ function nav(){
 		});
 	});
 	
-	if(url!=window.location){
-		window.history.pushState({path:url},'',url);
+	var url_bar=(anchor.prop("href")).replace(".php","");
+	if(url_bar!=window.location){
+		window.history.pushState({path:url_bar},'',url_bar);
 	}
 	return false;
 }
