@@ -1,4 +1,10 @@
 $(document).ready(function(){
+	$(document).on("click","aside a",function(e){
+		anchor=$(this);
+		nav();
+		e.preventDefault();
+	});
+	
 	$(document).on("click","div.manage_options a,div.manage_category a",function(e){
 		anchor=$(this);
 		manage_products();
@@ -7,6 +13,21 @@ $(document).ready(function(){
 	
 	active_link();
 });
+function nav(){
+	$("span#loader").animate({width:"60%"});
+	$("aside a").removeClass("active");
+	$(anchor).addClass("active");
+	
+	var url=anchor.prop("href");
+	$.post(url,function(data){
+		var content=$(data).filter("main").children();
+		$("span#loader").animate({width:"100%"},function(){
+			$("main").html(content);
+			$("span#loader").css("width","0");
+		});
+	});
+}
+
 function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
 	$(anchor).addClass("active");

@@ -13,6 +13,13 @@ a{
 li{
 	list-style:none;
 }
+span#loader{
+	z-index:200;
+	height:3px;
+	background-color:#fff;
+	position:fixed;
+	top:0;
+}
 span.bold{
 	font-weight:bold;
 }
@@ -111,7 +118,7 @@ aside li li a{
 	text-transform:uppercase;
 	transition:font-weight 0.2s;
 }
-aside li li a:hover{
+aside li li a:hover,aside li li a.active{
 	font-weight:bold;
 }
 /*---------------------------------*/

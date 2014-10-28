@@ -1,3 +1,4 @@
+<span id="loader"></span>
 <header>
 	<h3><a href="dashboard.php">Admin<span class='bold'>Dashboard</span></a></h3>
 </header>

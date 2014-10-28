@@ -8,8 +8,6 @@
 	</head>
 	<body>
 		<?php include("dashboard_nav.php"); ?>
-		<main>
-			
-		</main>
+		<main></main>
 	</body>
 </html>
