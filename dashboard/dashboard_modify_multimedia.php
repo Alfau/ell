@@ -19,8 +19,8 @@
 				<div class="manage_options">
 					<h4>Choose an option :</h4>
 					<div>
-						<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
-						<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=add" class="add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
 					</div>
 				</div>
 				
@@ -32,8 +32,8 @@
 					<div class="manage_options">
 						<h4>Choose an option :</h4>
 						<div>
-							<p><a href="dashboard_modify_multimedia.php?how_manage=add"><span>&nbsp;</span>Add Multimedia Products</a></p>
-							<p><a href="dashboard_modify_multimedia.php?how_manage=remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add" class="add"><span>&nbsp;</span>Add Multimedia Products</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Multimedia Products</a></p>
 						</div>
 					</div>
 				<?php
@@ -44,9 +44,9 @@
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
 						<div>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+							<p><a href="<dashboard_modify_multimedia.php?how_manage=add&modify_category=TV" class="tv"><span>&nbsp;</span>TV</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Audio" class="audio"><span>&nbsp;</span>Audio</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Video" class="video"><span>&nbsp;</span>Video</a></p>
 						</div>
 					</div>
 			<?php
@@ -56,9 +56,9 @@
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
 						<div>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=TV"><span>&nbsp;</span>TV</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Audio"><span>&nbsp;</span>Audio</a></p>
-							<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Video"><span>&nbsp;</span>Video</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=TV" class="tv"><span>&nbsp;</span>TV</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Audio" class="audio"><span>&nbsp;</span>Audio</a></p>
+							<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Video" class="video"><span>&nbsp;</span>Video</a></p>
 						</div>
 					</div>
 			
@@ -105,13 +105,13 @@
 						<tr>
 							<td>Image Thumbnail :</td>
 							<td>
-								<input type="file" name="image_thumbnail"/>
+								<input type="file" name="product_thumbnail"/>
 							</td>
 						</tr>
 						<tr>
 							<td>Images for Product Slideshow :</td>
 							<td>
-								<input type="file" name="product_slide" multiple/>
+								<input type="file" name="product_slide[]" multiple/>
 								<p class='asterix'>* Choose upto 5 images</p>
 							</td>
 						</tr>

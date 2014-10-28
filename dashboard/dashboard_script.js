@@ -4,6 +4,8 @@ $(document).ready(function(){
 		manage_products();
 		e.preventDefault();
 	});
+	
+	active_link();
 });
 function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
@@ -33,5 +35,23 @@ function manage_products(){
 				$("div.manage_category").after("<div id='content'>"+content+"</div>");  //ugly code so change
 			}
 		});
+	}
+}
+
+function active_link(){
+	var url=document.URL;
+	
+	if(url.search("how_manage=add")!=-1){
+		$("div.manage_options a").removeClass("active");
+		$("div.manage_options a.add").addClass("active");
+	}else if(url.search("how_manage=remove")!=-1){
+		$("div.manage_options a").removeClass("active");
+		$("div.manage_options a.remove").addClass("active");
+	}
+	
+	if(url.search("modify_category")!=-1){
+		var category=((url.split("=")[2]).toLowerCase()).replace("%20","_");
+		$("div.manage_category a").removeClass("active");
+		$("div.manage_category a."+category).addClass("active");
 	}
 }

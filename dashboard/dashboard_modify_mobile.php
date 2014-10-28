@@ -18,8 +18,8 @@
 					<div class="manage_options">
 						<h4>Choose an option :</h4>
 						<div>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add"><span>&nbsp;</span>Add Mobile Products</a></p>
-							<p><a href="dashboard_modify_mobile.php?how_manage=remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
+							<p><a href="dashboard_modify_mobile.php?how_manage=add" class="add"><span>&nbsp;</span>Add Mobile Products</a></p>
+							<p><a href="dashboard_modify_mobile.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
 						</div>
 					</div>
 					
@@ -31,8 +31,8 @@
 						<div class="manage_options">
 							<h4>Choose an option :</h4>
 							<div>
-								<p><a href="dashboard_modify_mobile.php?how_manage=add"><span>&nbsp;</span>Add Mobile Products</a></p>
-								<p><a href="dashboard_modify_mobile.php?how_manage=remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add" class="add"><span>&nbsp;</span>Add Mobile Products</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Mobile Products</a></p>	
 							</div>
 						</div>
 					<?php
@@ -43,23 +43,22 @@
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
 							<div>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 							</div>
 						</div>
 					
 				<?php	
 					}else{
-						
 						?>
 						
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
 							<div>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Phones"><span>&nbsp;</span>Mobile Phones</a></p>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Tablets"><span>&nbsp;</span>Tablets</a></p>
-								<p><a href="<?php echo $_SERVER['REQUEST_URI'] ?>&modify_category=Mobile Accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
+								<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 							</div>
 						</div>
 						
