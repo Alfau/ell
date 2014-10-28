@@ -71,9 +71,9 @@
 					}
 				?>
 				<h4>Add <?php echo $modify_category; ?> to Database</h4>
+				<?php include("dashboard_manage_products_handler.php");?>
 				<div>
 				<form method="POST" action="dashboard_modify_multimedia.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
-					<?php include("dashboard_manage_products_handler.php");?>
 					<table>
 						<tr>
 							<td>Choose Brand :</td>

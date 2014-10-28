@@ -72,9 +72,9 @@
 						?>
 							<div id="content">
 							<h4>Add <?php echo $modify_category; ?> to Database</h4>
+							<?php include("dashboard_manage_products_handler.php");?>
 							<div>
 							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
-								<?php include("dashboard_manage_products_handler.php");?>
 								<table>
 									<tr>
 										<td>Choose Brand :</td>
@@ -107,13 +107,13 @@
 									<tr>
 										<td>Image Thumbnail :</td>
 										<td>
-											<input type="file" name="image_thumbnail"/>
+											<input type="file" name="product_thumbnail"/>
 										</td>
 									</tr>
 									<tr>
 										<td>Images for Product Slideshow :</td>
 										<td>
-											<input type="file" name="product_slide" multiple/>
+											<input type="file" name="product_slide[]" multiple/>
 											<p class='asterix'>* Choose upto 5 images</p>
 										</td>
 									</tr>
@@ -124,13 +124,13 @@
 							</div>
 							</div>
 						<?php	
-						}elseif($modify_category=="Mobile Accessories"){
+						}elseif($how_manage=="add" && $modify_category=="Mobile Accessories"){
 					?>		
 					<div id="content">
 						<h4>Add Mobile Accessories from Website</h4>
+						<?php include("dashboard_manage_products_handler.php");?>
 						<div>
-						<form method="POST" action="" enctype="multipart/form-data">
-							<?php include("dashboard_manage_products_handler.php");?>
+						<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" enctype="multipart/form-data">
 							<table>
 								<tr>
 									<td>Choose Brand :</td>
@@ -168,7 +168,7 @@
 								<tr>
 									<td>Image Thumbnail :</td>
 									<td>
-										<input type="file" name="image_thumbnail"/>
+										<input type="file" name="product_thumbnail"/>
 									</td>
 								</tr>
 							</table>
@@ -180,8 +180,7 @@
 				<?php		
 					}
 							
-					}
-							
+					}	
 				}
 				?>
 		</main>
