@@ -11,7 +11,7 @@ function manage_products(){
 	$(anchor).closest("div").find("a").removeClass("active");
 	$(anchor).addClass("active");
 	
-	var parent=$(anchor).parents("div:eq(1)");
+	var parent=$(anchor).closest("div");
 	var url=$(anchor).prop("href");
 	if($(parent).hasClass("manage_options")){
 		var how_manage=url.split("=")[1];	

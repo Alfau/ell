@@ -39,7 +39,7 @@
 				
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
-						<p><a href="<dashboard_modify_multimedia.php?how_manage=add&modify_category=TV" class="tv"><span>&nbsp;</span>TV</a></p>
+						<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=TV" class="tv"><span>&nbsp;</span>TV</a></p>
 						<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Audio" class="audio"><span>&nbsp;</span>Audio</a></p>
 						<p><a href="dashboard_modify_multimedia.php?how_manage=add&modify_category=Video" class="video"><span>&nbsp;</span>Video</a></p>
 					</div>

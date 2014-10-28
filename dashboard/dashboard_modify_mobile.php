@@ -16,7 +16,7 @@
 				?>
 				
 					<div class="manage_options">
-						<h4>Choose an <span class="bold">option</span> :</h4>
+						<h4>Choose an option :</h4>
 						<p><a href="dashboard_modify_mobile.php?how_manage=add" class="add"><span>&nbsp;</span>Add Mobile Products</a></p>
 						<p><a href="dashboard_modify_mobile.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
 					</div>
@@ -27,7 +27,7 @@
 					
 					?>
 						<div class="manage_options">	
-							<h4>Choose an <span class="bold">option</span> :</h4>
+							<h4>Choose an option :</h4>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add" class="add"><span>&nbsp;</span>Add Mobile Products</a></p>
 							<p><a href="dashboard_modify_mobile.php?how_manage=remove" class="remove"><span>&nbsp;</span>Remove Mobile Products</a></p>
 						</div>
@@ -37,7 +37,7 @@
 					?>
 					
 						<div class="manage_category">
-							<h4>Choose a <span class="bold">product category</span> :</h4>
+							<h4>Choose a product category :</h4>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>			
@@ -48,7 +48,7 @@
 						?>
 						
 						<div class="manage_category">
-							<h4>Choose a <span class="bold">product category</span> :</h4>
+							<h4>Choose a product category :</h4>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
 							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
@@ -63,7 +63,7 @@
 						?>
 							<div id="content">
 							
-							<h4>Add <span class="bold"><?php echo $modify_category; ?></span> to Database</h4>
+							<h4>Add <?php echo $modify_category; ?> to Database</h4>
 							<?php include("dashboard_manage_products_handler.php");?>
 							<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=<?php echo $modify_category; ?>" enctype="multipart/form-data">
 								<table>
@@ -119,7 +119,7 @@
 					?>		
 					<div id="content">
 						
-						<h4>Add <span class="bold">Mobile Accessories</span> from Website</h4>
+						<h4>Add Mobile Accessories from Website</h4>
 						<?php include("dashboard_manage_products_handler.php");?>
 						<form method="POST" action="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" enctype="multipart/form-data">
 							<table>
