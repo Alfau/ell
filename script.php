@@ -1,9 +1,11 @@
 $(document).ready(function(){
 	
-	/*$.post("slideshow.php",function(data){
-		$("div#slideshow").html(data);
-		startSlideshow();
-	});*/
+	$("div#slideshow").load("slideshow.php",function(){
+		$(this).children().hide().fadeIn("slow");
+		$("div#slides div:eq(0) div").animate({bottom:"50%"},"slow",function(){
+			$("div#slides p").animate({"opacity":"1"});
+		});
+	});
 	
 	$("div#slideshow_controls>span").click(function(){
 		var slide_width=$("div#slideshow").width();
@@ -35,10 +37,6 @@ $(document).ready(function(){
 		}
 		clearInterval(slideshowTimer);
 		startSlideshow();
-	});
-	
-	$("div#slides div:eq(0) div").animate({bottom:"50%"},"slow",function(){
-		$("div#slides p").animate({"opacity":"1"});
 	});
 	
 	$(document).on("mouseenter","div.carousel_product",function(){

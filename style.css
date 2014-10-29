@@ -157,12 +157,12 @@ div#slideshow,div#slideshow_see_more{
 	min-height:300px;
 	overflow:hidden;
 }
-/*div#slideshow p{
+div#slideshow span.loading{
 	position:absolute;
 	top:50%;
 	left:50%;
 	transform:translate(-50%,-50%);
-}*/
+}
 div#slides{
 	font-size:0;
 	width:100%;

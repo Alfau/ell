@@ -8,11 +8,11 @@
 		<?php include("header.php"); ?>
 		
 		<main>
-			<?php include("slideshow.php"); ?>
+			<?php //include("slideshow.php"); ?>
 			
-			<!--<div id="slideshow">
-				<p>Loading slideshow...</p>
-			</div>-->
+			<div id="slideshow">
+				<span class="loading">Loading slideshow...</span>
+			</div>
 			
 			<div id="content">
 				<div class="products_carousel">

@@ -1,4 +1,4 @@
-<div id="slideshow">
+
 	<div id="slideshow_controls">
 		<span class="outside active"><span class="active">&nbsp;</span></span>
 		<span class="outside"><span>&nbsp;</span></span>
@@ -24,4 +24,3 @@
 		
 		?>
 	</div>
-</div>
