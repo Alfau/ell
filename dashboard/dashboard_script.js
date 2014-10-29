@@ -23,6 +23,7 @@ function load_page(){
 		$("span#loader").animate({width:"100%"},function(){
 			$("main").html(content);
 			$("span#loader").css("width","0");
+			active_link();
 		});
 	});
 }
@@ -47,6 +48,7 @@ function history_buttons(){
 		$.post(window.location,function(data){
 			var content=$(data).filter("main").children();
 			$("main").html(content);
+			active_link();
 		});
 	});
 }
@@ -67,7 +69,6 @@ function manage_products(){
 				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
 			}
 		});
-		
 	}else{
 		var how_manage=(url.split("=")[1]).split("&")[0];
 		var category_value=(url.split("=")[2]).replace("%20"," ");
@@ -98,4 +99,12 @@ function active_link(){
 		$("div.manage_category a").removeClass("active");
 		$("div.manage_category a."+category).addClass("active");
 	}
+	
+	$("aside a").each(function(){
+		var count=0;
+		if(url+".php"==$(this).prop("href")){
+			$("aside a").removeClass("active");
+			$(this).addClass("active");
+		}
+	});
 }
