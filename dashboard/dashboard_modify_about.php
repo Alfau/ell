@@ -163,13 +163,16 @@
 							$image_limit=true;
 						}
 					}
-					if($add_image_success==true){
+					$error_msg=false;
+					if($add_image_success==true && $error_msg==false){
 						echo "<p class='success'>Image(s) uploaded successfully to the database.</p>";
 					}else{
 						echo "<p class='failed'>Image upload failed. Please try again.</p>";
+						$error_msg=true;
 					}
-					if($image_limit==true){
+					if($image_limit==true && $error_msg==false){
 						echo "<p class='failed'>You have reached the 5 image limit set for the about page.</p>";
+						$error_msg=true;
 					}
 				}
 				?>
