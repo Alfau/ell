@@ -101,7 +101,6 @@ function active_link(){
 	}
 	
 	$("aside a").each(function(){
-		var count=0;
 		if(url+".php"==$(this).prop("href")){
 			$("aside a").removeClass("active");
 			$(this).addClass("active");

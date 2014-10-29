@@ -154,9 +154,17 @@ nav#side input{
 div#slideshow,div#slideshow_see_more{
 	position:relative;
 	width:100%;
+	min-height:300px;
 	overflow:hidden;
 }
+/*div#slideshow p{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}*/
 div#slides{
+	font-size:0;
 	width:100%;
 	margin-bottom:3em;
 	white-space:nowrap;
@@ -182,12 +190,12 @@ div#slides>div>div{
 }
 div#slides h1{
 	color:#fff;
-	font-size:5em;
+	font-size:30px;
 }
 div#slides p{
 	color:#fff;
-	display:none;
-	font-size:2em;
+	opacity:0;
+	font-size:15px;
 }
 div#slideshow_controls{
 	z-index:50;
