@@ -12,6 +12,7 @@ $(document).ready(function(){
 	});
 	
 	active_link();
+	history_buttons();
 });
 function nav(){
 	$("span#loader").animate({width:"60%"});
@@ -32,6 +33,15 @@ function nav(){
 		window.history.pushState({path:url_bar},'',url_bar);
 	}
 	return false;
+}
+
+function history_buttons(){
+	$(window).on("popstate",function(){
+		$.post(window.location,function(data){
+			var content=$(data).filter("main").children();
+			$("main").html(content);
+		});
+	});
 }
 
 function manage_products(){
