@@ -21,7 +21,7 @@
 					$query="UPDATE about SET Text='$about'";
 					
 					if(!mysqli_query($con,$query)){
-						echo "<p class='failed'>An error occured while adding the text to the database. Please try again.</p>";
+						echo "<p class='failed'>An error occured while updating the database. Please try again.</p>";
 					}else{
 						echo "<p class='success'>Database successfully updated!</p>";
 					}
@@ -29,18 +29,18 @@
 				
 				$about_query=mysqli_query($con,"SELECT Text FROM about");
 				while($row=mysqli_fetch_array($about_query)){
-					?>	
-					<div>
-						<form method="POST" action="">
-							<table>
-								<tr>
-									<td><textarea name="about" rows="10" cols="100"><?php echo $row['Text'] ?></textarea></td>
-								</tr>
-							</table>
-							<input type="submit" value="Update"/>
-						</form>
-					</div>
-					<?php	
+				?>	
+					<form method="POST" action="">
+						<table>
+							<tr>
+								<td><textarea name="about" rows="10" cols="100"><?php echo $row['Text'] ?></textarea></td>
+							</tr>
+							<tr>
+								<td><input type="submit" value="Update"/></td>
+							</tr>
+						</table>
+					</form>
+				<?php	
 				}
 				?>
 			</div>
@@ -83,62 +83,63 @@
 							}
 						}
 					}
-					if($remove_img_success=true && $replace_img_success=true){
-						echo "<p class='success'>Database has been successfully updated!</p>";
-					}elseif($remove_img_success=false){
-						echo "<p class='failed'>Failed to remove image from database. Please try again.</p>";
-					}elseif($replace_img_success=false){
-						echo "<p class='failed'>Failed to replace image. Please try again.</p>";
+					if(isset($remove_img_success) && isset($replace_img_success)){
+						if($remove_img_success==true && $replace_img_success==true){
+							echo "<p class='success'>Database has been successfully updated!</p>";
+						}elseif($remove_img_success==false){
+							echo "<p class='failed'>Failed to remove image from database. Please try again.</p>";
+						}elseif($replace_img_success==false){
+							echo "<p class='failed'>Failed to replace image. Please try again.</p>";
+						}
 					}
 				}
 				?>
 				
-				<div>
-					<form method="POST" action="" enctype="multipart/form-data">
-						<table>
-							<tr>
-								<td>Images :</td>
-								<?php
-								$query="SELECT * FROM about_img";
-								$result=mysqli_query($con,$query);
-								while($row=mysqli_fetch_array($result)){
-									?>
-									<td>
-										<label>
-											<img src='../<?php echo $row['Images'] ?>' height='100'/>
-											<input type='file' name='about_img[]'/>
-											<input type='hidden' name='replace_img[]' value='<?php echo $row['ID'] ?>'/>
-										</label>
-									</td>
-									<?php	
-								}
+				<form method="POST" action="" enctype="multipart/form-data">
+					<table>
+						<tr>
+							<td>Images :</td>
+							<?php
+							$query="SELECT * FROM about_img";
+							$result=mysqli_query($con,$query);
+							while($row=mysqli_fetch_array($result)){
 								?>
-							</tr>
-							<tr>
-								<td>Remove Image:</td>
-								<?php
-								$query="SELECT ID FROM about_img";
-								$result=mysqli_query($con,$query);
-								while($row=mysqli_fetch_array($result)){
-									?>
-									<td>
-										<input type='checkbox' name='remove_img[]' value="<?php echo $row['ID'] ?>"/>
-									</td>
-									<?php
-								}
+								<td>
+									<label>
+										<img src='../<?php echo $row['Images'] ?>' height='100'/>
+										<input type='file' name='about_img[]'/>
+										<input type='hidden' name='replace_img[]' value='<?php echo $row['ID'] ?>'/>
+									</label>
+								</td>
+								<?php	
+							}
+							?>
+						</tr>
+						<tr>
+							<td>Remove Image:</td>
+							<?php
+							$query="SELECT ID FROM about_img";
+							$result=mysqli_query($con,$query);
+							while($row=mysqli_fetch_array($result)){
 								?>
-							</tr>
-						</table>
-						<input type="submit" value="Update"/>
-					</form>
-				</div>
+								<td>
+									<input type='checkbox' name='remove_img[]' value="<?php echo $row['ID'] ?>"/>
+								</td>
+								<?php
+							}
+							?>
+						</tr>
+						<tr>
+							<td><input type="submit" value="Update"/></td>
+						</tr>
+					</table>
+				</form>
 			</div>
 			
 			<div>
 				<h4>Add Image to About Us Page</h4>
 				<?php
 				if(isset($_POST['add_img'])){
-					
 					$query="SELECT ID FROM about_img";
 					$result=mysqli_query($con,$query);
 					$count=mysqli_num_rows($result);
@@ -162,12 +163,12 @@
 							$image_limit=true;
 						}
 					}
-					if($add_image_success=true){
+					if($add_image_success==true){
 						echo "<p class='success'>Image(s) uploaded successfully to the database.</p>";
 					}else{
 						echo "<p class='failed'>Image upload failed. Please try again.</p>";
 					}
-					if($image_limit=true){
+					if($image_limit==true){
 						echo "<p class='failed'>You have reached the 5 image limit set for the about page.</p>";
 					}
 				}
@@ -182,8 +183,10 @@
 								<p class="asterix">* Choose upto 5 images</p>
 							</td>
 						</tr>
+						<tr>
+							<td><input type="submit" value="Submit"/></td>
+						</tr>
 					</table>
-					<input type="submit" value="Submit"/>
 				</form>
 			</div>
 		</main>

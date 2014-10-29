@@ -14,11 +14,9 @@ $(document).ready(function(){
 	active_link();
 	history_buttons();
 });
-function nav(){
+
+function load_page(){
 	$("span#loader").animate({width:"60%"});
-	$("aside a").removeClass("active");
-	$(anchor).addClass("active");
-	
 	var url=anchor.prop("href");
 	$.post(url,function(data){
 		var content=$(data).filter("main").children();
@@ -27,7 +25,16 @@ function nav(){
 			$("span#loader").css("width","0");
 		});
 	});
-	
+}
+
+function nav(){
+	$("aside a").removeClass("active");
+	$(anchor).addClass("active");
+	load_page();
+	change_url();
+}
+
+function change_url(){
 	var url_bar=(anchor.prop("href")).replace(".php","");
 	if(url_bar!=window.location){
 		window.history.pushState({path:url_bar},'',url_bar);

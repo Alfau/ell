@@ -106,9 +106,11 @@
 								<p class='asterix'>* Choose upto 5 images</p>
 							</td>
 						</tr>
+						<tr>
+							<td><input type="submit" value="Submit"/></td>
+						</tr>
 					</table>
 					<input type="hidden" name="add_what" value="<?php echo $modify_category ?>"/>
-					<input type="submit" value="Submit"/>
 				</form>
 			</div>	
 			<?php

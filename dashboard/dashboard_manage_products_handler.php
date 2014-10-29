@@ -8,8 +8,8 @@ if(isset($_POST['add_what'])){
 		$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
 		$destination="../product_thumbnails/".$new_filename;
 		$product_thumbnail_path="product_thumbnails/".$new_filename;
+		
 		if(move_uploaded_file($temp_filename, $destination)){
-			
 			$add_what=$_POST['add_what'];
 			$name=$_POST['name'];
 			$price=$_POST['price'];
@@ -52,6 +52,7 @@ if(isset($_POST['add_what'])){
 							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
 							$destination="../product_slides/".$new_filename;
 							$product_slide_path="product_slides/".$new_filename;
+							
 							if(move_uploaded_file($temp_filename, $destination)){
 								$query_product_slide="INSERT INTO product_slide(Product_ID,Slide) VALUES(LAST_INSERT_ID(),'$product_slide_path')";
 								if(mysqli_query($con,$query_product_slide)){
@@ -62,6 +63,8 @@ if(isset($_POST['add_what'])){
 					}
 					if($query_success=true){
 						echo "<p class='success'>Product was successfully added to the database.</p>";
+					}else{
+						echo "<p class='failed'>An error occured while trying to upload product thumbnail to database. Please try again.</p>";
 					}
 				}else{
 					echo "<p class='success'>Product was successfully added to the database.</p>";

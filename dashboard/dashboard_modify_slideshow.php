@@ -81,9 +81,11 @@
 								<td>Remove Slide :</td>
 								<td><input type="checkbox" name="slide_remove" value='<?php echo $row['ID'] ?>'/></td>
 							</tr>
+							<tr>
+								<td><input type="submit" value="Update"/></td>
+							</tr>
 						</table>
 						<input type="hidden" name="id" value="<?php echo $row['ID'];?>"/>
-						<input type="submit" value="Update"/>
 					</form>
 				</div>
 				<?php
@@ -122,7 +124,6 @@
 						}
 					}
 				?>
-				<div>
 				<form method="POST" action="" enctype="multipart/form-data">
 					<table>
 						<tr>
@@ -141,11 +142,12 @@
 							<td>Description :</td>
 							<td><input type="text" name="description"/></td>
 						</tr>
+						<tr>
+							<td><input type="submit"/></td>
+						</tr>
 					</table>
 					<input type="hidden" name="add_slide"/> 
-					<input type="submit"/>			
 				</form>
-				</div>
 			</div>
 		</main>
 	</body>
