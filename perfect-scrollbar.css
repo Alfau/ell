@@ -13,10 +13,12 @@
     -moz-transition: background-color .2s linear, opacity .2s linear;
     transition: background-color .2s linear, opacity .2s linear;
 }
-.ps-container:hover .ps-scrollbar-x {
+.ps-container:hover .ps-scrollbar-x{
 	height:5px;
 }
-
+.in-scrolling .ps-scrollbar-x{
+	height:5px !important;
+}
 .ps-container:hover .ps-scrollbar-x-rail,
 .ps-container.hover .ps-scrollbar-x-rail{
     opacity: 0.9;
