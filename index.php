@@ -27,7 +27,7 @@
 							?>
 							<div class="carousel_product">
 								<div class="carousel_image">
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a>
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
 									<!--<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
 								</div>
 								<div class="carousel_info">

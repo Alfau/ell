@@ -67,7 +67,7 @@ header{
 }
 img#logo{
 	float:left;
-	max-width:200px;
+	width:200px;
 }
 div#loading_bar{
 	z-index:100;
@@ -119,8 +119,11 @@ nav#main a.bill{
 	color:#fff;
 	background-color:#bd1e2d;
 }
+nav#main li ul{
+	display:none;
+}
 /*--------------------------------*/
-nav#mobile_header{
+nav#mobile_header,nav#mobile_search{
 	display:none;
 }
 nav#side{
@@ -157,10 +160,8 @@ nav#side input{
 div#slideshow,div#slideshow_see_more{
 	position:relative;
 	width:100%;
-	overflow:hidden;
-}
-div#slideshow{
 	min-height:300px;
+	overflow:hidden;
 }
 div#slideshow span.loading{
 	position:absolute;
@@ -259,13 +260,14 @@ div.products_carousel div.carousel_product{
 div.products_carousel img{
 	display:block;
 	margin:auto;
+	width:120px;
 }
 div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 	display:inline-block;
 	vertical-align:top;
 }
 div.products_carousel div.carousel_image{
-	min-width:150px;
+	width:150px;
 }
 div.products_carousel div.carousel_info{
 	margin-left:0.5em;
@@ -382,24 +384,163 @@ footer img{
 	margin-left:0.5em;
 }
 /*-----------------------------------------*/
-@media screen and (max-width: 500px){
-	div#slideshow{
-		display:none;
-	}
+@media only screen and (max-device-width: 480px){
+	
 	header{
 		padding:0;
 		width:100%;
 	}
-	header nav#side{
+	header>a{
 		display:none;
 	}
-	header nav#main{
-		display:none;
+	/*---------------------------------------*/
+	nav#mobile_header{
+		display:block;
+		background-color:#4f4f4f;
+	}
+	nav#mobile_header li{
+		list-style:none;
+		display:inline-block;
+	}
+	nav#mobile_header a{
+		display:block;
+		border-right:solid 1px #888;
+		padding:0.5em 1em;
+	}
+	nav#mobile_header img{
+		height:20px;
 	}
 	img#logo{
-		display:block;
-		max-width:150px;
 		float:none;
+		/*width:100%;*/
+		width:auto;
+	}
+	nav#mobile_search input[type=text]{
+		padding:1em;
+	}
+	/*---------------------------------------*/
+	div#slideshow{
+		display:none;
+	}
+	nav#side{
+		display:none;
+	}
+	nav#main{
+		display:none;
+		text-align:left;
+		margin:0;
+		background-color:#4f4f4f;
+	}
+	nav#main li{
+		list-style:none;
+		display:block;
+	}
+	nav#main a{
+		display:block;
+		color:#fff;
+		margin:0;
+		border:none;
+		border-top:solid 1px #888;
+		padding:1em;
+		transition:color 0.2s,border 0.2s;
+	}
+	nav#main a:hover,nav#main a.active{
+		color:#FF6602;
+		border:none;
+		border-top:solid 1px #888;
+	}
+	nav#main_sub{
+		display:none;
+	}
+	nav#main li ul{
+		background-color:#4f4f4f;
+		margin:0;
+	}
+	nav#main li ul li{
+		display:block;
+	}
+	nav#main li ul a{
+		display:block;
+		text-transform:uppercase;
+		color:#fff;
+		margin:0;
+		padding:1em 1em 1em 3em;
+		border-top:solid 1px #888;
+		transition:color 0.2s;
+	}
+	nav#main li ul a:hover,nav#main li ul a.active{
+		color:#FF6602;
+	}
+	nav#main li ul a.active{
+		color:#FF6602;
+	}
+	/*---------------------------------------*/
+	main{
+		margin-top:1em;
+	}
+	div#content{
+		width:100%;
+	}
+	/*----------------------------------*/
+	div.products_carousel{
+		position:relative;
+		padding:0;
+		overflow:visible;
+		white-space: normal;
+	}
+	div.products_carousel div.carousel_product{
+		display:block;
+		vertical-align:baseline;
+		margin:3em 0 0 0;
+		padding:0 2em 2em 2em;
+		position:relative;
+		border-bottom:solid 1px #bbbdbf;
+	}
+	div.products_carousel img{
+		display:block;
+		margin:0;
+		max-width:100px;
+	}
+	div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
+		display:inline-block;
+		vertical-align:top;
+	}
+	div.products_carousel div.carousel_image{
+		max-width:100px;
+	}
+	div.products_carousel div.carousel_info{
+		margin-left:0.5em;
+		opacity:1;
+		width:auto;
+	}
+	/*---------------------------------------*/
+	footer{
+		width:100%;
+		background-color:#ff6602;
+		color:#fff;
+		padding:1em 3em;
+		box-sizing:border-box;
+		position:absolute;
+		bottom:0;
+		font-size:0.9em;
+	}
+	footer div{
+		width:90%;
 		margin:auto;
+		text-align:center;
+	}
+	footer span,footer ul{
+		display:block;
+	}
+	footer ul{
+		position:fixed;
+		display:none; /*hide social media icons until i can figure out where to put them*/
+	}
+	footer ul li{
+		display:inline-block;
+	}
+	footer img{
+		width:20px;
+		margin-left:0.5em;
 	}
 }
