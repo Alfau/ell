@@ -188,7 +188,7 @@ div#slides>div>div{
 	position:absolute;
 	left:40%;
 }
-div#slides h1{
+div#slides h1 a{
 	color:#fff;
 	font-size:30px;
 }
@@ -373,4 +373,15 @@ footer ul li{
 footer img{
 	width:20px;
 	margin-left:0.5em;
+}
+/*-----------------------------------------*/
+@media only screen and (max-device-width: 480px){
+	
+	div#slideshow{
+		display:none;
+	}
+	header{
+		padding:0;
+		width:100%;
+	}
 }

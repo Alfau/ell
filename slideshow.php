@@ -15,7 +15,7 @@
 			<div>
 				<img src="<?php echo $row['Slide'] ?>" alt="slide"/>
 				<div>
-					<h1><?php echo $row['Link'] ?></h1>
+					<h1><?php echo "<a href='".$row['Link_HREF']."'>".$row['Link_Title']."</a>" ?></h1>
 					<p><?php echo $row['Description'] ?></p>
 				</div>
 			</div>

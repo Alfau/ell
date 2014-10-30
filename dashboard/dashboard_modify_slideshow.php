@@ -15,10 +15,11 @@
 			include("../connection.php");
 			
 			if(isset($_POST['id'])){
-				if(!empty($_POST['link']) && !empty($_POST['description'])){
+				if(!empty($_POST['link_title']) && !empty($_POST['description'])){
 					$id=$_POST['id'];
-					$link=$_POST['link'];
+					$link_title=$_POST['link_title'];
 					$description=$_POST['description'];
+					$link_href=$_POST['link_href'];
 					
 					if(isset($_POST['slide_remove'])){
 						$remove_id=$_POST['slide_remove'];
@@ -35,12 +36,12 @@
 								$old_slide=mysqli_fetch_array($result);
 								unlink("../".$old_slide['Slide']);
 								
-								$query="UPDATE slideshow SET Link='$link', Description='$description',Slide='$image_path' WHERE ID='$id'";
+								$query="UPDATE slideshow SET Link_Title='$link_title', Link_HREF='$link_href', Description='$description', Slide='$image_path' WHERE ID='$id'";
 							}else{
 								echo "<p class='failed'>An error occured while uploading the file to the database. Please try again!</p>";
 							}
 						}else{
-							$query="UPDATE slideshow SET Link='$link', Description='$description' WHERE ID='$id'";
+							$query="UPDATE slideshow SET Link_Title='$link_title', Link_HREF='$link_href', Description='$description' WHERE ID='$id'";
 						}
 					}
 					if(!mysqli_query($con,$query)){
@@ -70,8 +71,12 @@
 								</td>
 							</tr>
 							<tr>
+								<td>Title:</td>
+								<td><input type="text" name="link_title" value="<?php echo $row['Link_Title'] ?>"/></td>
+							</tr>
+							<tr>
 								<td>Link :</td>
-								<td><input type="text" name="link" value="<?php echo $row['Link'] ?>"/></td>
+								<td><input type="text" name="link_href" value="<?php echo $row['Link_HREF'] ?>"/></td>
 							</tr>
 							<tr>
 								<td>Description :</td>
@@ -96,9 +101,10 @@
 				<h4>Add new Slide</h4>
 				<?php
 					if(isset($_POST['add_slide'])){
-						if(!empty($_POST['link']) && !empty($_POST['description'])){
-							$link=$_POST['link'];
+						if(!empty($_POST['Link_Title']) && !empty($_POST['description'])){
+							$link_title=$_POST['Link_Title'];
 							$description=$_POST['description'];
+							$link_href=$_POST['link_href'];
 							
 							if($_FILES['slide']['size']!==0){
 								$temp_filename=$_FILES['slide']['tmp_name'];
@@ -107,7 +113,7 @@
 								$destination="../home_slides/".$new_filename;
 								$image_path="home_slides/".$new_filename;
 								if(move_uploaded_file($temp_filename, $destination)){
-									$query="INSERT INTO slideshow(Link,Description,Slide) VALUES('$link','$description','$image_path')";
+									$query="INSERT INTO slideshow(Link_Title,Link_HREF,Description,Slide) VALUES('$link_tile','$link_href','$description','$image_path')";
 									if(!mysqli_query($con,$query)){
 										echo "<p class='failed'>Submission failed. Please try again.</p>";
 									}else{
@@ -135,8 +141,12 @@
 							</td>
 						</tr>
 						<tr>
+							<td>Title :</td>
+							<td><input type="text" name="link_title"/></td>
+						</tr>
+						<tr>
 							<td>Link :</td>
-							<td><input type="text" name="link"/></td>
+							<td><input type="text" name="link_href"/></td>
 						</tr>
 						<tr>
 							<td>Description :</td>
