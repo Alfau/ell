@@ -40,9 +40,11 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("mouseenter","div.carousel_product",function(){
-		$(this).stop().animate({"margin-right":"1em"}).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"});
+		$(this).stop().animate({"margin-right":"1em"}).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"},function(){
+			$(this).css("white-space","normal");
+		});
 	}).on("mouseleave","div.carousel_product",function(){
-		$(this).stop().animate({"margin-right":"6em"}).children("div.carousel_info").stop().animate({width:"0",opacity:"0"});
+		$(this).stop().animate({"margin-right":"6em"}).children("div.carousel_info").stop().animate({width:"0",opacity:"0"}).css("white-space","nowrap");
 	});
 	
 	
@@ -74,7 +76,7 @@ function triggerSlide(){
 		$("div#slides div:first-child").addClass("active");
 	}
 	
-	var slide_width=$("div#slideshow").width();
+	var slide_width=$("div#slideshow,div#slideshow_see_more").width();
 	var current_active=$("div#slides div.active");
 	var which_slide=$(current_active).index();
 	

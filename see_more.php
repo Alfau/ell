@@ -28,11 +28,11 @@
 									$slide_query="SELECT Slide FROM product_slides WHERE Product_ID='$product_ID'";
 									$slide_result=mysqli_query($con,$slide_query);
 									while($slide_row=mysqli_fetch_array($slide_result)){
-										?>
-											<div>
-												<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
-											</div>
-										<?php
+									?>
+										<div>
+											<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
+										</div>
+									<?php
 									}
 								?>
 								</div>

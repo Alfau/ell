@@ -1,6 +1,9 @@
 <header>
 	<div id="loading_bar"></div>
 	<a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a>
+	<nav id="mobile_header">
+		<a href=#>Lines</a>
+	</nav>
 	<nav id="side">
 		<ul>
 			<li><a href="about.php">ABOUT US</a></li>

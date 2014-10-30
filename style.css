@@ -67,7 +67,7 @@ header{
 }
 img#logo{
 	float:left;
-	width:200px;
+	max-width:200px;
 }
 div#loading_bar{
 	z-index:100;
@@ -120,6 +120,9 @@ nav#main a.bill{
 	background-color:#bd1e2d;
 }
 /*--------------------------------*/
+nav#mobile_header{
+	display:none;
+}
 nav#side{
 	text-align:right;
 }
@@ -154,8 +157,10 @@ nav#side input{
 div#slideshow,div#slideshow_see_more{
 	position:relative;
 	width:100%;
-	min-height:300px;
 	overflow:hidden;
+}
+div#slideshow{
+	min-height:300px;
 }
 div#slideshow span.loading{
 	position:absolute;
@@ -260,7 +265,7 @@ div.products_carousel div.carousel_image,div.products_carousel div.carousel_info
 	vertical-align:top;
 }
 div.products_carousel div.carousel_image{
-	width:150px;
+	min-width:150px;
 }
 div.products_carousel div.carousel_info{
 	margin-left:0.5em;
@@ -377,13 +382,24 @@ footer img{
 	margin-left:0.5em;
 }
 /*-----------------------------------------*/
-@media only screen and (max-device-width: 480px){
-	
+@media screen and (max-width: 500px){
 	div#slideshow{
 		display:none;
 	}
 	header{
 		padding:0;
 		width:100%;
+	}
+	header nav#side{
+		display:none;
+	}
+	header nav#main{
+		display:none;
+	}
+	img#logo{
+		display:block;
+		max-width:150px;
+		float:none;
+		margin:auto;
 	}
 }
