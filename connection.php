@@ -1,4 +1,5 @@
 <?php
+$front = "/ell/";
 $con=mysqli_connect("localhost","root","","ell");
 //$con=mysqli_connect("localhost","vulcan8_llama","thellama","vulcan8_ell");
 if(mysqli_connect_errno()){

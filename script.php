@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+search();
 	
 	$("div#slideshow_controls>span").click(function(){
 		var slide_width=$("div#slideshow").width();
