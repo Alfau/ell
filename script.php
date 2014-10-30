@@ -86,6 +86,10 @@ $(document).ready(function(){
 		$(".menu_svg").attr("class","menu_svg");
 	});
 	
+	$(document).on("click","nav#main li li a",function(){
+		$("nav#main,nav#main li ul,nav#mobile_search").slideUp();
+	});
+	
 	startSlideshow();
 	scrollbar();
 });
@@ -147,7 +151,30 @@ function nav(){
 	
 	if(anchor.hasClass("main")){
 		if(window.innerWidth < 500){
-			anchor.siblings("ul").slideToggle();
+			if(anchor.siblings("ul").length){
+				anchor.siblings("ul").slideToggle();
+			}else{
+				$("div#loading_bar").animate({width:"60%"});
+				$.post(url,function(data){
+					$("div#loading_bar").animate({width:"100%"},function(){
+						$("div#loading_bar").css("width","0");
+						
+						if($(anchor).parents("nav#main_sub").length){
+							var content=$(data).find("div#mobile_brands").html();
+							$("div#mobile_brands").html(content);
+						}else{
+							var content=$(data).filter("main").html();
+							$("main").html(content);
+						}
+						scrollbar();
+						
+						var if_location=url.split("/");
+						if(if_location.slice(-1)[0]=="locations.php"){
+							initialize();
+						}
+					});
+				}); //this function feels crappy as fuck
+			}
 		}else{
 			$("div#loading_bar").animate({width:"60%"});
 			$.post(url,function(data){

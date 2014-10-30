@@ -469,8 +469,12 @@ footer img{
 		border:none;
 		border-bottom:solid 1px #f0f1f2;
 		padding:1em;
-		text-transform:capitalize;
+		text-transform:uppercase;
 		transition:color 0.2s,border 0.2s;
+	}
+	nav#main a.bill{
+		background:none;
+		color:#737373;
 	}
 	nav#main a:hover,nav#main a.active{
 		color:#FF6602;
@@ -525,6 +529,9 @@ footer img{
 		border:none;
 		box-shadow:0 1px 3px #ccc;
 	}
+	div.products_carousel div.carousel_image{
+		max-width:75px;
+	}
 	div.products_carousel img{
 		display:block;
 		margin:0;
@@ -534,11 +541,9 @@ footer img{
 	div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 		display:inline-block;
 		vertical-align:middle;
-		
-		
 	}
 	div.products_carousel div.carousel_info{
-		margin-left:0.5em;
+		margin-left:1em;
 		opacity:1;
 		width:130px;
 	}
@@ -584,5 +589,10 @@ footer img{
 	footer img{
 		width:20px;
 		margin-left:0.5em;
+	}
+}
+@media only screen and (max-device-width: 315px){
+	div#filter_brands,div#sort_products{
+		margin-bottom:0.5em;
 	}
 }

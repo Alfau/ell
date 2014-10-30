@@ -18,7 +18,6 @@
 						</ul>
 					</nav>
 					<div id="mobile_brands">
-					
 						<?php
 						include("connection.php");
 						
@@ -28,6 +27,36 @@
 							$product_type="TV";
 						}
 						
+						$query="SELECT Brand FROM products WHERE Type='$product_type' ORDER BY Brand";
+						$result=mysqli_query($con,$query);
+						$last_brand=NULL;
+						?>
+						<div id="filter_brands">
+							<p>Filter :</p>
+							<select>
+								<option>All Brands</option>
+							<?php
+							while($row=mysqli_fetch_array($result)){
+								if($last_brand!=$row['Brand']){
+									?>
+									<option><?php echo $row['Brand']; ?></option>
+									<?php
+								}
+								$last_brand=$row['Brand'];
+							}
+							?>
+							</select>
+						</div>
+						<div id="sort_products">
+							<p>Sort by :</p>
+							<select>
+								<option>Newest</option>
+								<option>Popularity</option>
+								<option>Lowest Price</option>
+								<option>Highest Price</option>
+							</select>
+						</div>
+						<?php
 						$query="SELECT Brand FROM products WHERE Type='$product_type' ORDER BY Brand";
 						$result=mysqli_query($con,$query);
 						$last_brand=NULL;
