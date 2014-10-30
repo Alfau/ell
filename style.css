@@ -386,6 +386,10 @@ footer img{
 /*-----------------------------------------*/
 @media only screen and (max-device-width: 480px){
 	
+	html{
+		background-color:#f0f1f2;
+	}
+	
 	header{
 		padding:0;
 		width:100%;
@@ -398,6 +402,7 @@ footer img{
 		display:block;
 		background-color:#f0f1f2;
 		border-bottom:solid 1px #dedede;
+		box-shadow:0 0 2px #888;
 	}
 	nav#mobile_header li{
 		list-style:none;
@@ -446,7 +451,7 @@ footer img{
 		display:none;
 		text-align:left;
 		margin:0;
-		background-color:#4f4f4f;
+		background-color:rgba(0,0,0,0.1);
 	}
 	nav#main li{
 		list-style:none;
@@ -454,42 +459,23 @@ footer img{
 	}
 	nav#main a{
 		display:block;
-		color:#fff;
+		color:#737373;
 		margin:0;
 		border:none;
-		border-top:solid 1px #888;
+		border-bottom:solid 1px #f0f1f2;
 		padding:1em;
 		transition:color 0.2s,border 0.2s;
 	}
-	nav#main a:hover,nav#main a.active{
+	nav#main a.active{
 		color:#FF6602;
 		border:none;
-		border-top:solid 1px #888;
+		border-bottom:solid 1px #f0f1f2;
 	}
 	nav#main_sub{
 		display:none;
 	}
-	nav#main li ul{
-		background-color:#4f4f4f;
-		margin:0;
-	}
-	nav#main li ul li{
-		display:block;
-	}
 	nav#main li ul a{
-		display:block;
-		text-transform:uppercase;
-		color:#fff;
-		margin:0;
 		padding:1em 1em 1em 3em;
-		border-top:solid 1px #888;
-		transition:color 0.2s;
-	}
-	nav#main li ul a:hover,nav#main li ul a.active{
-		color:#FF6602;
-	}
-	nav#main li ul a.active{
-		color:#FF6602;
 	}
 	/*---------------------------------------*/
 	main{
@@ -507,29 +493,33 @@ footer img{
 	}
 	div.products_carousel div.carousel_product{
 		display:block;
-		vertical-align:baseline;
-		margin:3em 0 0 0;
-		padding:0 2em 2em 2em;
+		background-color:#fff;
+		/*margin:3em 0 0 0;*/
+		padding:2em;
 		position:relative;
-		border-bottom:solid 1px #bbbdbf;
+		border:none;
+		box-shadow:0 1px 3px #ccc;
 	}
 	div.products_carousel img{
 		display:block;
 		margin:0;
 		max-width:100px;
+		height:auto;
 	}
 	div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 		display:inline-block;
 		vertical-align:top;
 	}
-	div.products_carousel div.carousel_image{
+	/*div.products_carousel div.carousel_image{
 		max-width:100px;
-	}
+	}*/
 	div.products_carousel div.carousel_info{
 		margin-left:0.5em;
 		opacity:1;
 		width:auto;
 	}
+	
+	
 	/*---------------------------------------*/
 	footer{
 		width:100%;
