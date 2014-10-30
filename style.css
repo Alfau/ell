@@ -277,6 +277,10 @@ div.products_carousel div.carousel_info{
 div.products_carousel div h3{
 	color:#FF6602;
 }
+/*-----------------------------*/
+div#filter_brands,div#sort_products{
+	display:none;
+}
 /*--------------------------------*/
 div#products_by_brand>div{
 	display:inline-block;
@@ -387,7 +391,7 @@ footer img{
 @media only screen and (max-device-width: 480px){
 	
 	html{
-		background-color:#f0f1f2;
+		background:#f0f1f2;
 	}
 	
 	header{
@@ -400,9 +404,10 @@ footer img{
 	/*---------------------------------------*/
 	nav#mobile_header{
 		display:block;
+		z-index:100;
 		background-color:#f0f1f2;
-		border-bottom:solid 1px #dedede;
-		box-shadow:0 0 2px #888;
+		/*border-bottom:solid 3px #FF6602;*/
+		box-shadow:0 0 3px #888;
 	}
 	nav#mobile_header li{
 		list-style:none;
@@ -413,7 +418,7 @@ footer img{
 	}
 	nav#mobile_header a{
 		display:block;
-		border-right:solid 1px #dedede;
+		border-right:solid 1px #d5d5d5;
 		padding:1em 1.5em;;
 	}
 	nav#mobile_header li:last-child a{
@@ -422,7 +427,7 @@ footer img{
 	}
 	nav#mobile_header .search_svg,nav#mobile_header .menu_svg{
 		height:20px;
-		transition:transform 0.3s,fill 0.3s;		
+		transition:transform 0.3s,fill 0.3s;
 	}
 	nav#mobile_header .menu_svg.active,nav#mobile_header .search_svg.active{
 		-moz-transform:rotate(90deg);
@@ -464,9 +469,10 @@ footer img{
 		border:none;
 		border-bottom:solid 1px #f0f1f2;
 		padding:1em;
+		text-transform:capitalize;
 		transition:color 0.2s,border 0.2s;
 	}
-	nav#main a.active{
+	nav#main a:hover,nav#main a.active{
 		color:#FF6602;
 		border:none;
 		border-bottom:solid 1px #f0f1f2;
@@ -485,6 +491,25 @@ footer img{
 		width:100%;
 	}
 	/*----------------------------------*/
+	div#filter_brands,div#sort_products{
+		display:inline-block;
+		margin:0 1em;
+	}
+	div#filter_brands p,div#filter_brands select,div#sort_products p,div#sort_products select{
+		display:inline-block;
+		vertical-align:middle;
+		margin:0;
+	}
+	div#filter_brands select,div#sort_products select{
+		border:solid 1px #d5d5d5;
+		background:none;
+		padding:0.2em 0.5em;
+		color:#828386;
+		-webkit-appearance: none;
+		-moz-appearance:none;
+		appearance:none;
+	}
+	/*---------------------------*/
 	div.products_carousel{
 		position:relative;
 		padding:0;
@@ -494,8 +519,8 @@ footer img{
 	div.products_carousel div.carousel_product{
 		display:block;
 		background-color:#fff;
-		/*margin:3em 0 0 0;*/
-		padding:2em;
+		margin:1em;
+		padding:1em;
 		position:relative;
 		border:none;
 		box-shadow:0 1px 3px #ccc;
@@ -503,23 +528,33 @@ footer img{
 	div.products_carousel img{
 		display:block;
 		margin:0;
-		max-width:100px;
+		max-width:75px;
 		height:auto;
 	}
 	div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 		display:inline-block;
-		vertical-align:top;
+		vertical-align:middle;
+		
+		
 	}
-	/*div.products_carousel div.carousel_image{
-		max-width:100px;
-	}*/
 	div.products_carousel div.carousel_info{
 		margin-left:0.5em;
 		opacity:1;
-		width:auto;
+		width:130px;
 	}
-	
-	
+	div.products_carousel a.product_name{
+		color:#737373;
+		font-size:1em;
+		text-transform:uppercase;
+		margin-bottom:1em;
+	}
+	div.products_carousel a.price{
+		font-weight:bold;
+		font-size:1em;
+	}
+	div#mobile_brands a.brand_title{
+		display:none;
+	}
 	/*---------------------------------------*/
 	footer{
 		width:100%;
