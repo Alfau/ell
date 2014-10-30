@@ -3,9 +3,7 @@
 	<a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a>
 	<nav id="mobile_header">
 		<ul>
-			<li><a href=# id="menu"><img src="icons/menu.png"/></a></li>
-			<li><a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a></li>
-			<li><a href=# id="search"><img src="icons/search_2.png"/></a></li>
+			<li><a href=# id="menu"><?php include('icons/menu.svg') ?></a></li><li><a href=# id="search"><?php include('icons/search.svg') ?></a></li><li><a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a></li>
 		</ul>
 	</nav>
 	<nav id="mobile_search">
@@ -22,23 +20,23 @@
 	<nav id="main">
 		<ul>
 			<li>
-				<a href="mobile.php">MOBILE</a>
+				<a href="mobile.php" class="main">MOBILE</a>
 				<ul>
-					<li><a href="mobile.php?product_type=Mobile Phones" class="active">Mobile Phones</a></li>
-					<li><a href="mobile.php?product_type=Tablets">Tablets</a></li>
-					<li><a href="mobile.php?product_type=Mobile Accessories">Mobile Accessories</a></li>
+					<li><a href="mobile.php?product_type=Mobile Phones" class="active main_sub">Mobile Phones</a></li>
+					<li><a href="mobile.php?product_type=Tablets" class="main_sub">Tablets</a></li>
+					<li><a href="mobile.php?product_type=Mobile Accessories" class="main_sub">Mobile Accessories</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="multimedia.php">MULTIMEDIA</a>
+				<a href="multimedia.php" class="main">MULTIMEDIA</a>
 				<ul>
-					<li><a href="mobile.php?product_type=TV" id="TV" class="active">TV</a></li>
-					<li><a href="mobile.php?product_type=Audio" id="Audio">Audio</a></li>
-					<li><a href="mobile.php?product_type=Video" id="Video">Video</a></li>
+					<li><a href="mobile.php?product_type=TV" id="TV" class="active main_sub">TV</a></li>
+					<li><a href="mobile.php?product_type=Audio" id="Audio" class="main_sub">Audio</a></li>
+					<li><a href="mobile.php?product_type=Video" id="Video" class="main_sub">Video</a></li>
 				</ul>
 			</li>
-			<li><a href="home_appliance.php">HOME APPLIANCE</a></li>
-			<li><a href="dhi_bill.php" class="bill">DHI BILL</a></li>
+			<li><a href="home_appliance.php" class="main">HOME APPLIANCE</a></li>
+			<li><a href="dhi_bill.php" class="bill" class="main">DHI BILL</a></li>
 		</ul>
 	</nav>
 </header>

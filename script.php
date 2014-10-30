@@ -50,7 +50,7 @@ $(document).ready(function(){
 	}
 	
 	
-	$(document).on("click","nav#main>ul>li>a, nav#side a",function(e){
+	$(document).on("click","nav a",function(e){
 		anchor=$(this);
 		nav();
 		url_change();
@@ -68,10 +68,22 @@ $(document).ready(function(){
 	$(document).on("click","nav#mobile_header a#menu",function(){
 		$("nav#mobile_search").slideUp();
 		$("nav#main").slideToggle();
+		if($("<b></b>").addClass($(".menu_svg").attr("class")).hasClass("active")){ //workaround because jquery cant detect svg classes
+			$(".menu_svg").attr("class","menu_svg");
+		}else{
+			$(".menu_svg").attr("class","menu_svg active");
+		}
+		$(".search_svg").attr("class","search_svg");
 	});
 	$(document).on("click","nav#mobile_header a#search",function(){
 		$("nav#main").slideUp();
 		$("nav#mobile_search").slideToggle();
+		if($("<b></b>").addClass($(".search_svg").attr("class")).hasClass("active")){ //workaround because jquery cant detect svg classes
+			$(".search_svg").attr("class","search_svg");
+		}else{
+			$(".search_svg").attr("class","search_svg active");
+		}
+		$(".menu_svg").attr("class","menu_svg");
 	});
 	
 	startSlideshow();
@@ -129,14 +141,37 @@ function scrollbar(){
 
 function nav(){
 	$("nav a").removeClass("active");
-	$(anchor).addClass("active");
+	anchor.addClass("active");
 	
-	$("div#loading_bar").animate({width:"60%"});
+	var url=anchor.prop("href");
 	
-	var url=$(anchor).prop("href");
-	if(window.innerWidth < 500){
-		$(anchor).siblings("ul").slideToggle();
-	}else{
+	if(anchor.hasClass("main")){
+		if(window.innerWidth < 500){
+			anchor.siblings("ul").slideToggle();
+		}else{
+			$("div#loading_bar").animate({width:"60%"});
+			$.post(url,function(data){
+				$("div#loading_bar").animate({width:"100%"},function(){
+					$("div#loading_bar").css("width","0");
+					
+					if($(anchor).parents("nav#main_sub").length){
+						var content=$(data).find("div#mobile_brands").html();
+						$("div#mobile_brands").html(content);
+					}else{
+						var content=$(data).filter("main").html();
+						$("main").html(content);
+					}
+					scrollbar();
+					
+					var if_location=url.split("/");
+					if(if_location.slice(-1)[0]=="locations.php"){
+						initialize();
+					}
+				});
+			}); //this function feels crappy as fuck
+		}
+	}else if(anchor.hasClass("main_sub") || anchor.parents("nav#side").length){
+		$("div#loading_bar").animate({width:"60%"});
 		$.post(url,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
 				$("div#loading_bar").css("width","0");
@@ -155,7 +190,7 @@ function nav(){
 					initialize();
 				}
 			});
-		});
+		});	
 	}
 }
 
