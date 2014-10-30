@@ -233,11 +233,13 @@ div.products_carousel{
 	overflow:hidden;
 	white-space: nowrap;
 }
-div.products_carousel>a:first-child{
+
+div#mobile_brands>a{
 	display:block;
 	text-transform:uppercase;
 	color:#6d6e71;
-	font-size:1.2em;
+	font-size:1.1em;
+	margin-top:1em;
 	transition:color 0.3s;
 }
 div.products_carousel>a:hover{

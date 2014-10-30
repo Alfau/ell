@@ -36,8 +36,8 @@
 								$brand=$row['Brand'];
 								$query_brand="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand'";
 								$result_brand=mysqli_query($con,$query_brand);
-								echo "<div class='products_carousel'>";
 								echo "<a href='by_brand.php?type=$product_type&brand=$brand'>$brand</a>";
+								echo "<div class='products_carousel'>";
 								while($row_brand=mysqli_fetch_array($result_brand)){
 									?>
 									<div class="carousel_product">
