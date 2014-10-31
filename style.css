@@ -160,8 +160,10 @@ nav#side input{
 div#slideshow,div#slideshow_see_more{
 	position:relative;
 	width:100%;
-	min-height:300px;
 	overflow:hidden;
+}
+div#slideshow{
+	min-height:300px;
 }
 div#slideshow span.loading{
 	position:absolute;

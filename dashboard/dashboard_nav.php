@@ -8,7 +8,7 @@
 			<ul>
 				<li><a href="dashboard_modify_mobile.php">Mobile</a></li>
 				<li><a href="dashboard_modify_multimedia.php">Multimedia</a></li>
-				<li><a href=#>Home Appliance</a></li>
+				<li><a href="dashboard_modify_home_appliance.php">Home Appliance</a></li>
 			</ul>
 		</li>
 		<li><a href=#>Manage<span class='bold'>Page</span></a>

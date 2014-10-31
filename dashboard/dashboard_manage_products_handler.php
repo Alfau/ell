@@ -40,10 +40,18 @@ if(isset($_POST['add_what'])){
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
+			}elseif($add_what=="Kitchen Appliance" || $add_what=="Laundry Appliance" || $add_what=="Cooling Appliance" || $add_what=="Other"){
+				$brand=$_POST['brand'];
+				$desc=$_POST['desc'];
+				if(!empty($name) || !empty($price) || !empty($brand) || !empty($desc)){
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
+				}else{
+					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
+				}
 			}
 			
 			if(mysqli_query($con,$query_product)){
-				if($add_what!=="Mobile_Accessories"){
+				if($add_what!=="Mobile Accessories" && $add_what!=="Kitchen Appliance" && $add_what!=="Laundry Appliance" && $add_what!=="Cooling Appliance"){
 					$query_success=false;
 					foreach($_FILES['product_slide']['name'] as $index => $value){
 						if($_FILES['product_slide']['size']!==0){
