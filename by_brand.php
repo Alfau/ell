@@ -16,16 +16,17 @@
 					if(isset($_GET['brand'])){
 						$brand=$_GET['brand'];
 						$type=$_GET['type'];
-						$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand'";
+						//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand'";
+						$query="SELECT ID,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
-						echo "<h2>$brand</h2>";
+						echo "<a href='by_brand.php?brand=$brand' class='brand_title'>$brand</a>";
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
 								<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>" height="120"/></a><br />
 								<div>
-									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>" class="price">Rf. <?php echo $row['Price'] ?></a>
+									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+									<a href="see_more.php?type=<?php echo $type ?>&product_ID=<?php echo $row['ID'] ?>"><span class="light">Price : </span><span class="price">Rf. <?php echo $row['Price'] ?></span></a>
 								</div>
 							</div>
 							<?php

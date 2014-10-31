@@ -143,20 +143,21 @@ function nav(){
 	$("nav a").removeClass("active");
 	anchor.addClass("active");
 	
-	if(anchor.hasClass("main")){
-		if(anchor.siblings("ul").length && window.innerWidth < 500){
-			anchor.siblings("ul").slideToggle();
-		}else{
+	if(!anchor.is("#menu") && !anchor.is("#search")){
+		if(anchor.hasClass("main")){
+			if(anchor.siblings("ul").length && window.innerWidth < 500){
+				anchor.siblings("ul").slideToggle();
+			}else{
+				get_page();
+				mobile_nav_neutral();
+			}
+		}else if(anchor.hasClass("main_sub")){
 			get_page();
 			mobile_nav_neutral();
+		}else{
+			get_page();
 		}
-	}else if(anchor.hasClass("main_sub")){
-		get_page();
-		mobile_nav_neutral();
-	}else{
-		get_page();
 	}
-	
 	function mobile_nav_neutral(){
 		if(window.innerWidth < 500){
 			$("nav#main,nav#main li ul,nav#mobile_search").slideUp();

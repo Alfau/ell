@@ -9,7 +9,6 @@
 		
 		<main>
 			<div id="content">
-				<div id="see_more">
 				<?php
 				include("connection.php");
 				
@@ -37,11 +36,52 @@
 								?>
 								</div>
 							</div>
-							<h2><?php echo $row['Name']?></h2>
-							<p class="price">Rf. <?php echo $row['Price']?></p><br />
-							<p><?php echo $row['Description']?></p><br /><br />
-							<h3>Specifications</h3>
-							<p><?php echo $row['Specifications']?></p>
+							<div id="product_summary">
+								<h2 class="product_name"><?php echo $row['Name']?></h2>
+								<p><span class='light'>Price : </span><span class="price">Rf. <?php echo $row['Price']?></span></p><br />
+								<p><?php echo $row['Description']?></p>
+							</div>
+							<div id="product_share">
+								<img src="icons/facebook.png"/>
+								<img src="icons/twitter.png"/>
+								<img src="icons/pinterest.png"/>
+							</div>
+							<div id="product_specs">
+								<h2 class="title">Specifications</h2>
+								<table>
+								<?php
+								$specs_query="SELECT * FROM mobile_specs WHERE product_ID='$product_ID'";
+								$specs_result=mysqli_query($con,$specs_query);
+								while($specs_array=mysqli_fetch_array($specs_result)){
+									foreach($specs_array as $col_name => $specs){
+										if($col_name!="ID" && $col_name!="Product_ID" && !is_numeric($col_name)){
+											$displayed_specs=explode("+",$specs)
+									?>
+									<tr>
+										<td><?php echo $col_name ?></td>
+										<td>
+										<?php
+											$counter=0;
+											foreach($displayed_specs as $value){
+												if($counter>0){
+													echo $value."<br />";
+												}
+												$counter++;
+											}
+										?>
+										</td>
+									</tr>
+									<?php
+										}
+									}
+								}
+								?>
+								</table>
+							</div>
+							<div id="similar_products">
+								<h2 class="title">Similar Products you might be interested in</h2>
+								
+							</div>
 							<?php
 						}
 					}elseif($type=="Mobile Accessories"){
@@ -59,7 +99,6 @@
 					}
 				}
 				?>
-				</div>
 			</div>
 		</main>
 		

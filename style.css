@@ -51,13 +51,23 @@ input[type=submit]{
 a{
 	text-decoration:none;
 }
+.title{
+	font-size:1.5em;
+}
 .product_name{
+	font-size:1.5em;
+	color:#FF6602;
+}
+.product_name_small{
 	font-size:1.3em;
 	color:#FF6602;
 }
 .price{
 	font-size:1.2em;
 	color:#6D6E71;
+}
+.light{
+	color:#737373;
 }
 /*---------------------------------*/
 header{
@@ -156,14 +166,31 @@ nav#side input{
 	width:120px;
 	
 }
+/*---------------------------------*/
+nav#main_sub{
+	margin-bottom:3em;
+}
+nav#main_sub li{
+	display:inline-block;
+}
+nav#main_sub a{
+	text-transform:uppercase;
+	color:#6D6E71;
+	margin-right:4em;
+	transition:color 0.2s;
+}
+nav#main_sub a:hover,nav#main_sub a.active{
+	color:#FF6602;
+}
+nav#main_sub a.active{
+	color:#FF6602;
+}
 /*--------------------------------*/
-div#slideshow,div#slideshow_see_more{
+div#slideshow{
 	position:relative;
 	width:100%;
-	overflow:hidden;
-}
-div#slideshow{
 	min-height:300px;
+	overflow:hidden;
 }
 div#slideshow span.loading{
 	position:absolute;
@@ -180,9 +207,6 @@ div#slides{
 }
 div#slideshow img{
 	width:100%;
-}
-div#slideshow_see_more img{
-	height:150px;
 }
 div#slides>div{
 	width:100%;
@@ -286,29 +310,72 @@ div#filter_brands,div#sort_products{
 /*--------------------------------*/
 div#products_by_brand>div{
 	display:inline-block;
+	vertical-align:top;
 	margin:2em 6em 2em 0;
+}
+div#products_by_brand>div{
+	width:200px;
 }
 div#products_by_brand div div{
 	margin-top:1em;
 }
+div#products_by_brand>a{
+	display: block;
+	text-transform: uppercase;
+	color: #6D6E71;
+	font-size: 1.1em;
+	margin-top: 1em;
+	transition: color 0.3s ease 0s;
+}
 /*----------------------------------*/
-nav#main_sub{
-	margin-bottom:3em;
+div#slideshow_see_more{
+	position:relative;
+	width:20%;
+	overflow:hidden;
 }
-nav#main_sub li{
+div#slideshow_see_more,div#product_summary,div#product_share{
 	display:inline-block;
+	vertical-align:top;
 }
-nav#main_sub a{
-	text-transform:uppercase;
-	color:#6D6E71;
-	margin-right:4em;
-	transition:color 0.2s;
+div#slideshow_see_more img{
+	height:200px;
 }
-nav#main_sub a:hover,nav#main_sub a.active{
-	color:#FF6602;
+div#product_summary{
+	width:60%;
+	margin:0 1em;
+	padding:0 1em;
 }
-nav#main_sub a.active{
-	color:#FF6602;
+div#product_share{
+	width:10%;
+	text-align:right;
+	padding-left:1em;
+}
+div#product_share img{
+	display:block;
+	width:40px;
+	margin-bottom:1em;
+}
+div#product_specs{
+	width:70%;
+}
+div#product_specs td{
+	vertical-align:top;
+	padding-bottom:1em;
+}
+div#product_specs tr td:first-child{
+	font-weight:bold;
+	padding-right:2em;
+}
+div#similar_products{
+	width:25%;
+}
+div#product_specs,div#similar_products{
+	margin-top:4em;
+	display:inline-block;
+	vertical-align:top;
+}
+div#product_specs table{
+	margin-top:2em;
 }
 /*---------------------------------*/
 div#contact h4{
@@ -347,12 +414,12 @@ div#about_img img{
 	margin-right:6em;
 }
 /*--------------------------------*/
-div#see_more h2{
+/*div#see_more h2{
 	color:#FF6602
 }
 div#see_more p{
 	font-size:1.1em;
-}
+}*/
 /*--------------------------------*/
 div#map_canvas{
 	margin-top:3em;
@@ -563,6 +630,74 @@ footer img{
 	}
 	div#mobile_brands a.brand_title{
 		display:none;
+	}
+	/*--------------------------------------*/
+	div#slideshow_see_more{
+		position:relative;
+		width:100%;
+		overflow:hidden;
+	}
+	div#slideshow_see_more,div#product_summary,div#product_share{
+		display:block;
+	}
+	div#slideshow_see_more img{
+		height:200px;
+	}
+	div#product_summary{
+		width:100%;
+		margin:0;
+		padding:0;
+		/*margin:0 1em;
+		padding:0 1em;*/
+	}
+	div#product_share{
+		width:100%;
+		padding:0;
+		/*text-align:right;
+		padding-left:1em;*/
+	}
+	div#product_share img{
+		display:none;
+	}
+	div#product_specs{
+		width:100%;
+	}
+	div#product_specs td{
+		vertical-align:top;
+		padding-bottom:1em;
+	}
+	div#product_specs tr td:first-child{
+		font-weight:bold;
+		padding-right:2em;
+	}
+	div#similar_products{
+		width:100%;
+	}
+	div#product_specs,div#similar_products{
+		margin-top:4em;
+		display:block;
+	}
+	div#product_specs table{
+		margin-top:2em;
+	}
+	/*---------------------------*/
+	div#products_by_brand>div{
+		display:block;
+		margin:0;
+	}
+	div#products_by_brand>div{
+		width:100%;
+	}
+	div#products_by_brand div div{
+		margin-top:1em;
+	}
+	div#products_by_brand>a{
+		display: block;
+		text-transform: uppercase;
+		color: #6D6E71;
+		font-size: 1.1em;
+		margin-top: 1em;
+		transition: color 0.3s ease 0s;
 	}
 	/*---------------------------------------*/
 	footer{
