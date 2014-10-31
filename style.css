@@ -493,11 +493,13 @@ footer img{
 	}
 	div#content{
 		width:100%;
+		padding:0 1em;
+		box-sizing:border-box;
 	}
 	/*----------------------------------*/
 	div#filter_brands,div#sort_products{
 		display:inline-block;
-		margin:0 1em;
+		/*margin:0 1em;*/
 	}
 	div#filter_brands p,div#filter_brands select,div#sort_products p,div#sort_products select{
 		display:inline-block;
@@ -509,9 +511,6 @@ footer img{
 		background:none;
 		padding:0.2em 0.5em;
 		color:#828386;
-		-webkit-appearance: none;
-		-moz-appearance:none;
-		appearance:none;
 	}
 	/*---------------------------*/
 	div.products_carousel{
@@ -521,9 +520,12 @@ footer img{
 		white-space: normal;
 	}
 	div.products_carousel div.carousel_product{
-		display:block;
+		/*display:block;*/
+		width:100%;
+		box-sizing:border-box;
 		background-color:#fff;
-		margin:1em;
+		/*margin:1em;*/
+		margin:1em 0 0 0;
 		padding:1em;
 		position:relative;
 		border:none;

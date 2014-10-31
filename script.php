@@ -59,35 +59,31 @@ $(document).ready(function(){
 	
 	$(document).on("click","div.products_carousel a, div#products_by_brand a",function(e){
 		anchor=$(this);
-		goToURL();
+		get_from_page();
 		url_change();
 		e.preventDefault();
 	});
 	
 	/*mobile*/
-	$(document).on("click","nav#mobile_header a#menu",function(){
-		$("nav#mobile_search").slideUp();
-		$("nav#main").slideToggle();
-		if($("<b></b>").addClass($(".menu_svg").attr("class")).hasClass("active")){ //workaround because jquery cant detect svg classes
-			$(".menu_svg").attr("class","menu_svg");
-		}else{
-			$(".menu_svg").attr("class","menu_svg active");
+	$(document).on("click","nav#mobile_header a#menu,nav#mobile_header a#search",function(){
+		function switch_svg_class(active_img,passive_img){
+			if($("<b></b>").addClass($(active_img).attr("class")).hasClass("active")){ //workaround because jquery cant detect svg classes
+				$(active_img).attr("class",active_img.split(".")[1]);
+			}else{
+				$(active_img).attr("class",active_img.split(".")[1]+" active");
+			}
+			$(passive_img).attr("class",passive_img.split(".")[1]);
 		}
-		$(".search_svg").attr("class","search_svg");
-	});
-	$(document).on("click","nav#mobile_header a#search",function(){
-		$("nav#main").slideUp();
-		$("nav#mobile_search").slideToggle();
-		if($("<b></b>").addClass($(".search_svg").attr("class")).hasClass("active")){ //workaround because jquery cant detect svg classes
-			$(".search_svg").attr("class","search_svg");
+		
+		if($(this).is("#menu")){
+			$("nav#mobile_search").slideUp();
+			$("nav#main").slideToggle();
+			switch_svg_class(".menu_svg",".search_svg");
 		}else{
-			$(".search_svg").attr("class","search_svg active");
+			$("nav#main").slideUp();
+			$("nav#mobile_search").slideToggle();
+			switch_svg_class(".search_svg",".menu_svg");
 		}
-		$(".menu_svg").attr("class","menu_svg");
-	});
-	
-	$(document).on("click","nav#main li li a",function(){
-		$("nav#main,nav#main li ul,nav#mobile_search").slideUp();
 	});
 	
 	startSlideshow();
@@ -147,90 +143,53 @@ function nav(){
 	$("nav a").removeClass("active");
 	anchor.addClass("active");
 	
-	var url=anchor.prop("href");
-	
 	if(anchor.hasClass("main")){
-		if(window.innerWidth < 500){
-			if(anchor.siblings("ul").length){
-				anchor.siblings("ul").slideToggle();
-			}else{
-				$("div#loading_bar").animate({width:"60%"});
-				$.post(url,function(data){
-					$("div#loading_bar").animate({width:"100%"},function(){
-						$("div#loading_bar").css("width","0");
-						
-						if($(anchor).parents("nav#main_sub").length){
-							var content=$(data).find("div#mobile_brands").html();
-							$("div#mobile_brands").html(content);
-						}else{
-							var content=$(data).filter("main").html();
-							$("main").html(content);
-						}
-						scrollbar();
-						
-						var if_location=url.split("/");
-						if(if_location.slice(-1)[0]=="locations.php"){
-							initialize();
-						}
-					});
-				}); //this function feels crappy as fuck
-			}
+		if(anchor.siblings("ul").length && window.innerWidth < 500){
+			anchor.siblings("ul").slideToggle();
 		}else{
-			$("div#loading_bar").animate({width:"60%"});
-			$.post(url,function(data){
-				$("div#loading_bar").animate({width:"100%"},function(){
-					$("div#loading_bar").css("width","0");
-					
-					if($(anchor).parents("nav#main_sub").length){
-						var content=$(data).find("div#mobile_brands").html();
-						$("div#mobile_brands").html(content);
-					}else{
-						var content=$(data).filter("main").html();
-						$("main").html(content);
-					}
-					scrollbar();
-					
-					var if_location=url.split("/");
-					if(if_location.slice(-1)[0]=="locations.php"){
-						initialize();
-					}
-				});
-			}); //this function feels crappy as fuck
+			get_page();
+			mobile_nav_neutral();
 		}
-	}else if(anchor.hasClass("main_sub") || anchor.parents("nav#side").length){
-		$("div#loading_bar").animate({width:"60%"});
-		$.post(url,function(data){
-			$("div#loading_bar").animate({width:"100%"},function(){
-				$("div#loading_bar").css("width","0");
-				
-				if($(anchor).parents("nav#main_sub").length){
-					var content=$(data).find("div#mobile_brands").html();
-					$("div#mobile_brands").html(content);
-				}else{
-					var content=$(data).filter("main").html();
-					$("main").html(content);
-				}
-				scrollbar();
-				
-				var if_location=url.split("/");
-				if(if_location.slice(-1)[0]=="locations.php"){
-					initialize();
-				}
-			});
-		});	
+	}else if(anchor.hasClass("main_sub")){
+		get_page();
+		mobile_nav_neutral();
+	}else{
+		get_page();
+	}
+	
+	function mobile_nav_neutral(){
+		if(window.innerWidth < 500){
+			$("nav#main,nav#main li ul,nav#mobile_search").slideUp();
+			$(".menu_svg").attr("class","menu_svg");
+		}
 	}
 }
 
-function nav_mobile(){
-	if(window.innerWidth > 500){
-		$(document).on("nav#main a","click",function(e){
-			$(this).parent("li").sibling("ul").slideDown();
-			e.preventDefault();
+function get_page(){
+	var url=$(anchor).prop("href");
+	$("div#loading_bar").animate({width:"60%"});
+	$.post(url,function(data){
+		$("div#loading_bar").animate({width:"100%"},function(){
+			$("div#loading_bar").css("width","0");
+			
+			if($(anchor).parents("nav#main_sub").length){
+				var content=$(data).find("div#mobile_brands").html();
+				$("div#mobile_brands").html(content);
+			}else{
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			}
+			scrollbar();
+			
+			var if_location=url.split("/");
+			if(if_location.slice(-1)[0]=="locations.php"){
+				initialize();
+			}
 		});
-	}
+	});
 }
 
-function goToURL(){
+function get_from_page(){
 	$("div#loading_bar").animate({width:"60%"});
 		
 	var url=$(anchor).prop("href");
@@ -274,12 +233,6 @@ function active_link(){
 			$("nav a").removeClass("active");
 			$(this).addClass("active");
 		}
-	});
-}
-
-function scrollbar(){
-	$("div.products_carousel").perfectScrollbar({
-		suppressScrollY:true
 	});
 }
 
