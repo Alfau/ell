@@ -206,9 +206,15 @@ div#slides{
 	display:inline-block;
 }
 div#slideshow img{
+	/*height:410px;*/
 	width:100%;
+	display:block;
+	margin:0 auto;
 }
 div#slides>div{
+	background-color:#fff;
+	border-top:solid 1px #eee;
+	border-bottom:solid 1px #eee;
 	width:100%;
 	display:inline-block;
 	position:relative;

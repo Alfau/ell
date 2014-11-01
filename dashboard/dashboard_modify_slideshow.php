@@ -13,7 +13,7 @@
 			<h4>Modify Slideshow</h4>
 			<?php
 			include("../connection.php");
-			
+			include("../process_image.php");
 			if(isset($_POST['id'])){
 				if(!empty($_POST['link_title']) && !empty($_POST['description'])){
 					$id=$_POST['id'];
@@ -26,12 +26,8 @@
 						$query="DELETE FROM slideshow WHERE ID='$remove_id'";
 					}else{
 						if($_FILES['slide']['size']!==0){
-							$temp_filename=$_FILES['slide']['tmp_name'];
-							$original_filename=$_FILES['slide']['name'];
-							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-							$destination="../home_slides/".$new_filename;
-							$image_path="home_slides/".$new_filename;
-							if(move_uploaded_file($temp_filename, $destination)){
+							process_image($_FILES['slide']['tmp_name'],"slide","../dummy_slides/");
+							if($image_processed!=false){
 								$result=mysqli_query($con,"SELECT Slide FROM slideshow WHERE ID='$id'");
 								$old_slide=mysqli_fetch_array($result);
 								unlink("../".$old_slide['Slide']);
