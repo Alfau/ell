@@ -92,10 +92,6 @@
 											<td><textarea name="desc"></textarea></td>
 										</tr>
 										<tr>
-											<td>Specifications :</td>
-											<td><textarea name="specs"></textarea></td>
-										</tr>
-										<tr>
 											<td>Image Thumbnail :</td>
 											<td>
 												<input type="file" name="product_thumbnail"/>
@@ -108,6 +104,27 @@
 												<p class='asterix'>* Choose upto 5 images</p>
 											</td>
 										</tr>
+										<tr>
+											<td>Specifications :</td>
+											<td>Note : Use the + sign to denote bullet points of a list</td>
+										</tr>
+										<?php
+										include("../connection.php");
+										$query="SELECT * FROM mobile_specs LIMIT 0,1";
+										$result=mysqli_query($con,$query);
+										while($row=mysqli_fetch_array($result)){
+											foreach($row as $col_name => $spec){
+												if($col_name!="ID" && $col_name!="Product_ID" && !is_numeric($col_name)){
+												?>
+												<tr>
+													<td class="specs"><?php echo $col_name ?></td>
+													<td><textarea name="<?php echo $col_name ?>"></textarea></td>
+												</tr>
+												<?php
+												}
+											}
+										}
+										?>
 										<tr>
 											<td><input type="submit" value="Submit"/></td>
 										</tr>

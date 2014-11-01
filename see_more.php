@@ -55,6 +55,9 @@
 								while($specs_array=mysqli_fetch_array($specs_result)){
 									foreach($specs_array as $col_name => $specs){
 										if($col_name!="ID" && $col_name!="Product_ID" && !is_numeric($col_name)){
+											if(empty($specs)){
+												$specs="+N/A";
+											}
 											$displayed_specs=explode("+",$specs)
 									?>
 									<tr>

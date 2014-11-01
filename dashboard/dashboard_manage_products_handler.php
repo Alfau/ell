@@ -2,6 +2,13 @@
 if(isset($_POST['add_what'])){
 	include("../connection.php");
 	
+	$query_prev_id="SELECT ID FROM products ORDER BY ID DESC LIMIT 1";
+	$result_prev_id=mysqli_query($con,$query_prev_id);
+	while($row=mysqli_fetch_array($result_prev_id)){
+		$prev_id=$row['ID'];
+	}
+	$current_id=$prev_id+1; //clean this code section up if working well.
+	
 	if($_FILES['product_thumbnail']['size']!==0){
 		$temp_filename=$_FILES['product_thumbnail']['tmp_name'];
 		$original_filename=$_FILES['product_thumbnail']['name'];
@@ -17,18 +24,19 @@ if(isset($_POST['add_what'])){
 			if($add_what=="Mobile Phones" || $add_what=="Tablets"){
 				$brand=$_POST['brand'];
 				$desc=$_POST['desc'];
-				$specs=$_POST['specs'];
-				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($specs)){
-					$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$specs','$product_thumbnail_path')";
+				$general=$_POST['General'];$memory=$_POST['Memory'];$camera=$_POST['Camera'];$battery=$_POST['Battery'];$body=$_POST['Body'];$display=$_POST['Display'];$sound=$_POST['Sound'];$data=$_POST['Data'];$features=$_POST['Features'];
+				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($general)){
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
+					$query_specs="INSERT INTO mobile_specs(Product_ID,General,Memory,Camera,Battery,Body,Display,Sound,Data,Features) VALUES('$current_id','$general','$memory','$camera','$battery','$body','$display','$sound','$data','$features')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
 			}elseif($add_what=="TV" || $add_what=="Audio" || $add_what=="Video"){
 				$brand=$_POST['brand'];
 				$desc=$_POST['desc'];
-				$specs=$_POST['specs'];
+				//$specs=$_POST['specs'];
 				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($specs)){
-					$query_product="INSERT INTO products(type,brand,name,price,description,specifications,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$specs','$product_thumbnail_path')";
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
@@ -50,7 +58,8 @@ if(isset($_POST['add_what'])){
 				}
 			}
 			
-			if(mysqli_query($con,$query_product)){
+			function add_slideshow(){
+				global $add_what; global $con; global $current_id;
 				if($add_what!=="Mobile Accessories" && $add_what!=="Kitchen Appliance" && $add_what!=="Laundry Appliance" && $add_what!=="Cooling Appliance"){
 					$query_success=false;
 					$error_msg=false;
@@ -63,7 +72,7 @@ if(isset($_POST['add_what'])){
 							$product_slide_path="product_slides/".$new_filename;
 							
 							if(move_uploaded_file($temp_filename, $destination)){
-								$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES(LAST_INSERT_ID(),'$product_slide_path')";
+								$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES('$current_id','$product_slide_path')";
 								if(mysqli_query($con,$query_product_slide)){
 									$query_success=true;
 								}
@@ -85,12 +94,24 @@ if(isset($_POST['add_what'])){
 				}
 			}
 			
+			if(isset($query_product) && isset($query_specs) && mysqli_query($con,$query_product) && mysqli_query($con,$query_specs)){
+				add_slideshow();
+			}elseif(isset($query_product) && !isset($query_specs) && mysqli_query($con,$query_product)){
+				add_slideshow();
+			}elseif(!isset($query_product) && isset($query_specs) && mysqli_query($con,$query_specs)){
+				add_slideshow();
+			}else{
+				echo "<p class='failed'>An error occured while adding product to database. Please try again.</p>";
+			}
+			
+			
 		}else{
 			echo "<p class='failed'>An error occured while trying to upload product thumbnail to database. Please try again.</p>";
 		}
 	}else{
 		echo "<p class='failed'>Please choose an image to use as the product thumbnail.</p>";
 	}
+	
 	mysqli_close($con);
 }
 ?>

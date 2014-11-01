@@ -89,10 +89,10 @@
 							<td>Description :</td>
 							<td><textarea name="desc"></textarea></td>
 						</tr>
-						<tr>
+						<!--<tr>
 							<td>Specifications :</td>
 							<td><textarea name="specs"></textarea></td>
-						</tr>
+						</tr>-->
 						<tr>
 							<td>Image Thumbnail :</td>
 							<td>

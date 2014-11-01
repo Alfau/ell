@@ -175,3 +175,11 @@ div.modify_slide label,div#modify_about label{
 div.modify_slide input[type=file],div#modify_about input[type=file]{
 	display:none;
 }
+/*--------------------------------*/
+table td:first-child{
+	width:20%;
+	vertical-align:top;
+}
+table td.specs{
+	text-align:right;
+}
