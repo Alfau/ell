@@ -10,13 +10,10 @@ if(isset($_POST['add_what'])){
 	$current_id=$prev_id+1; //clean this code section up if working well.
 	
 	if($_FILES['product_thumbnail']['size']!==0){
-		$temp_filename=$_FILES['product_thumbnail']['tmp_name'];
-		$original_filename=$_FILES['product_thumbnail']['name'];
-		$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-		$destination="../product_thumbnails/".$new_filename;
-		$product_thumbnail_path="product_thumbnails/".$new_filename;
 		
-		if(move_uploaded_file($temp_filename, $destination)){
+		process_image($_FILES['product_thumbnail']['tmp_name'],"thumbnail","../product_thumbnails/");
+		
+		if($image_processed!=false){
 			$add_what=$_POST['add_what'];
 			$name=$_POST['name'];
 			$price=$_POST['price'];
@@ -26,7 +23,7 @@ if(isset($_POST['add_what'])){
 				$desc=$_POST['desc'];
 				$general=$_POST['General'];$memory=$_POST['Memory'];$camera=$_POST['Camera'];$battery=$_POST['Battery'];$body=$_POST['Body'];$display=$_POST['Display'];$sound=$_POST['Sound'];$data=$_POST['Data'];$features=$_POST['Features'];
 				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($general)){
-					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$image_path')";
 					$query_specs="INSERT INTO mobile_specs(Product_ID,General,Memory,Camera,Battery,Body,Display,Sound,Data,Features) VALUES('$current_id','$general','$memory','$camera','$battery','$body','$display','$sound','$data','$features')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
@@ -58,42 +55,6 @@ if(isset($_POST['add_what'])){
 				}
 			}
 			
-			function add_slideshow(){
-				global $add_what; global $con; global $current_id;
-				if($add_what!=="Mobile Accessories" && $add_what!=="Kitchen Appliance" && $add_what!=="Laundry Appliance" && $add_what!=="Cooling Appliance"){
-					$query_success=false;
-					$error_msg=false;
-					foreach($_FILES['product_slide']['name'] as $index => $value){
-						if($_FILES['product_slide']['size'][$index]!==0){
-							$temp_filename=$_FILES['product_slide']['tmp_name'][$index];
-							$original_filename=$_FILES['product_slide']['name'][$index];
-							$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-							$destination="../product_slides/".$new_filename;
-							$product_slide_path="product_slides/".$new_filename;
-							
-							if(move_uploaded_file($temp_filename, $destination)){
-								$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES('$current_id','$product_slide_path')";
-								if(mysqli_query($con,$query_product_slide)){
-									$query_success=true;
-								}
-							}
-						}else{
-							$error_msg=true;
-							echo "<p class='failed'>You are required to add atleast one image for the product slideshow.</p>";
-						}
-					}
-					if($query_success==true){
-						echo "<p class='success'>Product was successfully added to the database.</p>";
-					}else{
-						if($error_msg==false){
-							echo "<p class='failed'>An error occured while uploading slideshow to the database. Please try again.</p>";
-						}
-					}
-				}else{
-					echo "<p class='success'>Product was successfully added to the database.</p>";
-				}
-			}
-			
 			if(isset($query_product) && isset($query_specs) && mysqli_query($con,$query_product) && mysqli_query($con,$query_specs)){
 				add_slideshow();
 			}elseif(isset($query_product) && !isset($query_specs) && mysqli_query($con,$query_product)){
@@ -103,8 +64,6 @@ if(isset($_POST['add_what'])){
 			}else{
 				echo "<p class='failed'>An error occured while adding product to database. Please try again.</p>";
 			}
-			
-			
 		}else{
 			echo "<p class='failed'>An error occured while trying to upload product thumbnail to database. Please try again.</p>";
 		}
@@ -114,4 +73,81 @@ if(isset($_POST['add_what'])){
 	
 	mysqli_close($con);
 }
+
+function process_image($file_ref,$image_use,$directory){
+	global $image_processed; global $image_path;
+	
+	$image_info=getimagesize($file_ref);
+	
+	$old_width=$image_info[0];
+	$old_height=$image_info[1];
+	
+	$image_use == "thumbnail" ? $new_height=100 : $new_height=500;
+	$new_width=$old_width*($new_height/$old_height);
+	
+	$new_image=imagecreatetruecolor($new_width,$new_height);
+	$white=imagecolorallocate($new_image,255,255,255);
+	imagefill($new_image,0,0,$white);
+	
+    $image_type = exif_imagetype($file_ref);
+    $allowedTypes = array(
+        2,  // [] jpg
+        3  // [] png
+    );
+    if (!in_array($image_type, $allowedTypes)) {
+        return false;
+    }
+    switch ($image_type) {
+        case 2 :
+            $old_image = imagecreatefromjpeg($file_ref);
+			$destination=$directory.mt_rand().".jpg";
+			$image_path=explode("../",$destination)[1];
+        break;
+        case 3 :
+            $old_image = imagecreatefrompng($file_ref);
+			$destination=$directory.mt_rand().".png";
+			$image_path=explode("../",$destination)[1];
+        break;
+    } 
+	
+	imagecopyresized($new_image,$old_image,0,0,0,0,$new_width,$new_height,$old_width,$old_height);
+	
+	imagejpeg($new_image,$destination) ? $image_processed=true : $image_processed=false;
+	imagedestroy($new_image);
+}
+
+function add_slideshow(){
+	global $add_what; global $con; global $current_id; global $image_processed; global $image_path;
+	if($add_what!=="Mobile Accessories" && $add_what!=="Kitchen Appliance" && $add_what!=="Laundry Appliance" && $add_what!=="Cooling Appliance"){
+		$query_success=false;
+		$error_msg=false;
+		foreach($_FILES['product_slide']['name'] as $index => $value){
+			if($_FILES['product_slide']['size'][$index]!==0){
+				
+				process_image($_FILES['product_slide']['tmp_name'][$index],"slide","../product_slides/");
+				
+				if($image_processed!=false){
+					$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES('$current_id','$image_path')";
+					if(mysqli_query($con,$query_product_slide)){
+						$query_success=true;
+					}
+				}
+			}else{
+				$error_msg=true;
+				echo "<p class='failed'>You are required to add atleast one image for the product slideshow.</p>";
+			}
+		}
+		if($query_success==true){
+			echo "<p class='success'>Product was successfully added to the database.</p>";
+		}else{
+			if($error_msg==false){
+				echo "<p class='failed'>An error occured while uploading slideshow to the database. Please try again.</p>";
+			}
+		}
+	}else{
+		echo "<p class='success'>Product was successfully added to the database.</p>";
+	}
+}
+
+
 ?>
