@@ -54,14 +54,15 @@ $(document).ready(function(){
 		anchor=$(this);
 		nav();
 		url_change();
-		horizontal_ajax_pagination(document.URL);
+		ajax_pagination("horizontal",document.URL);
 		e.preventDefault();
 	});
 	
-	$(document).on("click","div.products_carousel a, div#products_by_brand a",function(e){
+	$(document).on("click","div.products_carousel a, div#products_by_brand a,div#mobile_brands>a",function(e){
 		anchor=$(this);
 		get_from_page();
 		url_change();
+		ajax_pagination("vertical",document.URL);
 		e.preventDefault();
 	});
 	
@@ -87,7 +88,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	horizontal_ajax_pagination(document.URL);
+	ajax_pagination("horizontal",document.URL);
 	startSlideshow();
 	scrollbar();
 });
@@ -141,21 +142,35 @@ function scrollbar(){
 	});
 }
 
-function horizontal_ajax_pagination(url){
+function ajax_pagination(type,url){
 	page_count=2;
-	$('div.products_carousel').scroll( function() {
-		screen_width=$(this).width();
-		wrapper_width=$(this).children("div.products_wrapper").width();
-		var carousel_which=$(this).children("div.products_wrapper").attr("id");
-        if($(this).scrollLeft() == (wrapper_width-screen_width)){
-        	$.get(url,{page:page_count},function(data){
-        		var content=$(data).find("div.products_wrapper").children();
-        		$("div#"+carousel_which).append(content);
-        		page_count++;
-        		wrapper_width=$("div.products_wrapper").width();
-        	});
-        }
-    });
+	if(type=="horizontal"){
+		$('div.products_carousel').scroll( function() {
+			screen_width=$(this).width();
+			wrapper_width=$(this).children("div.products_wrapper").width();
+			var carousel_which=$(this).children("div.products_wrapper").attr("id");
+	        if($(this).scrollLeft() == (wrapper_width-screen_width)){
+	        	$.get(url,{page:page_count},function(data){
+	        		var content=$(data).find("div.products_wrapper").children();
+	        		$("div#"+carousel_which).append(content);
+	        		page_count++;
+	        		wrapper_width=$("div.products_wrapper").width();
+	        	});
+	        }
+	    });
+	}else if(type=="vertical"){
+		$(window).scroll( function() {
+			document_height=$(document).height();
+			window_height=$(window).height();
+		    if($(this).scrollTop() + window_height == document_height){
+		    	$.get(url,{page:page_count},function(data){
+		    		var content=$(data).find("div#products_by_brand").children();
+		    		$("div#products_by_brand").append(content);
+		    		page_count++;
+		    	});
+		    }
+		});
+	}
 }
 
 function nav(){

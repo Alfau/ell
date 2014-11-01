@@ -16,10 +16,17 @@
 					if(isset($_GET['brand'])){
 						$brand=$_GET['brand'];
 						$type=$_GET['type'];
+						if(isset($_GET['page'])){
+							$next_page=$_GET['page'];
+							$rows_per_page=16;
+							$offset=($next_page-2)*$rows_per_page;
+							$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand' LIMIT $offset,$rows_per_page";
+						}else{
+							$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand' LIMIT 0,16";
+						}
 						//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$type' AND Brand='$brand'";
-						$query="SELECT ID,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
-						echo "<a href='by_brand.php?brand=$brand' class='brand_title'>$brand</a>";
+						//echo "<a href='by_brand.php?brand=$brand' class='brand_title'>$brand</a>";
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
