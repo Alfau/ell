@@ -265,13 +265,15 @@ div#slideshow_controls>span:hover{
 	background-color:#fff;
 }
 /*--------------------------------*/
-div.products_carousel{
+div.products_wrapper{
+	display:inline-block;
+}
+div.products_carousel{	
 	position:relative;
 	padding:1em 0 2em 0;
 	overflow:hidden;
 	white-space: nowrap;
 }
-
 div#mobile_brands>a{
 	display:block;
 	text-transform:uppercase;
@@ -292,7 +294,7 @@ div.products_carousel div.carousel_product{
 div.products_carousel img{
 	display:block;
 	margin:auto;
-	width:120px;
+	height:120px;
 }
 div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 	display:inline-block;

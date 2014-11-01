@@ -54,6 +54,7 @@ $(document).ready(function(){
 		anchor=$(this);
 		nav();
 		url_change();
+		horizontal_ajax_pagination(document.URL);
 		e.preventDefault();
 	});
 	
@@ -86,6 +87,7 @@ $(document).ready(function(){
 		}
 	});
 	
+	horizontal_ajax_pagination(document.URL);
 	startSlideshow();
 	scrollbar();
 });
@@ -137,6 +139,23 @@ function scrollbar(){
 	$("div.products_carousel").perfectScrollbar({
 		suppressScrollY:true
 	});
+}
+
+function horizontal_ajax_pagination(url){
+	page_count=2;
+	$('div.products_carousel').scroll( function() {
+		screen_width=$(this).width();
+		wrapper_width=$(this).children("div.products_wrapper").width();
+		var carousel_which=$(this).children("div.products_wrapper").attr("id");
+        if($(this).scrollLeft() == (wrapper_width-screen_width)){
+        	$.get(url,{page:page_count},function(data){
+        		var content=$(data).find("div.products_wrapper").children();
+        		$("div#"+carousel_which).append(content);
+        		page_count++;
+        		wrapper_width=$("div.products_wrapper").width();
+        	});
+        }
+    });
 }
 
 function nav(){
