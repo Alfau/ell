@@ -26,7 +26,7 @@
 						$query="DELETE FROM slideshow WHERE ID='$remove_id'";
 					}else{
 						if($_FILES['slide']['size']!==0){
-							process_image($_FILES['slide']['tmp_name'],"slide","../dummy_slides/");
+							process_image($_FILES['slide']['tmp_name'],"slide","../home_slides/");
 							if($image_processed!=false){
 								$result=mysqli_query($con,"SELECT Slide FROM slideshow WHERE ID='$id'");
 								$old_slide=mysqli_fetch_array($result);
@@ -97,19 +97,15 @@
 				<h4>Add new Slide</h4>
 				<?php
 					if(isset($_POST['add_slide'])){
-						if(!empty($_POST['Link_Title']) && !empty($_POST['description'])){
-							$link_title=$_POST['Link_Title'];
+						if(!empty($_POST['link_title']) && !empty($_POST['description'])){
+							$link_title=$_POST['link_title'];
 							$description=$_POST['description'];
 							$link_href=$_POST['link_href'];
 							
 							if($_FILES['slide']['size']!==0){
-								$temp_filename=$_FILES['slide']['tmp_name'];
-								$original_filename=$_FILES['slide']['name'];
-								$new_filename=md5($original_filename).mt_rand().".jpg";//change to allow more image types
-								$destination="../home_slides/".$new_filename;
-								$image_path="home_slides/".$new_filename;
-								if(move_uploaded_file($temp_filename, $destination)){
-									$query="INSERT INTO slideshow(Link_Title,Link_HREF,Description,Slide) VALUES('$link_tile','$link_href','$description','$image_path')";
+								process_image($_FILES['slide']['tmp_name'],"slide","../home_slides/");
+								if($image_processed!=false){
+									$query="INSERT INTO slideshow(Link_Title,Link_HREF,Description,Slide) VALUES('$link_title','$link_href','$description','$image_path')";
 									if(!mysqli_query($con,$query)){
 										echo "<p class='failed'>Submission failed. Please try again.</p>";
 									}else{
