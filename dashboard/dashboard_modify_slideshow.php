@@ -1,3 +1,4 @@
+<?php include("session_verification.php"); ?>
 <!DOCTYPE HTML>
 <html>
 	<head>

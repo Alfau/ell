@@ -42,6 +42,9 @@ p.asterix{
 	color:#888;
 }
 /*--------------------------------*/
+textarea{
+	font-size:0.8em;
+}
 input[type='text'],select,input[type='file'],textarea{
 	border:none;
 	border:solid 1px #ccc; 
@@ -75,7 +78,10 @@ header{
 	box-shadow:0 0 5px #000;
 	width:100%;
 	position:fixed;
-	z-index:100;
+	z-index:200;
+}
+header h3,header a.logout{
+	/*display:inline-block;*/
 }
 header h3{
 	font-weight:normal;
@@ -83,6 +89,16 @@ header h3{
 }
 header a{
 	color:#fff;
+}
+header .logout{
+	position:absolute;
+	top:1em;
+	right:3em;
+	font-size:0.7em;
+	color:#aaa;
+}
+header .logout a{
+	color:#aaa;
 }
 /*-----------------------------*/
 aside,main{
@@ -147,6 +163,20 @@ main table{
 }
 main table td{
 	padding:0.5em 1em;
+}
+/*-----------------------------*/
+div#tips{
+	padding:1em;
+}
+div#tips p{
+	margin:0.5em 0;
+}
+div#tips ul{
+	margin:1em 0;
+}
+div#tips li{
+	list-style-type:disc;
+	margin-left:2em;
 }
 /*-------------------------*/
 div.manage_options a span,div.manage_category a span{

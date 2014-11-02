@@ -1,6 +1,7 @@
 <span id="loader"></span>
 <header>
 	<h3><a href="dashboard.php">Admin<span class='bold'>Dashboard</span></a></h3>
+	<span class="logout">Logged in as Admin - <a href="logout.php">[ Log Out ]</a></span>
 </header>
 <aside>
 	<ul>

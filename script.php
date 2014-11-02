@@ -306,7 +306,7 @@ function active_link(){
 	});
 } 
 
-function initialize(){
+/*function initialize(){
 	var mapCanvas = document.getElementById('map_canvas');
     var mapOptions = {
       center: new google.maps.LatLng(4.175134, 73.510372),
@@ -347,4 +347,4 @@ function initialize(){
       		<?php
       	}
       ?>
-}
+}*/
