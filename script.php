@@ -49,12 +49,11 @@ $(document).ready(function(){
 		});
 	}
 	
-	
 	$(document).on("click","nav a",function(e){
 		anchor=$(this);
 		nav();
 		url_change();
-		ajax_pagination("horizontal",document.URL);
+		window.innerWidth < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("horizontal",document.URL);   
 		e.preventDefault();
 	});
 	
@@ -86,6 +85,19 @@ $(document).ready(function(){
 			$("nav#mobile_search").slideToggle();
 			switch_svg_class(".search_svg",".menu_svg");
 		}
+	});
+	
+	$(document).on("change","div#filter_brands select, div#sort_products select",function(){
+		var filter_brands=$("div#filter_brands select option").filter(":selected").val();
+		var sort_products=$("div#sort_products select option").filter(":selected").val();
+		//var product_type=$("div#filter_brands select").attr("class");
+		url_change(document.URL+"&filter_brands="+filter_brands+"&sort_products="+sort_products);
+		$.get(document.URL,{filter_brands:filter_brands, sort_products:sort_products},function(data){
+			var content=$(data).find("div.products_wrapper").children();
+			$("div#mobile_brands div.products_carousel").slice(1).remove();
+			$("div.products_wrapper").html(content);
+			ajax_pagination("mobile",document.URL);
+		});
 	});
 	
 	ajax_pagination("horizontal",document.URL);
@@ -170,9 +182,26 @@ function ajax_pagination(type,url){
 		    	});
 		    }
 		});
+	}else if(type=="mobile"){
+		handled=true;
+		$(window).scroll( function() {
+			if(handled==true){
+				document_height=$(document).height();
+				window_height=$(window).height();
+			    if($(this).scrollTop() + window_height == document_height){
+			    	handled=false;
+			    	$.get(url,{page:page_count},function(data){
+			    		var content=$(data).find("div.products_wrapper").children();
+			    		$("div.products_wrapper").append(content);
+			    		page_count++;
+			    		handled=true;
+			    	});
+			    }
+			}
+		});
 	}
 }
-
+		
 function nav(){
 	$("nav a").removeClass("active");
 	anchor.addClass("active");
@@ -237,8 +266,10 @@ function get_from_page(){
 	});
 };
 
-function url_change(){
-	var url_bar=(anchor.prop("href")).replace(".php","");
+function url_change(url_bar){
+	if(url_bar === undefined){
+		var url_bar=(anchor.prop("href")).replace(".php","");
+	}
 	if(url_bar!=window.location){
 		window.history.pushState({path:url_bar},'',url_bar);
 	}
@@ -269,7 +300,7 @@ function active_link(){
 			$(this).addClass("active");
 		}
 	});
-}
+} 
 
 function initialize(){
 	var mapCanvas = document.getElementById('map_canvas');

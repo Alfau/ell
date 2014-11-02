@@ -316,6 +316,9 @@ div#filter_brands,div#sort_products{
 	display:none;
 }
 /*--------------------------------*/
+div#products_by_brand img{
+	height:120px;
+}
 div#products_by_brand>div{
 	display:inline-block;
 	vertical-align:top;
@@ -460,14 +463,14 @@ footer div{
 	position:relative;
 	margin:auto;
 }
-footer span,footer ul{
+footer span,footer ul#social{
 	display:inline-block;
 }
-footer ul{
+footer ul#social{
 	position:absolute;
 	right:0;
 }
-footer ul li{
+footer ul#social li{
 	display:inline-block;
 }
 footer img{
@@ -516,7 +519,7 @@ footer img{
 		height:20px;
 		transition:transform 0.3s,fill 0.3s;
 	}
-	nav#mobile_header .menu_svg.active,nav#mobile_header .search_svg.active{
+	nav#mobile_header .menu_svg.active{
 		-moz-transform:rotate(90deg);
 		-webkit-transform:rotate(90deg);
 		transform:rotate(90deg);
@@ -699,15 +702,26 @@ footer img{
 		margin-top:2em;
 	}
 	/*---------------------------*/
-	div#products_by_brand>div{
-		display:block;
-		margin:0;
+	div#products_by_brand img{
+		max-width:75px;
+		height:auto;
 	}
 	div#products_by_brand>div{
-		width:100%;
+		width: 100%;
+		background-color: #fff;
+		background-color: #FFF;
+		margin: 1em 0px 0px;
+		padding: 1em;
+		box-shadow: 0px 1px 3px #CCC;
+		box-sizing: border-box;
+	}
+	div#products_by_brand>div>a,div#products_by_brand>div>div{
+		display: inline-block;
+		vertical-align: top;
 	}
 	div#products_by_brand div div{
-		margin-top:1em;
+		margin:0;
+		margin-left:1em;
 	}
 	div#products_by_brand>a{
 		display: block;
@@ -736,16 +750,34 @@ footer img{
 	footer span,footer ul{
 		display:block;
 	}
-	footer ul{
-		position:fixed;
-		display:none; /*hide social media icons until i can figure out where to put them*/
+	footer span{
+		display:none;
 	}
-	footer ul li{
+	footer ul#social{
+		position:static;
+		margin-top:1em;
+	}
+	footer ul#social li{
 		display:inline-block;
 	}
 	footer img{
 		width:20px;
-		margin-left:0.5em;
+		margin-right:2em;
+	}
+	/*footer nav#bottom{
+		margin-bottom:1em;
+	}*/
+	footer nav#bottom li{
+		list-style:none;
+		display:inline-block;
+	}
+	footer nav#bottom a{
+		text-decoration:none;
+		color:#fff;
+		margin-right:2em;
+	}
+	footer nav#bottom li:last-child a{
+		margin:0;
 	}
 }
 @media only screen and (max-device-width: 315px){

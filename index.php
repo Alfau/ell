@@ -20,8 +20,8 @@
 					<?php
 						include("connection.php");
 						
-						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
-						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
+						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
+						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result)){
 							?>
@@ -31,7 +31,7 @@
 									<!--<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
 								</div>
 								<div class="carousel_info">
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name"><?php echo $row['Name'] ?></a><br />
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
 									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a>
 								</div>
 							</div>
