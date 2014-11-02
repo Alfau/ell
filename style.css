@@ -458,6 +458,9 @@ footer{
 	bottom:0;
 	font-size:0.9em;
 }
+footer nav#bottom{
+	display:none;
+}
 footer div{
 	width:90%;
 	position:relative;
@@ -586,6 +589,9 @@ footer img{
 		padding:0 1em;
 		box-sizing:border-box;
 	}
+	div#content_small{
+		max-width:80%;
+	}
 	/*----------------------------------*/
 	div#filter_brands,div#sort_products{
 		display:inline-block;
@@ -632,7 +638,7 @@ footer img{
 	}
 	div.products_carousel div.carousel_image,div.products_carousel div.carousel_info{
 		display:inline-block;
-		vertical-align:middle;
+		vertical-align:top;
 	}
 	div.products_carousel div.carousel_info{
 		margin-left:1em;
@@ -646,8 +652,11 @@ footer img{
 		margin-bottom:1em;
 	}
 	div.products_carousel a.price{
-		font-weight:bold;
+		color:#a5a5a5;
 		font-size:1em;
+	}
+	div.products_carousel .product_name_small{
+		color:#6d6e71;
 	}
 	div#mobile_brands a.brand_title{
 		display:none;
@@ -731,6 +740,23 @@ footer img{
 		margin-top: 1em;
 		transition: color 0.3s ease 0s;
 	}
+	/*-------------------------------*/
+	div#contact div{
+		width:100%;
+		margin:0;
+		margin-bottom:2em;
+		padding:0;
+		border:none;
+	}
+	div#contact_left{
+		border-bottom:solid 1px #BBBDBF!important;
+	}
+	div#about_img{
+		display:none;
+	}
+	div#contact>h4{
+		margin-bottom:2em;
+	}
 	/*---------------------------------------*/
 	footer{
 		width:100%;
@@ -764,9 +790,9 @@ footer img{
 		width:20px;
 		margin-right:2em;
 	}
-	/*footer nav#bottom{
-		margin-bottom:1em;
-	}*/
+	footer nav#bottom{
+		display:block;
+	}
 	footer nav#bottom li{
 		list-style:none;
 		display:inline-block;
