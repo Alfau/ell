@@ -162,11 +162,13 @@ function ajax_pagination(type,url){
 			wrapper_width=$(this).children("div.products_wrapper").width();
 			var carousel_which=$(this).children("div.products_wrapper").attr("id");
 	        if($(this).scrollLeft() == (wrapper_width-screen_width)){
+	        	$(window).unbind("scroll");
 	        	$.get(url,{page:page_count},function(data){
 	        		var content=$(data).find("div.products_wrapper").children();
 	        		$("div#"+carousel_which).append(content);
 	        		page_count++;
 	        		wrapper_width=$("div.products_wrapper").width();
+	        		ajax_pagination("horizontal",document.URL);
 	        	});
 	        }
 	    });
@@ -175,29 +177,28 @@ function ajax_pagination(type,url){
 			document_height=$(document).height();
 			window_height=$(window).height();
 		    if($(this).scrollTop() + window_height == document_height){
+		    	$(window).unbind("scroll");
 		    	$.get(url,{page:page_count},function(data){
 		    		var content=$(data).find("div#products_by_brand").children();
 		    		$("div#products_by_brand").append(content);
 		    		page_count++;
+		    		ajax_pagination("vertical",document.URL);
 		    	});
 		    }
 		});
 	}else if(type=="mobile"){
-		handled=true;
 		$(window).scroll( function() {
-			if(handled==true){
-				document_height=$(document).height();
-				window_height=$(window).height();
-			    if($(this).scrollTop() + window_height == document_height){
-			    	handled=false;
-			    	$.get(url,{page:page_count},function(data){
-			    		var content=$(data).find("div.products_wrapper").children();
-			    		$("div.products_wrapper").append(content);
-			    		page_count++;
-			    		handled=true;
-			    	});
-			    }
-			}
+			document_height=$(document).height();
+			window_height=$(window).height();
+		    if($(this).scrollTop() + window_height == document_height){
+		    	$(window).unbind("scroll");
+		    	$.get(url,{page:page_count},function(data){
+		    		var content=$(data).find("div.products_wrapper").children();
+		    		$("div.products_wrapper").append(content);
+		    		page_count++;
+		    		ajax_pagination("mobile",document.URL);
+		    	});
+		    }
 		});
 	}
 }
@@ -306,7 +307,7 @@ function active_link(){
 	});
 } 
 
-/*function initialize(){
+function initialize(){
 	var mapCanvas = document.getElementById('map_canvas');
     var mapOptions = {
       center: new google.maps.LatLng(4.175134, 73.510372),
@@ -347,4 +348,4 @@ function active_link(){
       		<?php
       	}
       ?>
-}*/
+}
