@@ -8,10 +8,6 @@
 }
 html{
 	font-family: "Lintel","Open Sans", sans-serif;
-	background:-moz-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
-	background:-o-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
-	background:-webkit-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
-	background:linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	color:#828386;
 	font-size:0.8em;
 	position:absolute;
@@ -21,6 +17,10 @@ html{
 	bottom:0;
 }
 body{
+	background:-moz-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:-o-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:-webkit-linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
+	background:linear-gradient(to bottom,#e5e5e5,#fff 30%) no-repeat;
 	position:relative;
 	box-sizing:border-box;
 	padding-bottom:80px;
