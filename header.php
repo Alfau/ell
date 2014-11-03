@@ -7,7 +7,7 @@
 		</ul>
 	</nav>
 	<nav id="mobile_search">
-		<li class=search><input type="text" name="search" placeholder="Search"/><span href="search">Search</span></li>
+		<li><input type="text" name="search" placeholder="Search"/></li>
 	</nav>
 	<nav id="side">
 		<ul>
