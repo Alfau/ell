@@ -66,7 +66,7 @@ if(isset($_POST['add_what'])){
 				$desc=$_POST['desc'];
 				//$specs=$_POST['specs'];
 				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($specs)){
-					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$image_path')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
@@ -74,7 +74,7 @@ if(isset($_POST['add_what'])){
 				$brand=$_POST['brand'];
 				$category=$_POST['category'];
 				if(!empty($name) || !empty($brand) || !empty($category)){
-					$query_product="INSERT INTO products(type,category,brand,name,price,thumbnail) VALUES('Mobile Accessories','$category','$brand','$name','$price','$product_thumbnail_path')";
+					$query_product="INSERT INTO products(type,category,brand,name,price,thumbnail) VALUES('Mobile Accessories','$category','$brand','$name','$price','$image_path')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
@@ -82,7 +82,7 @@ if(isset($_POST['add_what'])){
 				$brand=$_POST['brand'];
 				$desc=$_POST['desc'];
 				if(!empty($name) || !empty($brand) || !empty($desc)){
-					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$product_thumbnail_path')";
+					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$image_path')";
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}

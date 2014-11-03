@@ -84,7 +84,7 @@
 							<div id="similar_products">
 								<h2 class="title">Similar Products you might be interested in</h2>
 								<?php
-								$query="SELECT Name,Description,Thumbnail FROM products ORDER BY RAND() LIMIT 2";
+								$query="SELECT Name,Price,Thumbnail FROM products ORDER BY RAND() LIMIT 2";
 								$result=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($result)){
 									?>

@@ -17,7 +17,7 @@
 				<li><a href="dashboard_modify_about.php">About</a></li>
 				<li><a href="dashboard_modify_locations.php">Locations</a></li>
 				<li><a href="dashboard_modify_slideshow.php">Slideshow</a></li>
-				<li><a href=#>Ell Recommended Products</a></li>
+				<!--<li><a href=#>Ell Recommended Products</a></li>-->
 			</ul>
 		</li>
 	</ul>

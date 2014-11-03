@@ -211,10 +211,12 @@ div#slideshow img{
 	display:block;
 	margin:0 auto;
 }
-div#slides>div{
-	background-color:#fff;
+div#slideshow div#slides>div{ 
 	border-top:solid 1px #eee;
 	border-bottom:solid 1px #eee;
+}
+div#slides>div{
+	background-color:#fff;
 	width:100%;
 	display:inline-block;
 	position:relative;
@@ -389,6 +391,10 @@ div#similar_products div{
 div#similar_products img,div#similar_products p{
 	display:inline-block;
 	vertical-align:top;
+}
+div#product_specs{
+	padding-right:3em;
+	box-sizing:border-box;
 }
 div#product_specs,div#similar_products{
 	margin-top:4em;

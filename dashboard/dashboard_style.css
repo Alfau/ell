@@ -47,6 +47,7 @@ p.asterix{
 /*--------------------------------*/
 textarea{
 	font-size:0.8em;
+	resize:vertical;
 }
 input[type='text'],select,input[type='file'],textarea{
 	border:none;
