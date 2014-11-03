@@ -164,7 +164,17 @@ nav#side a:hover,nav#side a.active{
 }
 nav#side input{
 	width:120px;
-	
+	height:15px;
+}
+li.search input[type="button"]{
+	display:none;
+}
+li.search img{
+	height:15px;
+	padding:0.3em;
+	display:inline-block;
+	vertical-align:top;
+	background-color:rgba(0,0,0,0.1);
 }
 /*---------------------------------*/
 nav#main_sub{

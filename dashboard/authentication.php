@@ -1,3 +1,27 @@
+<?php
+include("../connection.php");
+
+$query="SELECT * FROM login";
+$result=mysqli_query($con,$query);
+while($row=mysqli_fetch_array($result)){
+	$db_username=$row['Username'];
+	$db_password=$row['Password'];
+}
+
+if(isset($_POST['username']) && isset($_POST['password'])){
+	global $authenticated;
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+	
+	if($username==$db_username && md5($password)==$db_password){
+		session_start();
+		$_SESSION['username']=$db_username;
+		header("Location:dashboard.php");
+	}else{
+		$authenticated=false;
+	}
+}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -49,26 +73,9 @@
 			<input type="text" name="username" placeholder="Username"/><input type="password" name="password" placeholder="Password"/><input type="submit" value="Log In"/>
 		</form>
 		<?php
-		include("../connection.php");
 		
-		$query="SELECT * FROM login";
-		$result=mysqli_query($con,$query);
-		while($row=mysqli_fetch_array($result)){
-			$db_username=$row['Username'];
-			$db_password=$row['Password'];
-		}
-		
-		if(isset($_POST['username']) && isset($_POST['password'])){
-			$username=$_POST['username'];
-			$password=$_POST['password'];
-			
-			if($username==$db_username && md5($password)==$db_password){
-				session_start();
-				$_SESSION['username']=$db_username;
-				header("Location:dashboard.php");
-			}else{
-				echo "<p>Incorrect Username or Password. Please try again!</p>";
-			}
+		if(isset($authenticated) && $authenticated==false){
+			echo "<p>Incorrect Username or Password. Please try again!</p>";
 		}
 		?>
 		</div>

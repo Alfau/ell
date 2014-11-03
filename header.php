@@ -14,7 +14,7 @@
 			<li><a href="about.php">ABOUT US</a></li>
 			<li><a href="contact.php">CONTACT US</a></li>
 			<li><a href="locations.php">LOCATIONS</a></li>
-			<li class=search><input type="text" name="search"/><span href="search">Search</span></li>
+			<li class=search><input type="text" name="search"/><span href="search"><label><img src="icons/search.svg" alt="Search"/> <input type="button" value="search"/></label></span></li>
 		</ul>
 	</nav>
 	<nav id="main">
