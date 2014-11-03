@@ -207,7 +207,7 @@
 												<td>
 													<form method="POST" action="dashboard_modify_mobile?how_manage=remove&modify_category=<?php echo $modify_category ?>">
 														<span class="product_name_small"><?php echo $row['Name'] ?></span><br />
-														<span class="light">Price : </span><span class="price">Rf. <?php echo $row['Price'] ?></span><br /><?php echo $row['ID']; ?>
+														<span class="light">Price : </span><span class="price">Rf. <?php echo $row['Price'] ?></span><br />
 														<br /><input type="submit" name="remove" value="Remove	"/>
 														<input type="hidden" name="product_ID" value="<?php echo $row['ID'] ?>"/>
 													</form>

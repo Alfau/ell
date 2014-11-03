@@ -117,4 +117,15 @@ if(isset($_POST['remove'])){
 		echo "<p class='failed'>An error occured while attempting to remove image from database. Please try again.</p>";
 	}
 }
+if(isset($_POST['ell_rec'])){
+	$product_ID=$_POST['product_ID'];
+	
+	$query="UPDATE products SET Ell_Rec='TRUE' WHERE ID='$product_ID'";
+	
+	if(mysqli_query($con,$query)){
+		echo "<p class='success'>Product successfully added to recommendations.</p>";
+	}else{
+		echo "<p class='failed'>An error occured while attempting to update database. Please try again.</p>";
+	}
+}
 ?>
