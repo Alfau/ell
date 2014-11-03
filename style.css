@@ -811,3 +811,42 @@ footer img{
 		margin-bottom:0.5em;
 	}
 }
+/*Search Results*/
+ul.searchresults{
+margin:20px 0;
+}
+ul.searchresults>li{
+display:none;
+padding:20px 30px;
+min-height:120px;
+border-bottom:1px solid #eee;
+transition:400ms background ease;
+-webkit-transition:400ms background ease;
+}
+ul.searchresults>li:hover{
+background:#f9f9f9;
+}
+ul.searchresults>li:last-child{
+border:0;
+}
+ul.searchresults>li>a{
+display:block;
+min-height:120px;
+cursor:pointer;
+}
+ul.searchresults>li>a>img{
+height:120px;
+width:auto;
+float:left;
+margin-right:10px;
+}
+ul.searchresults>li>a>span{
+display:block;
+}
+ul.searchresults>li>a>span.name{
+font-size:1.2em;
+color:#FF6602;
+}
+ul.searchresults>li>a>span.price:before{
+content:"Rf: ";
+}

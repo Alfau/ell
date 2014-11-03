@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	search();
+	
 	$("div#slideshow").load("slideshow.php",function(){
 		$(this).children().hide().fadeIn("slow");
 		$("div#slides div:eq(0) div").animate({bottom:"50%"},"slow",function(){

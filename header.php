@@ -7,14 +7,14 @@
 		</ul>
 	</nav>
 	<nav id="mobile_search">
-		<input type="text" name="search" placeholder="Search"/>
+		<li class=search><input type="text" name="search" placeholder="Search"/><span href="search">Search</span></li>
 	</nav>
 	<nav id="side">
 		<ul>
 			<li><a href="about.php">ABOUT US</a></li>
 			<li><a href="contact.php">CONTACT US</a></li>
 			<li><a href="locations.php">LOCATIONS</a></li>
-			<li><input type="text" name="search"/></li>
+			<li class=search><input type="text" name="search"/><span href="search">Search</span></li>
 		</ul>
 	</nav>
 	<nav id="main">
