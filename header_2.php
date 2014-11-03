@@ -2,10 +2,10 @@
 	<div id="loading_bar"></div>
 	<nav id="side">
 		<ul>
+			<li class=search><input type="text" name="search"/><span href="search"><label><img src="icons/search.svg" alt="Search"/></label> <input type="button" value="search"/></span></li>
 			<li><a href="about.php">ABOUT US</a></li>
 			<li><a href="contact.php">CONTACT US</a></li>
 			<li><a href="locations.php">LOCATIONS</a></li>
-			<li class=search><input type="text" name="search"/><span href="search"><label><img src="icons/search.svg" alt="Search"/> <input type="button" value="search"/></label></span></li>
 		</ul>
 	</nav>
 	<div id="nav_main_container">

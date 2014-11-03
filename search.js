@@ -3,7 +3,14 @@ $('.search input').click(function(){
 this.select();
 });
 $('.search span').click(function(){
-searchapi();
+	if($(this).hasClass("active")){
+		searchapi();
+		$(this).removeClass("active");
+		$("nav#side input[type=text]").animate({"width":"0"}).css("padding-left","0");
+	}else{
+		$("nav#side input[type=text]").animate({"width":"200px"}).css("padding-left","0.5em");
+		$(this).addClass("active");
+	}
 });
 $('.search input').keyup(function(event){
 if(event.keyCode == 13){

@@ -4,6 +4,6 @@
 <script src="jquery-1.11.1.min.js"></script>
 <script src="script.php"></script>
 <script src="search.js"></script>
-<link rel="stylesheet" type="text/css" href="perfect-scrollbar.css"/>
+<link rel="stylesheet" type="text/css" href="perfect-scrollbar_2.css"/>
 <script src="perfect-scrollbar.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js"></script>

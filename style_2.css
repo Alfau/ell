@@ -112,7 +112,7 @@ div#loading_bar{
 div#nav_main_container{
 	box-sizing:border-box;
 	background-color:#EDEDED;
-	padding-top:25px;
+	padding-top:27px;
 	width:100%;
 	height:70px;
 	z-index:1000;
@@ -155,8 +155,7 @@ nav#side{
 }
 nav#side ul{
 	position:absolute;
-	right:3px;
-	top:3px;
+	right:4em;
 }
 nav#side a{
 	color:#6d6e71;
@@ -164,26 +163,29 @@ nav#side a{
 	transition:color 0.2s;
 }
 nav#side li{
-	margin-right:1em;
-	padding-right:1em;
-	border-right:solid 1px #ccc;	``
+	margin-left:1em;
+	padding-left:1em;
+	border-left:solid 1px #ccc;
 }
-nav#side li:nth-child(3),nav#side li:nth-child(4){
+/*nav#side li:nth-child(3),nav#side li:nth-child(4){
 	border:none;
 }
 nav#side li:nth-child(3){
-	padding:0;
-}
-nav#side li:nth-child(4){
+	/padding:0;
+}*/
+nav#side li:nth-child(1){
 	margin:0;
 	padding:0;
+	border:none;
 }
 nav#side a:hover,nav#side a.active{
 	color:#FF6602;
 }
 nav#side input{
-	width:120px;
-	height:15px;
+	padding:0;
+	width:0;
+	height:30px;
+	color:#4f4f4f;
 }
 li.search input[type="button"]{
 	display:none;
@@ -192,8 +194,8 @@ li.search img{
 	height:15px;
 	padding:0.3em;
 	display:inline-block;
-	vertical-align:top;
-	background-color:rgba(0,0,0,0.1);
+	vertical-align:middle;
+	/*background-color:rgba(0,0,0,0.1);*/
 }
 /*---------------------------------*/
 nav#main_sub{
@@ -269,17 +271,17 @@ div#slides p{
 div#slideshow_controls{
 	z-index:50;
 	position:absolute;
-	bottom:4em;
+	bottom:2em;
 	right:50%;
 	transform:translateX(50%);	
 }
 div#slideshow_controls span{
 	display:inline-block;
-	border-radius:500px;
+	/*border-radius:500px;*/	
 	color:#fff;
 	margin-right:1em;
-	width:10px;
-	height:10px;
+	width:7px;
+	height:7px;
 	transition:background-color 0.3s,padding 0.3s;
 	cursor:pointer;
 }
@@ -485,13 +487,14 @@ div#map_canvas{
 /*--------------------------------*/
 footer{
 	width:100%;
-	background-color:#ff6602;
-	color:#fff;
+	background-color:#ededed;
+	color:#a1a1a1;
 	padding:1.5em 3em;
 	box-sizing:border-box;
 	position:absolute;
 	bottom:0;
 	font-size:0.9em;
+	border-top:solid 1px #e1e1e1;
 }
 footer nav#bottom{
 	display:none;
