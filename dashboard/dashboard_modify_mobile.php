@@ -38,9 +38,9 @@
 					
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>			
+							<p><a href="dashboard_modify_mobile.php?modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
+							<p><a href="dashboard_modify_mobile.php?modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
+							<p><a href="dashboard_modify_mobile.php?modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>			
 						</div>
 					
 				<?php
@@ -50,9 +50,9 @@
 						
 						<div class="manage_category">
 							<h4>Choose a product category :</h4>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
-							<p><a href="dashboard_modify_mobile.php?how_manage=add&modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
+							<p><a href="dashboard_modify_mobile.php?modify_category=Mobile Phones" class="mobile_phones"><span>&nbsp;</span>Mobile Phones</a></p>
+							<p><a href="dashboard_modify_mobile.php?modify_category=Tablets" class="tablets"><span>&nbsp;</span>Tablets</a></p>
+							<p><a href="dashboard_modify_mobile.php?modify_category=Mobile Accessories" class="mobile_accessories"><span>&nbsp;</span>Mobile Accessories</a></p>
 						</div>
 						
 						<?php
@@ -62,7 +62,7 @@
 						
 						if($how_manage=="add" && ($modify_category=="Mobile Phones" || $modify_category=="Tablets")){
 						?>
-							<div id="content">
+							<div class="content">
 							
 								<h4>Add <?php echo $modify_category; ?> to Database</h4>
 								<?php include("dashboard_manage_products_handler.php");?>
@@ -137,7 +137,7 @@
 						<?php	
 						}elseif($how_manage=="add" && $modify_category=="Mobile Accessories"){
 						?>		
-							<div id="content">
+							<div class="content">
 								<h4>Add Mobile Accessories from Website</h4>
 								<?php include("dashboard_manage_products_handler.php");?>
 								<form method="POST" action="dashboard_modify_mobile?how_manage=add&modify_category=Mobile Accessories" enctype="multipart/form-data">
@@ -189,10 +189,56 @@
 								</form>
 							</div>
 						<?php		
+						}elseif($how_manage=="remove"){
+							?>	
+								<div class="content">
+									<h4>Remove <?php echo $modify_category ?> from Website</h4>
+									<br /><p class="asterix"> * A list of the recent uploaded to the website. If the product you want to remove is not here, use the search function below to find it.</p>	
+										<table>
+										<?php 
+										include("dashboard_manage_products_handler.php");
+										include("../connection.php");
+										$query="SELECT * FROM products WHERE Type='$modify_category' ORDER BY ID DESC LIMIT 5";
+										$result=mysqli_query($con,$query);
+										while($row=mysqli_fetch_array($result)){
+											?>
+											<tr>
+												<td><img src="<?php echo "../".$row['Thumbnail'] ?>" height="120"/></td>
+												<td>
+													<form method="POST" action="dashboard_modify_mobile?how_manage=remove&modify_category=<?php echo $modify_category ?>">
+														<span class="product_name_small"><?php echo $row['Name'] ?></span><br />
+														<span class="light">Price : </span><span class="price">Rf. <?php echo $row['Price'] ?></span><br /><?php echo $row['ID']; ?>
+														<br /><input type="submit" name="remove" value="Remove	"/>
+														<input type="hidden" name="product_ID" value="<?php echo $row['ID'] ?>"/>
+													</form>
+												</td>
+											</tr>
+											<?php
+										}
+										?>
+										</table>
+								</div>
+								
+								<div class="content">
+									<h4>Search for the product you want to remove</h4>
+									<form method="POST" action="dashboard_modify_mobile?how_manage=remove&modify_category=<?php echo $modify_category ?>">
+										<table>
+											<tr>
+												<td>Search : </td>
+												<td><input type="text" name="search_and_remove"/></td>
+											</tr>
+											<tr>
+												<td><input type="submit" value="Search"/></td>
+											</tr>
+										</table>
+									</form>
+								</div>
+								
+							<?php
 						}
 					}	
 				}
-				?>
+			?>
 		</main>
 	</body>
 </html>

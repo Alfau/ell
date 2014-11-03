@@ -33,9 +33,8 @@ function add_slideshow(){
 	}
 }
 
+include("../connection.php");
 if(isset($_POST['add_what'])){
-	include("../connection.php");
-	
 	$query_prev_id="SELECT ID FROM products ORDER BY ID DESC LIMIT 1";
 	$result_prev_id=mysqli_query($con,$query_prev_id);
 	while($row=mysqli_fetch_array($result_prev_id)){
@@ -106,5 +105,16 @@ if(isset($_POST['add_what'])){
 	}
 	
 	mysqli_close($con);
+}
+if(isset($_POST['remove'])){
+	$product_ID=$_POST['product_ID'];
+	
+	$query="DELETE FROM products WHERE ID='$product_ID'";
+	
+	if(mysqli_query($con,$query)){
+		echo "<p class='success'>Product successfully removed from database.</p>";
+	}else{
+		echo "<p class='failed'>An error occured while attempting to remove image from database. Please try again.</p>";
+	}
 }
 ?>

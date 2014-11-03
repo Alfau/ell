@@ -41,6 +41,9 @@ p.asterix{
 	font-size:0.9em;
 	color:#888;
 }
+.product_name_small{
+	font-size:1.2em;
+}
 /*--------------------------------*/
 textarea{
 	font-size:0.8em;
@@ -208,8 +211,14 @@ div.modify_slide input[type=file],div#modify_about input[type=file]{
 /*--------------------------------*/
 table td:first-child{
 	width:20%;
-	vertical-align:top;
 }
 table td.specs{
 	text-align:right;
+}
+table td..remove_button{
+	vertical-align:bottom
+	text-align:right;
+}
+table td{
+	vertical-align:top;
 }

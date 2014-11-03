@@ -68,17 +68,25 @@ function manage_products(){
 			}else{
 				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
 			}
+			
+			$("div.manage_category a").each(function(){
+				$current_category_url=$(this).prop("href");
+				$append_to_url="&how_manage="+how_manage;
+				
+				$new_category_url=$current_category_url+$append_to_url;
+				$(this).prop("href",$new_category_url);
+			});
+			
 		});
+		$("div.content").remove();
 	}else{
-		var how_manage=(url.split("=")[1]).split("&")[0];
-		var category_value=(url.split("=")[2]).replace("%20"," ");
+		$("div.content").remove();
+		var category_value=((url.split("=")[1]).split("&")[0]).replace("%20"," "); //why not just send the url as is???
+		var how_manage=url.split("=")[2];
 		$.get(url.split("?")[0],{how_manage:how_manage,modify_category:category_value},function(data){
-			var content=$(data).find("div#content").html();
-			if($("div#content").length){
-				$("div#content").html(content);
-			}else{
-				$("div.manage_category").after("<div id='content'>"+content+"</div>");  //ugly code so change
-			}
+			$($(data).find("div.content")).each(function(){
+				$("main").append("<div class='content'>"+$(this).html()+"</div>");
+			});
 		});
 	}
 }
