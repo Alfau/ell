@@ -1,5 +1,9 @@
 $(document).ready(function(){
 	
+	$(window).scroll(function(){
+		$(window).scrollTop()>=$("nav#side").height() ? $("div#nav_main_container").css({"position":"fixed","top":"0"}) : $("div#nav_main_container").css({"position":"absolute","top":$("nav#side").height()});   
+	});
+	
 	search();
 	
 	$("div#slideshow").load("slideshow.php",function(){
@@ -106,6 +110,8 @@ $(document).ready(function(){
 	startSlideshow();
 	scrollbar();
 });
+
+
 history_buttons();
 
 var slideshowTimer;
