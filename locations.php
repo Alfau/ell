@@ -8,7 +8,7 @@
 		</script>		
 	</head>
 	<body>
-		<?php include("header.php"); ?>
+		<?php include("header_2.php"); ?>
 		
 		<main>
 			<div id="content_small">

@@ -16,10 +16,10 @@
 			
 			<div id="content">
 				<div class="products_carousel">
-					<!--<h4 style="margin:0 1em">LATEST RELEASES</h4>-->
+					<h4>LATEST RELEASES</h4>
+					<div class="top_border">
 					<?php
 						include("connection.php");
-						
 						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
 						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
@@ -39,6 +39,7 @@
 							<?php
 						}
 					?>
+					</div>
 				</div>
 			</div>
 		</main>

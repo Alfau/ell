@@ -80,7 +80,7 @@ div#content_small{
 	margin:auto;
 }
 div#content{
-	margin:auto;
+	margin: auto;
 }
 div#content p{
 	margin-bottom:1em;
@@ -305,11 +305,13 @@ div.products_wrapper{
 }
 div.products_carousel{	
 	position:relative;
-	padding:0 4em;
-	/*border-top: 1px solid #efefef;*/
-	margin-top: 2em;
+	margin:2em 4em 0 4em;
 	overflow:hidden;
 	white-space: nowrap;
+}
+div.products_carousel .top_border{
+	border-top:solid 1px #D4D4D4;
+	padding-top:0.7em;
 }
 div#mobile_brands>a{
 	display:block;
@@ -349,12 +351,12 @@ div.products_carousel div.carousel_info{
 	width:100%;
 	opacity:0;
 	box-sizing:border-box;
-	box-shadow:0 0 3px #888;
+	/*box-shadow:0 0 3px #888;*/
 	background-color:#e1e1e1;
 	padding-top:8em;
 }
-div.products_carousel div h3{
-	color:#FF6602;
+div.products_carousel h4{
+	
 }
 /*-----------------------------*/
 div#filter_brands,div#sort_products{
