@@ -16,7 +16,7 @@
 			
 			<div id="content">
 				<div class="products_carousel">
-					<h4 style="margin:0 1em">LATEST RELEASES</h4>
+					<!--<h4 style="margin:0 1em">LATEST RELEASES</h4>-->
 					<?php
 						include("connection.php");
 						
@@ -32,7 +32,8 @@
 								</div>
 								<div class="carousel_info">
 									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a>
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
+									<a href=# class="details">Details</a>
 								</div>
 							</div>
 							<?php
