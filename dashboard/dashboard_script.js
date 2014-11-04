@@ -11,6 +11,12 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
+	$(document).on("change","select[name=brand]",function(){
+		if($("select[name=brand] option:selected").val()=="Other"){
+			$("select[name=brand]").after("<input type='text' name='other_brand' placeholder='Brand'/>");
+		}
+	});
+	
 	active_link();
 	history_buttons();
 });
