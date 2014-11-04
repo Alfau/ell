@@ -9,6 +9,7 @@
 		
 		<main>
 			<div id="content">
+				<div id="see_more">
 				<?php
 				include("connection.php");
 				
@@ -113,6 +114,7 @@
 					}
 				}
 				?>
+				</div>
 			</div>
 		</main>
 		

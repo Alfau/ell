@@ -33,7 +33,7 @@
 								<div class="carousel_info">
 									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
 									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
-									<a href=# class="details">Details</a>
+									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="details">Details</a>
 								</div>
 							</div>
 							<?php

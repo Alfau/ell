@@ -655,12 +655,12 @@ footer img{
 		box-sizing:border-box;
 	}
 	div#content_small{
-		max-width:80%;
+		max-width:100%;
 	}
 	/*----------------------------------*/
 	div#filter_brands,div#sort_products{
 		display:inline-block;
-		/*margin:0 1em;*/
+		padding-left:1em;
 	}
 	div#filter_brands p,div#filter_brands select,div#sort_products p,div#sort_products select{
 		display:inline-block;
@@ -707,9 +707,18 @@ footer img{
 		vertical-align:top;
 	}
 	div.products_carousel div.carousel_info{
+		position:static;
 		margin-left:1em;
 		opacity:1;
 		width:130px;
+		padding-top:0;
+		text-align:left;
+		background:none;
+	}
+	div.carousel_info a.details{
+		border: 1px solid #E3E3E3;
+		color: #8A8A8A;
+		background-color: #F0F1F2;
 	}
 	div.products_carousel a.product_name{
 		color:#737373;
@@ -728,6 +737,9 @@ footer img{
 		padding-left:1em;
 	}
 	/*--------------------------------------*/
+	div#see_more{
+		padding:1em;
+	}
 	div#slideshow_see_more{
 		position:relative;
 		width:100%;
@@ -776,6 +788,9 @@ footer img{
 	div#product_specs table{
 		margin-top:2em;
 	}
+	div#mobile_brands>a{
+		margin-top:1em;
+	}
 	/*---------------------------*/
 	div#products_by_brand img{
 		max-width:75px;
@@ -807,6 +822,9 @@ footer img{
 		transition: color 0.3s ease 0s;
 	}
 	/*-------------------------------*/
+	div#contact{
+		padding:0 1em;
+	}
 	div#contact div{
 		width:100%;
 		margin:0;
@@ -815,7 +833,7 @@ footer img{
 		border:none;
 	}
 	div#contact_left{
-		border-bottom:solid 1px #BBBDBF!important;
+		border-bottom:solid 1px #BBBDBF;
 	}
 	div#about_img{
 		display:none;
@@ -823,11 +841,12 @@ footer img{
 	div#contact>h4{
 		margin-bottom:2em;
 	}
+	/*-------------------------------*/
+	div#dhi_bill{
+		padding:1em 2em;
+	}
 	/*---------------------------------------*/
 	footer{
-		width:100%;
-		background-color:#ff6602;
-		color:#fff;
 		padding:1em 3em;
 		box-sizing:border-box;
 		position:absolute;
@@ -865,7 +884,7 @@ footer img{
 	}
 	footer nav#bottom a{
 		text-decoration:none;
-		color:#fff;
+		color:#8D8D8D;
 		margin-right:2em;
 	}
 	footer nav#bottom li:last-child a{
@@ -874,7 +893,7 @@ footer img{
 }
 @media only screen and (max-device-width: 315px){
 	div#filter_brands,div#sort_products{
-		margin-bottom:0.5em;
+		padding-left:1em;
 	}
 }
 /*Search Results*/

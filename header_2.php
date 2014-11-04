@@ -5,6 +5,9 @@
 			<li><a href=# id="menu"><?php include('icons/menu.svg') ?></a></li><li><a href=# id="search"><?php include('icons/search.svg') ?></a></li><li><a href="index.php"><img src="icons/logo3.png" alt="logo" id="logo"/></a></li>
 		</ul>
 	</nav>
+	<nav id="mobile_search">
+		<li><input type="text" name="search" placeholder="Search"/></li>
+	</nav>
 	<nav id="side">
 		<ul>
 			<li class=search><input type="text" name="search"/><span href="search"><label><img src="icons/search.svg" alt="Search"/></label> <input type="button" value="search"/></span></li>
