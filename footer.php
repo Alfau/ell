@@ -11,7 +11,7 @@
 		<ul id="social">
 			<li><a href=#><img src="icons/pinterest.png" alt="goog"/></a></li>
 			<li><a href=#><img src="icons/twitter.png" alt="twi"/></a></li>
-			<li><a href=#><img src="icons/facebook.png" alt="fb"/></a></li>
+			<li><a href="https://www.facebook.com/ellmobile"><img src="icons/facebook.png" alt="fb"/></a></li>
 		</ul>
 	</div>
 </footer>

@@ -6,4 +6,4 @@
 <script src="search.js"></script>
 <link rel="stylesheet" type="text/css" href="perfect-scrollbar_2.css"/>
 <script src="perfect-scrollbar.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js"></script>

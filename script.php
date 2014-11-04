@@ -340,38 +340,46 @@ function initialize(){
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+    
     var map = new google.maps.Map(mapCanvas, mapOptions);
       <?php
       	include("connection.php");
       	
       	$query="SELECT * FROM locations";
       	$result=mysqli_query($con,$query);
-      	
+      	$x=1;
       	while($row=mysqli_fetch_array($result)){
       		?>
-      		
-		      var marker = new google.maps.Marker({
+      		  var geocoder=new google.maps.Geocoder();
+      		  var point = new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>);
+			  geocoder.geocode({ 'latLng': point }, function (results, status) {
+			    // This is checking to see if the Geoeode Status is OK before proceeding
+			  if (status == google.maps.GeocoderStatus.OK) {
+			      console.log(results);
+			      var address = (results[0].formatted_address);
+			      
+			      var address=address.split(",");
+			      
+			  var marker_<?php echo $x ?> = new google.maps.Marker({
 			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
 			      map: map,
 			      title: "<?php echo $row['Name'] ?>"
 			  });
-			  var marker = new google.maps.Marker({
-			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
-			      map: map,
-			      title: "<?php echo $row['Name'] ?>"
+			  var infowindow_<?php echo $x ?> = new google.maps.InfoWindow({
+				  content:"<div id='info_window'><b><?php echo $row['Name'] ?></b><br />"+address[0]+"<br />"+address[1]+","+address[2]+"</div>"
 			  });
-			  var marker = new google.maps.Marker({
-			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
-			      map: map,
-			      title: "<?php echo $row['Name'] ?>"
+			  
+       		  google.maps.event.addListener(marker_<?php echo $x ?>, 'click', function() {
+			      infowindow_<?php echo $x ?>.open(map,marker_<?php echo $x ?>);
 			  });
-			  var marker = new google.maps.Marker({
-			      position: new google.maps.LatLng(<?php echo $row['Latitude'].",".$row['Longitude'] ?>),
-			      map: map,
-			      title: "<?php echo $row['Name'] ?>"
+			      
+			  }
 			  });
-      		
+
       		<?php
+      		$x++;
       	}
       ?>
+      
+      
 }

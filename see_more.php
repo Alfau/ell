@@ -12,6 +12,7 @@
 				<div id="see_more">
 				<?php
 				include("connection.php");
+				include("social_javascript_SDK.php");
 				
 				if(isset($_GET['type'])){
 					$type=$_GET['type'];
@@ -43,9 +44,11 @@
 								<p><?php echo $row['Description']?></p>
 							</div>
 							<div id="product_share">
-								<img src="icons/facebook.png"/>
-								<img src="icons/twitter.png"/>
-								<img src="icons/pinterest.png"/>
+								<div class="fb-share-button" data-href="<?php $_SERVER['REQUEST_URI'] ?>"></div>
+								<a href="https://twitter.com/share" class="twitter-share-button" data-text="Amazing deal from Ell Mobile!! " data-count="none">Tweet</a>
+								<!-- <img src="icons/facebook.png" /> -->
+								<!-- <img src="icons/twitter.png"/> -->
+								<!-- <img src="icons/pinterest.png"/> -->
 							</div>
 							<div id="product_specs">
 								<h2 class="title">Specifications</h2>
