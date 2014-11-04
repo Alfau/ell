@@ -16,10 +16,10 @@
 							<li><a href="multimedia.php?product_type=Audio" id="Audio">Audio</a></li>
 							<li><a href="multimedia.php?product_type=Video" id="Video">Video</a></li>
 						</ul>
+						<?php include("filter.php"); ?>
 					</nav>
 					<div id="mobile_brands">
 						<?php
-						include("connection.php");
 						
 						if(isset($_GET['product_type'])){
 							$product_type=$_GET['product_type'];

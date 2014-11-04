@@ -1,5 +1,4 @@
-<div id="filter_brands">
-	<p>Filter :</p>
+<!--<div id="filter_brands"><p>Filter :</p>
 	<select name="filter_brands">
 		<option value="All">All Brands</option>
 	<?php
@@ -9,7 +8,7 @@
 	while($row=mysqli_fetch_array($result)){
 		if($last_brand!=$row['Brand']){
 			?>
-			<option value="<?php echo $row['Brand'] ?>"><?php echo $row['Brand']; ?></option>
+			<option value="<?php //echo $row['Brand'] ?>"><?php echo $row['Brand']; ?></option>
 			<?php
 		}
 		$last_brand=$row['Brand'];
@@ -24,7 +23,7 @@
 		<option value="lowest">Lowest Price</option>
 		<option value="highest">Highest Price</option>
 	</select>
-</div>
+</div>-->
 <?php
 
 if(isset($_GET['page'])){

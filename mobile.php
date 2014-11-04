@@ -16,17 +16,17 @@
 							<li><a href="mobile.php?product_type=Tablets">Tablets</a></li>
 							<li><a href="mobile.php?product_type=Mobile Accessories">Mobile Accessories</a></li>
 						</ul>
+						<?php include("filter.php"); ?>
 					</nav>
 					<div id="mobile_brands">
 						<?php
-						include("connection.php");
 						
 						if(isset($_GET['product_type'])){
 							$product_type=$_GET['product_type'];
 						}else{
 							$product_type="Mobile Phones";
 						}
-						include("products.php");
+						include("dummy_form.php");
 						?>
 				</div>
 			</div>
