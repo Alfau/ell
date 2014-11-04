@@ -98,8 +98,8 @@ if(isset($_GET['filter_brands']) && isset($_GET['sort_products'])){
 					</div>
 					<div class="carousel_info">
 						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name_small"><?php echo $row_brand['Name'] ?></a><br />
-						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a>
-						<p><?php echo $row_brand['Brand'] ?></p>
+						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a><br /><br />
+						<a href=# class="details">Details</a>
 					</div>
 				</div>
 				<?php

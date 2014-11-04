@@ -9,6 +9,7 @@
 		
 		<main>
 			<div id="content">
+				<div id="dhi_bill">
 					<h2>Ell Mobile Billpay 2’ Becomes the 5th Exclusive Dhiraagu Partner Shop</h2><br />
 					<p>We are pleased to announce that Dhiraagu has added 'Ell Mobile BIllpay 2' as 5th exclusive partner shop in Male’. Ell Mobile BIllpay 2 will now be
 					added into the list of partner shops through which Dhiraagu customers can get several Dhiraagu services. The partner shop is located in Izudheen
@@ -28,6 +29,7 @@
 					Imjad Jaleel<br />
 					Assistant Manager Public Relations<br />
 					Phone: 3311681, Mobile: 779 2040<br />
+				</div>
 			</div>
 		</main>
 		

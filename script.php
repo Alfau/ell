@@ -1,12 +1,14 @@
 $(document).ready(function(){
 	
-	$(window).scroll(function(){
-		if($(window).scrollTop()>=$("nav#side").height()){
-			$("div#nav_main_container").css({"position":"fixed","top":"0","height":"40px","padding-top":"11px","box-shadow":"0 0 2px #000"});
-		}else{
-			$("div#nav_main_container").css({"position":"absolute","top":$("nav#side").height(),"height":"70px","padding-top":"25px","box-shadow":"none"});
-		}   
-	});
+	if(window.innerWidth > 500){
+		$(window).scroll(function(){
+			if($(window).scrollTop()>=$("nav#side").height()){
+				$("div#nav_main_container").css({"position":"fixed","top":"0","height":"40px","padding-top":"11px","box-shadow":"0 0 2px #000"});
+			}else{
+				$("div#nav_main_container").css({"position":"absolute","top":$("nav#side").height(),"height":"70px","padding-top":"25px","box-shadow":"none"});
+			}   
+		});
+	}
 	
 	search();
 	

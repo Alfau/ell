@@ -15,9 +15,9 @@
 			</div>
 			
 			<div id="content">
+				<a href=# class='brand_title'>LATEST RELEASES</a>
 				<div class="products_carousel">
-					<h4>LATEST RELEASES</h4>
-					<div class="top_border">
+					<div class='products_wrapper'>
 					<?php
 						include("connection.php");
 						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
