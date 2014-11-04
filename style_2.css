@@ -61,8 +61,8 @@ a{
 	
 }
 .price{
-	font-size:1.2em;
-	color:#999;
+	font-size:1.1em;
+	color:#777;
 }
 .details{
 	border: 1px solid #9F9F9F;
@@ -596,6 +596,21 @@ footer img{
 	}
 	nav#mobile_search input[type=text]{
 		padding:1em;
+		width:80%;
+		box-sizing:border-box;
+		height:45px;
+	}
+	nav#mobile_search span{
+		
+	}
+	nav#mobile_search img{
+		padding: 1em 2em;
+		width: 20%;
+		box-sizing: border-box;
+		height: 45px;
+		background-color: #D8D8D9;
+		box-shadow: -2px 2px 2px #B9B9B9 inset;
+		vertical-align:top;
 	}
 	/*---------------------------------------*/
 	div#slideshow{

@@ -3,8 +3,9 @@ $('.search input').click(function(){
 this.select();
 });
 $('.search span').click(function(){
+	var search_term=$(this).siblings("input").val();
 	if($(this).hasClass("active")){
-		searchapi();
+		searchapi(search_term);
 		$(this).removeClass("active");
 		$("nav#side input[type=text]").animate({"width":"0"}).css("padding-left","0");
 	}else{
@@ -13,8 +14,9 @@ $('.search span').click(function(){
 	}
 });
 $('.search input').keyup(function(event){
+	var search_term=$(this).val();
 if(event.keyCode == 13){
-searchapi();
+searchapi(search_term);
 }
 });
 }
