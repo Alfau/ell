@@ -1,4 +1,22 @@
 $(document).ready(function(){
+	page_count=2;
+	$(window).scroll(function(){
+		if(document.URL.search("by_brand")>=0){
+			document_height=$(document).height();
+			window_height=$(window).height();
+		    if($(window).scrollTop() + window_height == document_height){
+		    	//$(window).unbind("scroll");
+		    	$.get(document.URL,{page:page_count},function(data){
+		    		var content=$(data).find("div#products_by_brand").children();
+		    		$("div#products_by_brand").append(content);
+		    		page_count++;
+		    	});
+		    }
+		}
+	});
+	$(document).on("click","a",function(){
+		page_count=2;
+	});
 	
 	if(window.innerWidth > 500){
 		$(window).scroll(function(){
@@ -52,6 +70,7 @@ $(document).ready(function(){
 	});
 	
 	if(window.innerWidth > 500){
+		
 		$(document).on("mouseenter","div.carousel_product",function(){
 			$(this).children("div.carousel_info").stop().animate({"opacity":"1","padding-top":"3em"},250);
 			$(this).find("a").stop().animate({"opacity":"1"},250);
@@ -70,11 +89,24 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("click","div.products_carousel a, div#products_by_brand a,div#mobile_brands>a, div#similar_products a",function(e){
-		anchor=$(this);
-		get_from_page();
-		url_change();
-		///ajax_pagination("vertical",document.URL);
-		e.preventDefault();
+		
+		if(window.innerWidth < 500){ //WORKAROUND UNTIL STYLING FOR BY_BRAND PAGE FOR MOBILE CAN BE FINISHED
+			if($(this).hasClass("brand_title")){
+				e.preventDefault();
+			}else{
+				anchor=$(this);
+				get_from_page();
+				url_change();
+				///ajax_pagination("vertical",document.URL);
+				e.preventDefault();
+			}
+		}else{
+			anchor=$(this);
+			get_from_page();
+			url_change();
+			///ajax_pagination("vertical",document.URL);
+			e.preventDefault();
+		}
 	});
 	
 	/*mobile*/
@@ -124,7 +156,7 @@ $(document).ready(function(){
 		});
 	});
 	
-	ajax_pagination("horizontal",document.URL);
+	//ajax_pagination("horizontal",document.URL);
 	startSlideshow();
 	scrollbar();
 });
@@ -180,6 +212,7 @@ function scrollbar(){
 	});
 }
 
+/*
 function ajax_pagination(type,url){
 	page_count=2;
 	if(type=="horizontal"){
@@ -193,7 +226,8 @@ function ajax_pagination(type,url){
 	        		var content=$(data).find("div.products_wrapper").children();
 	        		$("div#"+carousel_which).append(content);
 	        		page_count++;
-	        		wrapper_width=$("div.products_wrapper").width();
+	        		//wrapper_width=$("div.products_wrapper").width();
+	        		scrollbar();
 	        		ajax_pagination("horizontal",document.URL);
 	        	});
 	        }
@@ -202,13 +236,14 @@ function ajax_pagination(type,url){
 		$(window).scroll( function() {
 			document_height=$(document).height();
 			window_height=$(window).height();
-		    if($(this).scrollTop() + window_height == document_height){
+		    if($(window).scrollTop() + window_height == document_height){
 		    	$(window).unbind("scroll");
 		    	$.get(url,{page:page_count},function(data){
 		    		var content=$(data).find("div#products_by_brand").children();
 		    		$("div#products_by_brand").append(content);
 		    		page_count++;
 		    		ajax_pagination("vertical",document.URL);
+		    		alert("gos");
 		    	});
 		    }
 		});
@@ -227,7 +262,8 @@ function ajax_pagination(type,url){
 		    }
 		});
 	}
-}
+}*/
+
 		
 function nav(){
 	$("nav a").removeClass("active");
@@ -272,7 +308,7 @@ function get_page(){
 			}
 			scrollbar();
 			
-			window.innerHeight < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("horizontal",document.URL);
+			//window.innerHeight < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("horizontal",document.URL);
 			
 			var if_location=url.split("/");
 			if(if_location.slice(-1)[0]=="locations.php"){
@@ -293,11 +329,11 @@ function get_from_page(){
 			if($(anchor).hasClass("brand_title")){
 				var content=$(data).find("div#products_by_brand");
 				$("div#mobile_brands").html(content);
+				//window.inneHeight < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("vertical",document.URL);
 			}else{
 				var content=$(data).filter("main").html();
 				$("main").html(content);
 			}
-			window.inneHeight < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("vertical",document.URL);
 		});
 	});
 };

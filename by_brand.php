@@ -28,7 +28,7 @@
 						if(isset($_GET['page'])){
 							$next_page=$_GET['page'];
 							$rows_per_page=16;
-							$offset=($next_page-2)*$rows_per_page;
+							$offset=($next_page-1)*$rows_per_page;
 							$limit="LIMIT $offset,$rows_per_page";
 						}else{
 							//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' LIMIT 0,16";
