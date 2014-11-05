@@ -35,6 +35,7 @@ $(document).ready(function(){
 	        	$.get(document.URL,{carousel_page:page_count,carousel_brand:carousel_brand},function(data){
 	        		var content=$(data).find("div#mobile_brands").children();
 	        		$("div#"+carousel_which).append(content);
+	        		page_count++;
 	        	});
 	        }
 		}
