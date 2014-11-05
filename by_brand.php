@@ -55,6 +55,7 @@
 							}
 						}else{
 							$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' $limit";
+							// $query="SELECT ID,Name,Brand,Price,Thumbnail FROM products $limit";
 						}
 						
 						
