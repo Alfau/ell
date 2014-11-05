@@ -27,13 +27,13 @@
 							?>
 							<div class="carousel_product">
 								<div class="carousel_image">
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
-									<!--<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
+									<a href="see_more.php?product_type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
+									<!--<a href="see_more.php?product_type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
 								</div>
 								<div class="carousel_info">
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="details">Details</a>
+									<a href="see_more.php?product_type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+									<a href="see_more.php?product_type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
+									<a href="see_more.php?product_type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="details">Details</a>
 								</div>
 							</div>
 							<?php

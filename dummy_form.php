@@ -56,19 +56,19 @@ if(isset($_GET['filter_brands']) && isset($_GET['sort_products'])){
 	}
 	
 	$result_brand=mysqli_query($con,$query);
-	//echo "<a href='by_brand.php?type=$product_type&brand=$filter_brands' class='brand_title'>$brand</a>";
+	//echo "<a href='by_brand.php?product_type=$product_type&brand=$filter_brands' class='brand_title'>$brand</a>";
 	echo "<div class='products_carousel'>";
 	echo "<div class='products_wrapper'>";
 	while($row_brand=mysqli_fetch_array($result_brand)){
 		?>
 		<div class="carousel_product">
 			<div class="carousel_image">
-				<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>'/></a>
+				<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>'/></a>
 			</div>
 			<div class="carousel_info">
-				<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name_small"><?php echo $row_brand['Name'] ?></a><br />
-				<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a>
-				<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="details">Details</a>
+				<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name_small"><?php echo $row_brand['Name'] ?></a><br />
+				<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a>
+				<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="details">Details</a>
 			</div>
 		</div>
 		<?php
@@ -111,10 +111,10 @@ if(isset($_GET['filter_brands']) && isset($_GET['sort_products'])){
 				}else{
 					$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' ORDER BY $sort_products $limit";
 				}
-				echo "<a href='by_brand.php?type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
+				echo "<a href='by_brand.php?product_type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
 			}else{
 				$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' $limit";
-				echo "<a href='by_brand.php?type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
+				echo "<a href='by_brand.php?product_type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
 			}
 			$result_brand=mysqli_query($con,$query);			
 			echo "<div class='products_carousel'>";
@@ -124,12 +124,12 @@ if(isset($_GET['filter_brands']) && isset($_GET['sort_products'])){
 				?>
 				<div class="carousel_product">
 					<div class="carousel_image">
-						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>'/></a>
+						<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>"><img src='<?php echo $row_brand['Thumbnail'] ?>'/></a>
 					</div>
 					<div class="carousel_info">
-						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name_small"><?php echo $row_brand['Name'] ?></a><br />
-						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a><br /><br />
-						<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="details">Details</a>
+						<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="product_name_small"><?php echo $row_brand['Name'] ?></a><br />
+						<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="price">Rf. <?php echo $row_brand['Price'] ?></a><br /><br />
+						<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="details">Details</a>
 					</div>
 				</div>
 				<?php

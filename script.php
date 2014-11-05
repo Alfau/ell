@@ -69,7 +69,7 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
-	$(document).on("click","div.products_carousel a, div#products_by_brand a,div#mobile_brands>a",function(e){
+	$(document).on("click","div.products_carousel a, div#products_by_brand a,div#mobile_brands>a, div#similar_products a",function(e){
 		anchor=$(this);
 		get_from_page();
 		url_change();
@@ -289,9 +289,14 @@ function get_from_page(){
 	$.get(url,function(data){
 		$("div#loading_bar").animate({width:"100%"},function(){
 			$("div#loading_bar").css("width","0");
-			var content=$(data).filter("main").html();
-			$("main").html(content);
 			
+			if($(anchor).hasClass("brand_title")){
+				var content=$(data).find("div#products_by_brand");
+				$("div#mobile_brands").html(content);
+			}else{
+				var content=$(data).filter("main").html();
+				$("main").html(content);
+			}
 			window.inneHeight < 500 ? ajax_pagination("mobile",document.URL) : ajax_pagination("vertical",document.URL);
 		});
 	});

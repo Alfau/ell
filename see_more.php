@@ -14,8 +14,8 @@
 				include("connection.php");
 				include("social_javascript_SDK.php");
 				
-				if(isset($_GET['type'])){
-					$type=$_GET['type'];
+				if(isset($_GET['product_type'])){
+					$type=$_GET['product_type'];
 					if($type=="Mobile Phones" || $type=="Tablets" || $type="TV" || $type="Audio" || $type="Video"){
 						$product_ID=$_GET['product_ID'];
 						$query="SELECT Name,Price,Description,Specifications FROM products WHERE ID='$product_ID'";
@@ -90,18 +90,22 @@
 							<div id="similar_products">
 								<h2 class="title">Other Products you might be interested in</h2>
 								<?php
-								$query="SELECT Name,Price,Thumbnail FROM products ORDER BY RAND() LIMIT 2";
+								$query="SELECT ID,Type,Name,Price,Thumbnail FROM products ORDER BY RAND() LIMIT 2";
 								$result=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($result)){
 									?>
-									<div id="similar_products_image">
-										<img src="<?php echo $row['Thumbnail'] ?>" height="120"/>
-									</div>	
-									<div id="similar_products_info">
-										<p class="price"><?php echo $row['Name'] ?></p>
-										<p class="price">Rf. <?php echo $row['Price'] ?></p>
+									<div class="similar_products_container">
+										<div id="similar_products_image">
+											<img src="<?php echo $row['Thumbnail'] ?>" height="120"/>
+										</div>	
+										<div id="similar_products_info">
+											<div>
+												<a href="see_more.php?product_type=<?php echo $row['Type'] ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+												<a href="see_more.php?product_type=<?php echo $row['Type'] ?>&product_ID=<?php echo $row['ID'] ?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
+												<a href="see_more.php?product_type=<?php echo $row['Type'] ?>&product_ID=<?php echo $row['ID'] ?>" class="details">Details</a>
+											</div>
+										</div>
 									</div>
-									
 									<?php
 								}
 								?>
