@@ -23,32 +23,34 @@
 						
 						while($row=mysqli_fetch_array($result)){
 							?>
-							<div id="slideshow_see_more">
-								<div id="slides">
-								<?php
-									$slide_query="SELECT Slide FROM product_slides WHERE Product_ID='$product_ID'";
-									$slide_result=mysqli_query($con,$slide_query);
-									while($slide_row=mysqli_fetch_array($slide_result)){
-									?>
-										<div>
-											<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
-										</div>
+							<div id="see_more_top">
+								<div id="slideshow_see_more">
+									<div id="slides">
 									<?php
-									}
-								?>
+										$slide_query="SELECT Slide FROM product_slides WHERE Product_ID='$product_ID'";
+										$slide_result=mysqli_query($con,$slide_query);
+										while($slide_row=mysqli_fetch_array($slide_result)){
+										?>
+											<div>
+												<img src="<?php echo $slide_row['Slide'] ?>" alt="slide"/>
+											</div>
+										<?php
+										}
+									?>
+									</div>
 								</div>
-							</div>
-							<div id="product_summary">
-								<h2 class="product_name"><?php echo $row['Name']?></h2>
-								<p><span class='light'>Price : </span><span class="price">Rf. <?php echo $row['Price']?></span></p><br />
-								<p><?php echo $row['Description']?></p>
-							</div>
-							<div id="product_share">
-								<div class="fb-share-button" data-href="<?php $_SERVER['REQUEST_URI'] ?>"></div>
-								<a href="https://twitter.com/share" class="twitter-share-button" data-text="Amazing deal from Ell Mobile!! " data-count="none">Tweet</a>
-								<!-- <img src="icons/facebook.png" /> -->
-								<!-- <img src="icons/twitter.png"/> -->
-								<!-- <img src="icons/pinterest.png"/> -->
+								<div id="product_summary">
+									<h2 class="product_name"><?php echo $row['Name']?></h2>
+									<p><span class='light'>Price : </span><span class="price">Rf. <?php echo $row['Price']?></span></p><br />
+									<p><?php echo $row['Description']?></p>
+								</div>
+								<div id="product_share">
+									<div class="fb-share-button" data-href="<?php $_SERVER['REQUEST_URI'] ?>"></div>
+									<a href="https://twitter.com/share" class="twitter-share-button" data-text="Amazing deal from Ell Mobile!! " data-count="none">Tweet</a>
+									<!-- <img src="icons/facebook.png" /> -->
+									<!-- <img src="icons/twitter.png"/> -->
+									<!-- <img src="icons/pinterest.png"/> -->
+								</div>
 							</div>
 							<div id="product_specs">
 								<h2 class="title">Specifications</h2>
