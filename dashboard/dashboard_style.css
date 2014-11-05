@@ -14,7 +14,7 @@ li{
 	list-style:none;
 }
 span#loader{
-	z-index:200;
+	z-index:1000;
 	height:3px;
 	background-color:#fff;
 	position:fixed;

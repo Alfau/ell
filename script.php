@@ -159,6 +159,8 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("change","div#filter_brands select, div#sort_products select",function(){
+		$("div#loading_bar").animate({width:"60%"});
+		
 		var filter_brands=$("div#filter_brands select option").filter(":selected").val();
 		var sort_products=$("div#sort_products select option").filter(":selected").val();
 		
@@ -176,10 +178,13 @@ $(document).ready(function(){
 			ajax_pagination("mobile",document.URL);
 		});*/
 		$.get(document.URL,{filter_brands:filter_brands, sort_products:sort_products},function(data){
-			var content=$(data).find("div#mobile_brands");
-			$("div#mobile_brands").html(content);
-			/*$("div#mobile_brands div.products_carousel").slice(1).remove();
-			$("div.products_wrapper").html(content);*/
+			$("div#loading_bar").animate({width:"100%"},function(){
+				var content=$(data).find("div#mobile_brands");
+				$("div#mobile_brands").html(content);
+				/*$("div#mobile_brands div.products_carousel").slice(1).remove();
+				$("div.products_wrapper").html(content);*/
+				$("div#loading_bar").css("width","0");
+			});
 		});
 	});
 	
