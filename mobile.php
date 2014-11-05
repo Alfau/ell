@@ -26,7 +26,7 @@
 						}else{
 							$product_type="Mobile Phones";
 						}
-						include("dummy_form.php");
+						include("products_2.php");
 						?>
 				</div>
 			</div>

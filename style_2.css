@@ -393,6 +393,7 @@ div#filter_brands select,div#sort_products select{
 /*--------------------------------*/
 div#products_by_brand{
 	padding:0 4em;
+	overflow:hidden;
 }
 div#products_by_brand>div{
 	/*display:inline-block;

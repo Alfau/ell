@@ -14,6 +14,32 @@ $(document).ready(function(){
 		    }
 		}
 	});
+	
+	$('div.products_carousel').scroll(function(){
+		screen_width=$(this).width();
+		wrapper_width=$(this).children("div.products_wrapper").width();
+		if($(this).hasClass("ell_rec")){
+	        if($(this).scrollLeft() == (wrapper_width-screen_width)){
+	        	// $(window).unbind("scroll");
+	        	$.get("mobile.php",{carousel_page:page_count,ell_rec:"ell_rec"},function(data){
+	        		var content=$(data).find("div#mobile_brands").children();
+	        		$("div.products_carousel").append(content);
+	        		page_count++;
+	        	});
+	        }
+		}else{
+			var carousel_which=$(this).children("div.products_wrapper").attr("id");
+			var carousel_brand=$(this).prop("id");
+	        if($(this).scrollLeft() == (wrapper_width-screen_width)){
+	        	// $(window).unbind("scroll");
+	        	$.get(document.URL,{carousel_page:page_count,carousel_brand:carousel_brand},function(data){
+	        		var content=$(data).find("div#mobile_brands").children();
+	        		$("div#"+carousel_which).append(content);
+	        	});
+	        }
+		}
+    });
+	
 	$(document).on("click","a",function(){
 		page_count=2;
 	});

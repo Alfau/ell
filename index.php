@@ -16,11 +16,11 @@
 			
 			<div id="content">
 				<a href=# class='brand_title'>LATEST RELEASES</a>
-				<div class="products_carousel">
+				<div class="products_carousel ell_rec">
 					<div class='products_wrapper'>
 					<?php
 						include("connection.php");
-						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True'";
+						$query="SELECT ID,Type,Name,Price,Thumbnail FROM products WHERE Ell_Rec='True' LIMIT 0,7";
 						//$query="SELECT ID,Type,Name,Price,Thumbnail FROM products";
 						$result=mysqli_query($con,$query);
 						while($row=mysqli_fetch_array($result)){

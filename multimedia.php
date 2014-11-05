@@ -27,7 +27,7 @@
 							$product_type="TV";
 						}
 						
-						include("products.php");
+						include("products_2.php");
 						?>
 				</div>
 			</div>
