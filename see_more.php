@@ -86,16 +86,20 @@
 								</table>
 							</div>
 							<div id="similar_products">
-								<h2 class="title">Similar Products you might be interested in</h2>
+								<h2 class="title">Other Products you might be interested in</h2>
 								<?php
 								$query="SELECT Name,Price,Thumbnail FROM products ORDER BY RAND() LIMIT 2";
 								$result=mysqli_query($con,$query);
 								while($row=mysqli_fetch_array($result)){
 									?>
-									<div>
+									<div id="similar_products_image">
 										<img src="<?php echo $row['Thumbnail'] ?>" height="120"/>
+									</div>	
+									<div id="similar_products_info">
 										<p class="price"><?php echo $row['Name'] ?></p>
+										<p class="price">Rf. <?php echo $row['Price'] ?></p>
 									</div>
+									
 									<?php
 								}
 								?>

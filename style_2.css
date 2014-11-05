@@ -418,13 +418,20 @@ div#slideshow_see_more{
 	position:relative;
 	width:20%;
 	overflow:hidden;
+	background-color:#fff;
+	border:solid 1px #c8c8c8;
+	box-sizing:border-box;
 }
 div#slideshow_see_more,div#product_summary,div#product_share{
 	display:inline-block;
 	vertical-align:top;
 }
+div#slideshow_see_more div#slides{
+	padding:0 1em;
+}
 div#slideshow_see_more img{
-	height:200px;
+	max-width:100%;
+	max-height:100%;
 }
 div#product_summary{
 	width:60%;
@@ -456,12 +463,21 @@ div#similar_products{
 div#similar_products h2{
 	margin-bottom:2em;
 }
-div#similar_products div{
+div#similar_products>div{
 	margin-bottom:2em;
 }
-div#similar_products img,div#similar_products p{
+div#similar_products_image,div#similar_products_info{
 	display:inline-block;
 	vertical-align:top;
+}
+div#similar_products_info p{
+	margin:0 0 0 0.5em;
+}
+div#similar_products_image{
+	width:40%;
+	background-color:#fff;
+	padding:1em;
+	border:solid 1px #c8c8c8;
 }
 div#product_specs{
 	padding-right:3em;
