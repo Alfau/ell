@@ -9,10 +9,9 @@
 		</nav>
 		<span>Copyright &copy; 2014 ELL MALDIVES. All Rights Reserved.</span>
 		<ul id="social">
-			<li><a href=#><img src="icons/g+.png" alt="goog"/></a></li>
-			<li><a href=#><img src="icons/yt.png" alt="goog"/></a></li>
-			<li><a href=#><img src="icons/tw.png" alt="twi"/></a></li>
-			<li><a href=#><img src="icons/fb.png" alt="fb"/></a></li>
+			<li><a href=#><img src="icons/instagram.svg" alt="goog"/></a></li>
+			<li><a href=#><img src="icons/twitter.svg" alt="twi"/></a></li>
+			<li><a href=#><img src="icons/facebook.svg" alt="fb"/></a></li>
 		</ul>
 	</div>
 </footer>
