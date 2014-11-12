@@ -96,7 +96,7 @@ $(document).ready(function(){
 		startSlideshow();
 	});
 	
-	if(window.innerWidth > 500){
+	/*if(window.innerWidth > 500){
 		
 		$(document).on("mouseenter","div.carousel_product",function(){
 			$(this).children("div.carousel_info").stop().animate({"opacity":"1","padding-top":"3em"},250);
@@ -105,7 +105,7 @@ $(document).ready(function(){
 			$(this).children("div.carousel_info").stop().animate({"opacity":"0","padding-top":"8em"},200);
 			$(this).children("div.carousel_info").find("a").stop().animate({"opacity":"0"},200);
 		});
-	}
+	}*/
 	
 	$(document).on("click","nav a",function(e){
 		anchor=$(this);

@@ -41,15 +41,15 @@ $(document).ready(function(){
 		startSlideshow();
 	});
 	
-	if(window.innerWidth > 500){
-		$(document).on("mouseenter","div.carousel_product",function(){
-			$(this).stop().animate({"margin-right":"1em"}).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"},function(){
-				$(this).css("white-space","normal");
-			});
-		}).on("mouseleave","div.carousel_product",function(){
-			$(this).stop().animate({"margin-right":"6em"}).children("div.carousel_info").stop().animate({width:"0",opacity:"0"}).css("white-space","nowrap");
-		});
-	}
+	// if(window.innerWidth > 500){
+		// $(document).on("mouseenter","div.carousel_product",function(){
+			// $(this).stop().animate({"margin-right":"1em"}).children("div.carousel_info").stop().animate({width:"150px",opacity:"1"},function(){
+				// $(this).css("white-space","normal");
+			// });
+		// }).on("mouseleave","div.carousel_product",function(){
+			// $(this).stop().animate({"margin-right":"6em"}).children("div.carousel_info").stop().animate({width:"0",opacity:"0"}).css("white-space","nowrap");
+		// });
+	// }
 	
 	$(document).on("click","nav a",function(e){
 		anchor=$(this);

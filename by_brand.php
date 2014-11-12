@@ -9,53 +9,26 @@
 		
 		<main>
 			<div id="content">
-				<div id="filter_brands">
-					<?php
-					include("connection.php");
-					
-					if(isset($_GET['product_type'])){
-						$product_type=$_GET['product_type'];
-					}else{
-						//$product_type="Mobile Phones";
-					}
-					$query="SELECT Brand FROM products WHERE Type='$product_type' ORDER BY Brand";
-					$result=mysqli_query($con,$query);
-					$last_brand=NULL;
-					?>
-					<p>Filter :</p>
-					<select name="filter_brands" class="">
-						<option value="All">All Brands</option>
-						<?php
-						while($row=mysqli_fetch_array($result)){
-							if($last_brand!=$row['Brand']){
-								?>
-								<option value="<?php echo $row['Brand'] ?>"><?php echo $row['Brand']; ?></option>
-								<?php
-							}
-							$last_brand=$row['Brand'];
-						}
-						?>
-					</select>
-				</div>
-				<div id="sort_products">
-					<p>Sort by :</p>
-					<select name="sort_products">
-						<option value="newest">Newest</option>
-						<option value="lowest">Lowest Price</option>
-						<option value="highest">Highest Price</option>
-					</select>
-				</div>
+				<nav id="main_sub">
+					<ul>
+						<li><a href="mobile.php?product_type=Mobile Phones" class="active">Mobile Phones</a></li>
+						<li><a href="mobile.php?product_type=Tablets">Tablets</a></li>
+						<li><a href="mobile.php?product_type=Mobile Accessories">Mobile Accessories</a></li>
+					</ul>
+					<?php include("filter.php"); ?>
+				</nav>
 				<div id="products_by_brand">
 				<?php
 					include("connection.php");
+					//include("filter.php");
 					
 					if(isset($_GET['brand'])){
 						$brand=$_GET['brand'];
-						$product_type=$_GET['type'];
+						$product_type=$_GET['product_type'];
 						if(isset($_GET['page'])){
 							$next_page=$_GET['page'];
 							$rows_per_page=16;
-							$offset=($next_page-2)*$rows_per_page;
+							$offset=($next_page-1)*$rows_per_page;
 							$limit="LIMIT $offset,$rows_per_page";
 						}else{
 							//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' LIMIT 0,16";
@@ -82,6 +55,7 @@
 							}
 						}else{
 							$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' $limit";
+							// $query="SELECT ID,Name,Brand,Price,Thumbnail FROM products $limit";
 						}
 						
 						
@@ -91,10 +65,15 @@
 						while($row=mysqli_fetch_array($result)){
 							?>
 							<div>
-								<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
-								<div>
-									<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><span class="light">Price : </span><span class="price">Rf. <?php echo $row['Price'] ?></span></a>
+								<div id="similar_products_image">
+									<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
+								</div>
+								<div id="similar_products_info">
+									<div>
+										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><span class="price">Rf. <?php echo $row['Price'] ?></span></a><br /><br />
+										<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="details">Details</a>
+									</div>
 								</div>
 							</div>
 							<?php
