@@ -11,7 +11,7 @@ function add_slideshow(){
 				process_image($_FILES['product_slide']['tmp_name'][$index],"thumbnail","../product_slides/");
 				
 				if($image_processed!=false){
-					$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES('$current_id','$image_path')";
+					$query_product_slide="INSERT INTO product_slides(Product_ID,Slide) VALUES('$current_id','$image_path')"; //sanitize/validate
 					if(mysqli_query($con,$query_product_slide)){
 						$query_success=true;
 					}
@@ -47,12 +47,19 @@ if(isset($_POST['add_what'])){
 		process_image($_FILES['product_thumbnail']['tmp_name'],"thumbnail","../product_thumbnails/");
 		
 		if($image_processed!=false){
-			$add_what=$_POST['add_what'];
-			$name=$_POST['name'];
-			$price=$_POST['price'];
-						
+			$add_what=htmlspecialchars($_POST['add_what']);
+			$name=htmlspecialchars($_POST['name']);
+			$price=htmlspecialchars($_POST['price']);
+			
+			// validation/sanitation
+			
+			
 			if($add_what=="Mobile Phones" || $add_what=="Tablets"){
-				$brand=$_POST['brand'];
+				if(isset($_POST['other_brand'])){
+					$brand=$_POST['other_brand'];
+				}else{
+					$brand=$_POST['brand'];
+				}
 				$desc=$_POST['desc'];
 				$general=$_POST['General'];$memory=$_POST['Memory'];$camera=$_POST['Camera'];$battery=$_POST['Battery'];$body=$_POST['Body'];$display=$_POST['Display'];$sound=$_POST['Sound'];$data=$_POST['Data'];$features=$_POST['Features'];
 				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($general)){
@@ -62,7 +69,11 @@ if(isset($_POST['add_what'])){
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
 			}elseif($add_what=="TV" || $add_what=="Audio" || $add_what=="Video"){
-				$brand=$_POST['brand'];
+				if(isset($_POST['other_brand'])){
+					$brand=$_POST['other_brand'];
+				}else{
+					$brand=$_POST['brand'];
+				}
 				$desc=$_POST['desc'];
 				//$specs=$_POST['specs'];
 				if(!empty($name) || !empty($brand) || !empty($desc) || !empty($specs)){
@@ -71,7 +82,11 @@ if(isset($_POST['add_what'])){
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
 			}elseif($add_what=="Mobile Accessories"){
-				$brand=$_POST['brand'];
+				if(isset($_POST['other_brand'])){
+					$brand=$_POST['other_brand'];
+				}else{
+					$brand=$_POST['brand'];
+				}
 				$category=$_POST['category'];
 				if(!empty($name) || !empty($brand) || !empty($category)){
 					$query_product="INSERT INTO products(type,category,brand,name,price,thumbnail) VALUES('Mobile Accessories','$category','$brand','$name','$price','$image_path')";
@@ -79,7 +94,11 @@ if(isset($_POST['add_what'])){
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
 			}elseif($add_what=="Kitchen Appliance" || $add_what=="Laundry Appliance" || $add_what=="Cooling Appliance" || $add_what=="Other"){
-				$brand=$_POST['brand'];
+				if(isset($_POST['other_brand'])){
+					$brand=$_POST['other_brand'];
+				}else{
+					$brand=$_POST['brand'];
+				}
 				$desc=$_POST['desc'];
 				if(!empty($name) || !empty($brand) || !empty($desc)){
 					$query_product="INSERT INTO products(type,brand,name,price,description,thumbnail) VALUES('$add_what','$brand','$name','$price','$desc','$image_path')";

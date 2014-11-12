@@ -99,8 +99,8 @@ if(isset($_GET['carousel_page']) && isset($_GET['carousel_brand'])){
 				}
 				echo "<a href='by_brand.php?product_type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
 			}else{
-				//$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' ORDER BY BRAND $limit";
-				$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products ORDER BY BRAND $limit";
+				$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' ORDER BY BRAND $limit";
+				//$query="SELECT ID,Name,Brand,Price,Thumbnail FROM products ORDER BY BRAND $limit";
 				echo "<a href='by_brand.php?product_type=$product_type&brand=$brand' class='brand_title'>$brand</a>";
 			}
 			$result_brand=mysqli_query($con,$query);			

@@ -165,9 +165,15 @@ $(document).ready(function(){
 		var sort_products=$("div#sort_products select option").filter(":selected").val();
 		
 		var url=document.URL;
-		if(url.search("product_type")>=0){
+		if(url.indexOf("product_type")>=0){
+			if(url.indexOf("&")>=0){
+				var url=url.split("&")[0];
+			}
 			url_change(url+"&filter_brands="+filter_brands+"&sort_products="+sort_products);
 		}else{
+			if(url.indexOf("?")>=0){
+				var url=url.split("?")[0];
+			}
 			url_change(url+"?filter_brands="+filter_brands+"&sort_products="+sort_products);
 		}
 		

@@ -11,6 +11,12 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	
+	$(document).on("change","select[name=brand]",function(){
+		if($("select[name=brand] option:selected").val()=="Other"){
+			$("select[name=brand]").after("<input type='text' name='other_brand' placeholder='Brand'/>");
+		}
+	});
+	
 	active_link();
 	history_buttons();
 });
@@ -54,6 +60,7 @@ function history_buttons(){
 }
 
 function manage_products(){
+	$("span#loader").animate({width:"60%"});
 	$(anchor).closest("div").find("a").removeClass("active");
 	$(anchor).addClass("active");
 	
@@ -63,20 +70,22 @@ function manage_products(){
 		var how_manage=url.split("=")[1];	
 		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
 			var content=$(data).find("div.manage_category").html();
-			if($("div.manage_category").length){
-				$("div.manage_category").html(content);
-			}else{
-				$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
-			}
-			
-			$("div.manage_category a").each(function(){
-				$current_category_url=$(this).prop("href");
-				$append_to_url="&how_manage="+how_manage;
+			$("span#loader").animate({width:"100%"},function(){
+				if($("div.manage_category").length){
+					$("div.manage_category").html(content);
+				}else{
+					$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
+				}
 				
-				$new_category_url=$current_category_url+$append_to_url;
-				$(this).prop("href",$new_category_url);
+				$("div.manage_category a").each(function(){
+					$current_category_url=$(this).prop("href");
+					$append_to_url="&how_manage="+how_manage;
+					
+					$new_category_url=$current_category_url+$append_to_url;
+					$(this).prop("href",$new_category_url);
+				});
+				$("span#loader").css("width","0");
 			});
-			
 		});
 		$("div.content").remove();
 	}else{
@@ -84,8 +93,11 @@ function manage_products(){
 		var category_value=((url.split("=")[1]).split("&")[0]).replace("%20"," "); //why not just send the url as is???
 		var how_manage=url.split("=")[2];
 		$.get(url.split("?")[0],{how_manage:how_manage,modify_category:category_value},function(data){
-			$($(data).find("div.content")).each(function(){
-				$("main").append("<div class='content'>"+$(this).html()+"</div>");
+			$("span#loader").animate({width:"100%"},function(){
+				$($(data).find("div.content")).each(function(){
+					$("main").append("<div class='content'>"+$(this).html()+"</div>");
+				});
+				$("span#loader").css("width","0");
 			});
 		});
 	}

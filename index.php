@@ -14,7 +14,7 @@
 			
 			<div id="content">
 				<div class="products_carousel">
-					<h4 style="margin:0 1em">LATEST RELEASES</h4>
+					<h3 style="margin:2em 0 1em 0">LATEST RELEASES</h3>
 					<?php
 						include("connection.php");
 						
@@ -29,8 +29,11 @@
 									<!--<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="see_more">See More</a>-->
 								</div>
 								<div class="carousel_info">
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
-									<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a>
+									<div>
+										<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+										<a href="see_more.php?type=<?php echo $row['Type']?>&product_ID=<?php echo $row['ID']?>" class="price">Rf. <?php echo $row['Price'] ?></a><br /><br />
+										<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row_brand['ID'] ?>" class="details">Details</a>
+									</div>
 								</div>
 							</div>
 							<?php

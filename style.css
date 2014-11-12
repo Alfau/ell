@@ -116,7 +116,8 @@ div#content ul{
 /*--------------------------------*/
 nav#main{
 	text-align:center;
-	margin:6em 0 6em 0;
+	/*margin:6em 0 6em 0;*/
+	margin-top:6em;
 	border-top:solid 1px #c8c8c8;
 	border-bottom:solid 1px #c8c8c8;
 	padding:1em 0;
@@ -211,14 +212,15 @@ div#filter_brands p,div#filter_brands select,div#sort_products p,div#sort_produc
 	margin:0;
 }
 div#filter_brands select,div#sort_products select{
-	border:solid 1px #d5d5d5;
+	border:solid 1px #b1b1b1;
 	background:none;
 	padding:0.2em 0.5em;
 	color:#828386;
 }
 
 nav#main_sub{
-	margin-bottom:3em;
+	/*margin-bottom:3em;*/
+	margin:6em 0 3em 0;
 }
 nav#main_sub li{
 	display:inline-block;
