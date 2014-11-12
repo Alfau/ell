@@ -16,6 +16,7 @@
 							<li><a href="mobile.php?product_type=Tablets">Tablets</a></li>
 							<li><a href="mobile.php?product_type=Mobile Accessories">Mobile Accessories</a></li>
 						</ul>
+						<?php include("filter.php"); ?>
 					</nav>
 					<div id="mobile_brands">
 						<?php
@@ -26,7 +27,7 @@
 						}else{
 							$product_type="Mobile Phones";
 						}
-						include("products.php");
+						include("products_2.php");
 						?>
 				</div>
 			</div>

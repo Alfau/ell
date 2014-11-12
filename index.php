@@ -8,8 +8,6 @@
 		<?php include("header.php"); ?>
 		
 		<main>
-			<?php //include("slideshow.php"); ?>
-			
 			<div id="slideshow">
 				<span class="loading">Loading slideshow...</span>
 			</div>
