@@ -36,7 +36,7 @@
 				</ul>
 			</li>
 			<li><a href="home_appliance.php" class="main">HOME APPLIANCE</a></li>
-			<li><a href="dhi_bill.php" class="bill main">DHI BILL</a></li>
+			<li><a href="dhi_bill.php" class="bill main">BILL PAY</a></li>
 		</ul>
 	</nav>
 </header>
