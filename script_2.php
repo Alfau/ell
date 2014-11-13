@@ -164,7 +164,7 @@ $(document).ready(function(){
 		var filter_brands=$("div#filter_brands select option").filter(":selected").val();
 		var sort_products=$("div#sort_products select option").filter(":selected").val();
 		
-		var url=document.URL;
+		var url=document.URL.replace("mobile","by_brand");
 		if(url.indexOf("product_type")>=0){
 			if(url.indexOf("&")>=0){
 				var url=url.split("&")[0];
@@ -174,7 +174,7 @@ $(document).ready(function(){
 			if(url.indexOf("?")>=0){
 				var url=url.split("?")[0];
 			}
-			url_change(url+"?filter_brands="+filter_brands+"&sort_products="+sort_products);
+			url_change(url+"?product_type=Mobile Phones&filter_brands="+filter_brands+"&sort_products="+sort_products);
 		}
 		
 		/*$.get(document.URL,{filter_brands:filter_brands, sort_products:sort_products},function(data){
@@ -183,12 +183,13 @@ $(document).ready(function(){
 			$("div.products_wrapper").html(content);
 			ajax_pagination("mobile",document.URL);
 		});*/
-		$.get(document.URL,{filter_brands:filter_brands, sort_products:sort_products},function(data){
+		$.get(document.URL,function(data){
 			$("div#loading_bar").animate({width:"100%"},function(){
-				var content=$(data).find("div#mobile_brands");
+				// var content=$(data).find("div#mobile_brands").children();
+				// $("div#mobile_brands").html(content);
+				var content=$(data).find("div#products_by_brand");
 				$("div#mobile_brands").html(content);
-				/*$("div#mobile_brands div.products_carousel").slice(1).remove();
-				$("div.products_wrapper").html(content);*/
+				
 				$("div#loading_bar").css("width","0");
 			});
 		});

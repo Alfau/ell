@@ -9,34 +9,32 @@
 		
 		<main>
 			<div id="content">
-				<nav id="main_sub">
+				<!-- <nav id="main_sub">
 					<ul>
 						<li><a href="mobile.php?product_type=Mobile Phones" class="active">Mobile Phones</a></li>
 						<li><a href="mobile.php?product_type=Tablets">Tablets</a></li>
 						<li><a href="mobile.php?product_type=Mobile Accessories">Mobile Accessories</a></li>
 					</ul>
 					<?php include("filter.php"); ?>
-				</nav>
+				</nav> -->
 				<div id="products_by_brand">
 				<?php
 					include("connection.php");
-					//include("filter.php");
-					
-					if(isset($_GET['brand'])){
-						$brand=$_GET['brand'];
-						$product_type=$_GET['product_type'];
-						if(isset($_GET['page'])){
-							$next_page=$_GET['page'];
-							$rows_per_page=16;
-							$offset=($next_page-1)*$rows_per_page;
-							$limit="LIMIT $offset,$rows_per_page";
-						}else{
-							//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' LIMIT 0,16";
-							$limit="LIMIT 0,16";
-						}
+					//include("filter.php")
 						
 						
-						if(isset($_GET['filter_brands']) && $_GET['sort_products']){
+						if(isset($_GET['filter_brands']) && isset($_GET['sort_products']) && isset($_GET['product_type'])){
+							$product_type=$_GET['product_type'];
+							if(isset($_GET['page'])){
+								$next_page=$_GET['page'];
+								$rows_per_page=16;
+								$offset=($next_page-1)*$rows_per_page;
+								$limit="LIMIT $offset,$rows_per_page";
+							}else{
+								//$query="SELECT ID,Name,Price,Thumbnail FROM products WHERE Type='$product_type' AND Brand='$brand' LIMIT 0,16";
+								$limit="LIMIT 0,16";
+							}
+							
 							$filter_brands=$_GET['filter_brands'];
 							$sort_products=$_GET['sort_products'];
 							
@@ -78,7 +76,6 @@
 							</div>
 							<?php
 						}	
-					}
 				?>
 				</div>
 			</div>
