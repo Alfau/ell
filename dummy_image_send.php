@@ -1,4 +1,7 @@
-<form method="POST" action="dummy_form.php" enctype="multipart/form-data">
-	<input type="file" name="thumbnail"/>
-	<input type="submit"/>
-</form>
+<?php
+include("connection.php");
+		
+$query="SELECT Sub_Category FROM product_categories WHERE Main_Category='Mobile'";
+$result=mysqli_query($con,$query);
+print_r(mysqli_fetch_assoc($result));
+?>

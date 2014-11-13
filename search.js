@@ -28,7 +28,7 @@ var count = json.length;
 if(count>0){
 $.each(json,function(){
 var result = '<li>';
-result += '<a href="see_more.php?type='+this.Type+'&product_ID='+this.ID+'">';
+result += '<a href="see_more.php?product_type='+this.Type+'&product_ID='+this.ID+'">';
 result += '<img src="'+this.Thumbnail+'">';
 result += '<span class=name>'+this.Name+'</span>';
 result += '<span class=price>'+this.Price+'</span>';
