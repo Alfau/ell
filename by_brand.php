@@ -64,12 +64,12 @@
 							?>
 							<div>
 								<div id="similar_products_image">
-									<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
+									<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><img src="<?php echo $row['Thumbnail'] ?>"/></a>
 								</div>
 								<div id="similar_products_info">
 									<div>
-										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
-										<a href="see_more.php?type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><span class="price">Rf. <?php echo $row['Price'] ?></span></a><br /><br />
+										<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="product_name_small"><?php echo $row['Name'] ?></a><br />
+										<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>"><span class="price">Rf. <?php echo $row['Price'] ?></span></a><br /><br />
 										<a href="see_more.php?product_type=<?php echo $product_type ?>&product_ID=<?php echo $row['ID'] ?>" class="details">Details</a>
 									</div>
 								</div>

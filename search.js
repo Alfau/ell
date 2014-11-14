@@ -23,15 +23,24 @@ $("div#loading_bar").animate({width:"100%"});
 $("main").html('<div id=content><h2>Search Results</h2><ul class=searchresults>Searching</ul></div>');
 $.getJSON("api.php",{term:value})
 .done(function(json){
-$("main").html('<div id=content><h2>Search Results</h2><ul class=searchresults></ul></div>');
+$("main").html('<div id=content><h3 style="margin:1em 0 0 2em">Search Results</h3><ul class=searchresults></ul></div>');
 var count = json.length;
 if(count>0){
 $.each(json,function(){
 var result = '<li>';
 result += '<a href="see_more.php?product_type='+this.Type+'&product_ID='+this.ID+'">';
+result += '<div class="similar_product_container" style="width:300px;height:150px;">';
+result += '<div id="similar_products_image">';
 result += '<img src="'+this.Thumbnail+'">';
-result += '<span class=name>'+this.Name+'</span>';
-result += '<span class=price>'+this.Price+'</span>';
+result += '</div>';
+result += '<div id="similar_products_info">';
+result += '<div>';
+result += '<span class=product_name_small>'+this.Name+'</span><br />';
+result += '<span class=price>Rf. '+this.Price+'</span><br /><br />';
+result += '<span class="details">Details</span>';
+result += '</div>';
+result += '</div>';
+result += '</div>';
 result += '</a>';
 result += '</li>';
 $('main>div>ul').append(result);
