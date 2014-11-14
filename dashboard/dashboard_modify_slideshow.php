@@ -16,16 +16,15 @@
 			include("../connection.php");
 			include("../process_image.php");
 			if(isset($_POST['id'])){
-				if(!empty($_POST['link_title']) && !empty($_POST['description'])){
-					$id=$_POST['id'];
-					$link_title=$_POST['link_title'];
-					$description=$_POST['description'];
-					$link_href=$_POST['link_href'];
-					
-					if(isset($_POST['slide_remove'])){
-						$remove_id=$_POST['slide_remove'];
-						$query="DELETE FROM slideshow WHERE ID='$remove_id'";
-					}else{
+				if(isset($_POST['slide_remove'])){
+					$remove_id=$_POST['slide_remove'];
+					$query="DELETE FROM slideshow WHERE ID='$remove_id'";
+				}else{
+					if(!empty($_POST['link_title']) && !empty($_POST['description'])){
+						$id=$_POST['id'];
+						$link_title=$_POST['link_title'];
+						$description=$_POST['description'];
+						$link_href=$_POST['link_href'];
 						if($_FILES['slide']['size']!==0){
 							process_image($_FILES['slide']['tmp_name'],"slide","../home_slides/");
 							if($image_processed!=false){
@@ -40,14 +39,14 @@
 						}else{
 							$query="UPDATE slideshow SET Link_Title='$link_title', Link_HREF='$link_href', Description='$description' WHERE ID='$id'";
 						}
-					}
-					if(!mysqli_query($con,$query)){
-						echo "<p class='failed'>Submission failed. Please try again.</p>";
 					}else{
-						echo "<p class='success'>Database updated successfully!</p>";
+						echo "<p class='failed'>You seem to have left some empty fields.</p>";
 					}
+				}
+				if(!mysqli_query($con,$query)){
+					echo "<p class='failed'>Submission failed. Please try again.</p>";
 				}else{
-					echo "<p class='failed'>You seem to have left some empty fields.</p>";
+					echo "<p class='success'>Database updated successfully!</p>";
 				}
 			}
 			
