@@ -67,32 +67,29 @@ function manage_products(){
 	var parent=$(anchor).closest("div");
 	var url=$(anchor).prop("href");
 	if($(parent).hasClass("manage_options")){
-		var how_manage=url.split("=")[1];	
-		$.get(url.split("?")[0],{how_manage:how_manage},function(data){
+		$.get(url,function(data){
 			var content=$(data).find("div.manage_category").html();
 			$("span#loader").animate({width:"100%"},function(){
 				if($("div.manage_category").length){
 					$("div.manage_category").html(content);
 				}else{
-					$("div.manage_options").after("<div class='manage_category'>"+content+"</div>"); // ugly code so change asap
+					$("div.manage_options").after("<div class='manage_category'>"+content+"</div>");
 				}
 				
-				$("div.manage_category a").each(function(){
-					$current_category_url=$(this).prop("href");
-					$append_to_url="&how_manage="+how_manage;
-					
-					$new_category_url=$current_category_url+$append_to_url;
-					$(this).prop("href",$new_category_url);
-				});
+				// $("div.manage_category a").each(function(){
+					// $current_category_url=$(this).prop("href");
+					// $append_to_url="&how_manage="+how_manage;
+// 					
+					// $new_category_url=$current_category_url+$append_to_url;
+					// $(this).prop("href",$new_category_url);
+				// });
 				$("span#loader").css("width","0");
 			});
 		});
 		$("div.content").remove();
 	}else{
 		$("div.content").remove();
-		var category_value=((url.split("=")[1]).split("&")[0]).replace("%20"," "); //why not just send the url as is???
-		var how_manage=url.split("=")[2];
-		$.get(url.split("?")[0],{how_manage:how_manage,modify_category:category_value},function(data){
+		$.get(url,function(data){
 			$("span#loader").animate({width:"100%"},function(){
 				$($(data).find("div.content")).each(function(){
 					$("main").append("<div class='content'>"+$(this).html()+"</div>");

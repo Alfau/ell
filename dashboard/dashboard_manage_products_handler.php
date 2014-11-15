@@ -68,6 +68,7 @@ if(isset($_POST['add_what'])){
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
+				
 			}elseif($add_what=="TV" || $add_what=="Audio" || $add_what=="Video"){
 				if(isset($_POST['other_brand'])){
 					$brand=$_POST['other_brand'];
@@ -81,6 +82,7 @@ if(isset($_POST['add_what'])){
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
+				
 			}elseif($add_what=="Mobile Accessories"){
 				if(isset($_POST['other_brand'])){
 					$brand=$_POST['other_brand'];
@@ -93,6 +95,7 @@ if(isset($_POST['add_what'])){
 				}else{
 					echo "<p class='failed'>You seem to have left some fields empty.</p>";	
 				}
+				
 			}elseif($add_what=="Kitchen Appliance" || $add_what=="Laundry Appliance" || $add_what=="Cooling Appliance" || $add_what=="Other"){
 				if(isset($_POST['other_brand'])){
 					$brand=$_POST['other_brand'];
@@ -125,6 +128,7 @@ if(isset($_POST['add_what'])){
 	
 	mysqli_close($con);
 }
+
 if(isset($_POST['remove'])){
 	$product_ID=$_POST['product_ID'];
 	

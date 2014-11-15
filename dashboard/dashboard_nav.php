@@ -7,9 +7,21 @@
 	<ul>
 		<li><a href=#>Manage<span class='bold'>Products</span></a>
 			<ul>
-				<li><a href="dashboard_modify_mobile.php">Mobile</a></li>
-				<li><a href="dashboard_modify_multimedia.php">Multimedia</a></li>
-				<li><a href="dashboard_modify_home_appliance.php">Home Appliance</a></li>
+				<?php
+				include '../connection.php';
+				
+				$products_nav_query="SELECT Main_Category FROM product_categories ORDER BY Order_Main ASC";
+				$products_nav_result=mysqli_query($con,$products_nav_query);
+				$last_products_nav="";
+				while($products_nav_row=mysqli_fetch_array($products_nav_result)){
+					if($last_products_nav!==$products_nav_row['Main_Category']){
+						?>
+						<li><a href="dashboard_manage_products.php?main_category=<?php echo $products_nav_row['Main_Category'] ?>"><?php echo $products_nav_row['Main_Category'] ?></a></li>
+						<?php
+						$last_products_nav=$products_nav_row['Main_Category'];
+					}
+				}
+				?>
 			</ul>
 		</li>
 		<li><a href=#>Manage<span class='bold'>Page</span></a>

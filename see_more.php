@@ -52,23 +52,27 @@
 									<!-- <img src="icons/twitter.png"/> -->
 									<!-- <img src="icons/pinterest.png"/> -->
 								</div>
+								
+								
+								
+								
 							</div>
 							<div id="product_specs">
 								<h2 class="title">Specifications</h2>
 								<table>
 								<?php
-								$specs_query="SELECT * FROM mobile_specs WHERE product_ID='$product_ID'";
+								$specs_query="SELECT * FROM mobile_specs WHERE product_ID='$product_ID' LIMIT 1";
 								$specs_result=mysqli_query($con,$specs_query);
-								while($specs_array=mysqli_fetch_array($specs_result)){
-									foreach($specs_array as $col_name => $specs){
-										if($col_name!="ID" && $col_name!="Product_ID" && !is_numeric($col_name)){
+								$specs_array=mysqli_fetch_fields($specs_result);
+									foreach($specs_array as $col_name){
+										if(($col_name->name)!="ID" && ($col_name->name)!="Product_ID" && !is_numeric($col_name->name)){
 											if(empty($specs)){
 												$specs="+N/A";
 											}
-											$displayed_specs=explode("+",$specs)
+											$displayed_specs=explode("+",$specs);
 									?>
 									<tr>
-										<td><?php echo $col_name ?></td>
+										<td><?php echo $col_name->name ?></td>
 										<td>
 										<?php
 											$counter=0;
@@ -84,7 +88,7 @@
 									<?php
 										}
 									}
-								}
+								
 								?>
 								</table>
 							</div>

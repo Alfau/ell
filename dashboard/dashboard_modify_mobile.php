@@ -115,16 +115,15 @@
 										include("../connection.php");
 										$query="SELECT * FROM mobile_specs LIMIT 0,1";
 										$result=mysqli_query($con,$query);
-										while($row=mysqli_fetch_array($result)){
-											foreach($row as $col_name => $spec){
-												if($col_name!="ID" && $col_name!="Product_ID" && !is_numeric($col_name)){
-												?>
-												<tr>
-													<td class="specs"><?php echo $col_name ?></td>
-													<td><textarea name="<?php echo $col_name ?>"></textarea></td>
-												</tr>
-												<?php
-												}
+										$row=mysqli_fetch_fields($result);
+										foreach($row as $col_name){
+											if(($col_name->name)!="ID" && ($col_name->name)!="Product_ID" && !is_numeric($col_name->name)){
+											?>
+											<tr>
+												<td class="specs"><?php echo $col_name->name ?></td>
+												<td><textarea name="<?php echo $col_name->name ?>"></textarea></td>
+											</tr>
+											<?php
 											}
 										}
 										?>

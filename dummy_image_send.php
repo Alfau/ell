@@ -1,7 +1,8 @@
 <?php
 include("connection.php");
-		
-$query="SELECT Sub_Category FROM product_categories WHERE Main_Category='Mobile'";
+$query="SELECT * FROM mobile_specs LIMIT 1";
 $result=mysqli_query($con,$query);
-print_r(mysqli_fetch_assoc($result));
-?>
+$row=mysqli_fetch_fields($result);
+foreach($row as $field){
+	echo $field->name;
+}
