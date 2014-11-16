@@ -5,7 +5,6 @@
 		<?php include("head.php"); ?>
 	</head>
 	<body>
-		<?php //include("header_2.php"); ?>
 		<?php include("header.php"); ?>
 		
 		<main>
@@ -13,7 +12,6 @@
 				<div id="see_more">
 				<?php
 				include("connection.php");
-				// include("social_javascript_SDK.php");
 				
 				if(isset($_GET['product_type'])){
 					$type=$_GET['product_type'];
@@ -45,8 +43,8 @@
 								<p><?php echo $row['Description']?></p>
 							</div>
 							<div id="product_share">
-								<div class="fb-share-button" data-href="<?php $_SERVER['REQUEST_URI'] ?>"></div>
-								<a href="https://twitter.com/share" class="twitter-share-button" data-text="Amazing deal from Ell Mobile!! " data-count="none">Tweet</a>
+								<!-- <div class="fb-share-button" data-href="<?php $_SERVER['REQUEST_URI'] ?>"></div> -->
+								<!-- <a href="https://twitter.com/share" class="twitter-share-button" data-text="Amazing deal from Ell Mobile!! " data-count="none">Tweet</a> -->
 								<!-- <img src="icons/facebook.png" /> -->
 								<!-- <img src="icons/twitter.png"/> -->
 								<!-- <img src="icons/pinterest.png"/> -->

@@ -182,7 +182,7 @@
 						</tr>
 						<tr>
 							<td>Subcategory :</td>
-							<td><input type="text" name="new_sub[]" placeholder="New Subcategory"/></td>
+							<td><input type="text" name="new_sub[]" placeholder="New Subcategory"/><br /><a href=# class="plus more_sub_categories">+</a></td>
 						</tr>
 						<tr>
 							<td><input type="submit" value="Submit"/></td>

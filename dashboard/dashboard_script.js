@@ -17,10 +17,14 @@ $(document).ready(function(){
 		}
 	});
 	
-	$(document).on("click","a.more_specs",function(e){
-		$(this).closest("tr").after("<tr><td><input type='text' name='spec_name[]'/><br /><a href=# class='plus more_specs'>+</a></td><td><input type='text' name='spec_value[]'/></td></tr>");
-		
-		$(this).remove();
+	$(document).on("click","a.plus",function(e){
+		if($(this).hasClass("more_specs")){
+			$(this).closest("tr").after("<tr><td><input type='text' name='spec_name[]'/><br /><a href=# class='plus more_specs'>+</a></td><td><input type='text' name='spec_value[]'/></td></tr>");
+			$(this).remove();
+		}else if($(this).hasClass("more_sub_categories")){
+			$(this).closest("tr").after("<tr><td></td><td><input type='text' name='new_sub[]' placeholder='New Subcategory'/><br /><a href=# class='plus more_sub_categories'>+</a></td></tr>");
+			$(this).remove();
+		}
 		e.preventDefault();
 	});
 	
