@@ -17,6 +17,13 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(document).on("click","a.more_specs",function(e){
+		$(this).closest("tr").after("<tr><td><input type='text' name='spec_name[]'/><br /><a href=# class='plus more_specs'>+</a></td><td><input type='text' name='spec_value[]'/></td></tr>");
+		
+		$(this).remove();
+		e.preventDefault();
+	});
+	
 	active_link();
 	history_buttons();
 });

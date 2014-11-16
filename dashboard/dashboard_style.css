@@ -44,6 +44,12 @@ p.asterix{
 .product_name_small{
 	font-size:1.2em;
 }
+.plus{
+	padding:0.1em 0.5em;
+	width:100%;
+	background-color:#D4D4D4;
+	color:#fff;
+}
 /*--------------------------------*/
 textarea{
 	font-size:0.8em;

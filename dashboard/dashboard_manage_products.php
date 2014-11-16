@@ -52,7 +52,7 @@
 					<div class="manage_category">
 						<h4>Choose a product category :</h4>
 						<?php
-						$sub_categories_query="SELECT Sub_Category FROM product_categories WHERE Main_Category=$main_category";
+						$sub_categories_query="SELECT Sub_Category FROM product_categories WHERE Main_Category='$main_category'";
 						$sub_categories_result=mysqli_query($con,$sub_categories_query);
 						while($sub_categories_row=mysqli_fetch_array($sub_categories_result)){
 							?>
@@ -99,21 +99,26 @@
 										<td>Specifications :</td>
 										<td>Note : Please include a + sign infront of each spec. It represent a bullet point of a list.</td>
 									</tr>
+									<tr>
+									<tr>
+										<td><input type="text" name="spec_name[]"/><br /><a href=# class="plus more_specs">+</a></td>
+										<td><input type="text" name="spec_value[]"/></td>
+									</tr>
 									<?php
-									$spec_table="specifications_".str_replace(" ", "_", $modify_category);
-									$spec_query="SELECT * FROM $spec_table LIMIT 0,1";
-									$spec_result=mysqli_query($con,$spec_query);
-									$spec_row=mysqli_fetch_fields($spec_result);
-									foreach($spec_row as $col_name){
-										if(($col_name->name)!="ID" && ($col_name->name)!="Product_ID"){
+									// $spec_table="specifications_".str_replace(" ", "_", $modify_category);
+									// $spec_query="SELECT * FROM $spec_table LIMIT 0,1";
+									// $spec_result=mysqli_query($con,$spec_query);
+									// $spec_row=mysqli_fetch_fields($spec_result);
+									// foreach($spec_row as $col_name){
+										// if(($col_name->name)!="ID" && ($col_name->name)!="Product_ID"){
 										?>
-										<tr>
+										<!-- <tr>
 											<td class="specs"><?php echo $col_name->name ?></td>
 											<td><textarea name="<?php echo $col_name->name ?>"></textarea></td>
-										</tr>
+										</tr> -->
 										<?php
-										}
-									}
+										// }
+									// }
 									?>
 									<tr>
 										<td><input type="submit" value="Submit"/></td>

@@ -33,29 +33,22 @@ if(isset($_POST['add'])){
 					$insert_products_query="INSERT INTO products(Type,Brand,Name,Price,Description,Thumbnail) VALUES('$add','$brand','$name','$price','$desc','$image_path')";
 					if(mysqli_query($con,$insert_products_query)){
 						$query_success=true;
-					}else{
-						$query_success=false;
-					}
-					$spec_table="specifications_".str_replace(" ", "_", $add);
-					$spec_cols_query="SELECT * FROM $spec_table";
-					$spec_cols_result=mysqli_query($con,$spec_cols_query);
-					$spec_cols_rows=mysqli_fetch_fields($spec_cols_result);
-					
-					$insert_product_id="INSERT INTO $spec_table(Product_ID) VALUES('$current_id')";
-					if(mysqli_query($con,$insert_product_id)){
-						foreach($spec_cols_rows as $col_name){
-							if(($col_name->name)!="ID" && ($col_name->name)!="Product_ID"){
-								$column_name=$col_name->name;
-								$column_val=mysqli_real_escape_string($con,$_POST[$column_name]);
-								
-								$insert_specs_query="UPDATE $spec_table SET $column_name='$column_val' WHERE Product_ID='$current_id'";
-								if(mysqli_query($con,$insert_specs_query)){
-									$query_success=true;
-								}else{
-									$query_success=false;
-								}
+						
+						for($x=0;$x<count($_POST['spec_name']);$x++){
+							$spec_name=$_POST['spec_name'][$x];
+							$spec_value=$_POST['spec_value'][$x];
+							$spec_name=mysqli_real_escape_string($con,$spec_name);
+							$spec_value=mysqli_real_escape_string($con,$spec_value);
+							
+							$insert_spec_query="INSERT INTO specifications(Product_ID,Name,Value) VALUES('$current_id','$spec_name','$spec_value')";
+							if(mysqli_query($con,$insert_spec_query)){
+								$query_success=true;
+							}else{
+								$query_success=false;
 							}
 						}
+					}else{
+						$query_success=false;
 					}
 					if($query_success==true){
 						echo "<p class='success'>Database updated successfully!</p>";
